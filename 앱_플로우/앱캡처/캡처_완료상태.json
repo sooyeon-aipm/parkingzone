@@ -1,0 +1,15 @@
+{
+  "capture_date": "2026-10-05",
+  "start": "2026-10-05T04:35:52.318659+09:00",
+  "end": "2026-10-05T04:50:18.065985+09:00",
+  "raw_count": 37,
+  "selected_count": 18,
+  "general_parking": "아마노 더익스체인지서울 주차장",
+  "shared_parking": "구간11-49 (#307211)",
+  "payment_performed": false,
+  "parking_started": false,
+  "checkout_after_buy_button": "NOT_RUN",
+  "login_state": "UNKNOWN",
+  "app_version": "UNKNOWN",
+  "scope": "검색·비교·상품안내·행동 버튼 직전; 버튼 이후 결제 단계 미확인"
+}
