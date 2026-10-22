@@ -1,0 +1,591 @@
+{
+  "data_origin": "DEMO",
+  "as_of": "2026-10-22T03:00:00Z",
+  "lots": [
+    {
+      "id": "5ee611f8-a49c-47dd-a7f0-45066df536e0",
+      "name": "강변 공영주차장",
+      "address": "성수동1가 366-1",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "5569c8ab-579a-51ef-90b3-51f75fb4adf5",
+        "parking_id": "5ee611f8-a49c-47dd-a7f0-45066df536e0",
+        "total_spaces": 100,
+        "available_spaces": 80,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "d99a9ba4-ccc4-5541-8db1-6db68a12fdc8"
+      },
+      "latest_collection": {
+        "id": "d99a9ba4-ccc4-5541-8db1-6db68a12fdc8",
+        "parking_id": "5ee611f8-a49c-47dd-a7f0-45066df536e0",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 9000,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 180,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "a6fef8f3-f08c-514d-916c-e909aeda0a30",
+      "name": "성수2가1동 공영주차장",
+      "address": "성수동2가 571-1",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "3d0547b0-638c-5fb1-a59b-69d365a546f3",
+        "parking_id": "a6fef8f3-f08c-514d-916c-e909aeda0a30",
+        "total_spaces": 100,
+        "available_spaces": 50,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "0ae29402-8764-5f7d-8128-d9b5350ec609"
+      },
+      "latest_collection": {
+        "id": "0ae29402-8764-5f7d-8128-d9b5350ec609",
+        "parking_id": "a6fef8f3-f08c-514d-916c-e909aeda0a30",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 7900,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 255,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "4e9357ca-5450-544f-b99b-b3dbe673dc29",
+      "name": "서울숲아이티밸리",
+      "address": "성수동1가 13-164",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "4544d899-2112-58d1-a011-29845d47c4d4",
+        "parking_id": "4e9357ca-5450-544f-b99b-b3dbe673dc29",
+        "total_spaces": 100,
+        "available_spaces": 30,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "5b932166-7004-5b27-be8c-f53e6391b239"
+      },
+      "latest_collection": {
+        "id": "5b932166-7004-5b27-be8c-f53e6391b239",
+        "parking_id": "4e9357ca-5450-544f-b99b-b3dbe673dc29",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 9900,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 330,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "47bc4e54-7d49-5057-9fcc-b8273525a8b1",
+      "name": "성수무신사S1 주차장",
+      "address": "성수동2가 324-2",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "21ca8bc5-7374-5057-8377-fe4d97a4c142",
+        "parking_id": "47bc4e54-7d49-5057-9fcc-b8273525a8b1",
+        "total_spaces": 100,
+        "available_spaces": 10,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "2b5be431-d7ab-5cc0-b2da-54678df1ead6"
+      },
+      "latest_collection": {
+        "id": "2b5be431-d7ab-5cc0-b2da-54678df1ead6",
+        "parking_id": "47bc4e54-7d49-5057-9fcc-b8273525a8b1",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 7000,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 405,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "fc63d499-90e8-58a6-b6e8-6f96818e6b0d",
+      "name": "팩토리얼 성수",
+      "address": "성수동2가 314-11",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "38ddf7ac-c62a-5ceb-ab85-665d736a7d6f",
+        "parking_id": "fc63d499-90e8-58a6-b6e8-6f96818e6b0d",
+        "total_spaces": 100,
+        "available_spaces": 0,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "f4d8ef8a-61c2-5055-a43d-57a64f47c154"
+      },
+      "latest_collection": {
+        "id": "f4d8ef8a-61c2-5055-a43d-57a64f47c154",
+        "parking_id": "fc63d499-90e8-58a6-b6e8-6f96818e6b0d",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 8000,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 480,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "242929a2-08ae-5cbb-a563-5b5d55a01232",
+      "name": "무신사 E1",
+      "address": "성수동2가 271-22",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "195bcfc8-a5a1-57fc-83c1-680cfadddf12",
+        "parking_id": "242929a2-08ae-5cbb-a563-5b5d55a01232",
+        "total_spaces": 100,
+        "available_spaces": 80,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "e2938af8-05cb-53a6-9a95-a15abf1dcc13"
+      },
+      "latest_collection": {
+        "id": "e2938af8-05cb-53a6-9a95-a15abf1dcc13",
+        "parking_id": "242929a2-08ae-5cbb-a563-5b5d55a01232",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 9000,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 555,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "265689e3-e0b5-5d2d-bdba-67ea4b6d77a5",
+      "name": "베이스 성수",
+      "address": "성수동2가 269-62",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "57d5dd07-164b-5edc-bbca-b66a6062379b",
+        "parking_id": "265689e3-e0b5-5d2d-bdba-67ea4b6d77a5",
+        "total_spaces": 100,
+        "available_spaces": 50,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "846705f0-a6de-581d-a3be-68963da889c2"
+      },
+      "latest_collection": {
+        "id": "846705f0-a6de-581d-a3be-68963da889c2",
+        "parking_id": "265689e3-e0b5-5d2d-bdba-67ea4b6d77a5",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 7900,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 630,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "c7e1aedd-3112-5192-984a-1dff177f201e",
+      "name": "서울숲메가박스스퀘어",
+      "address": "성수동1가 656-335",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "c8ea6f1a-63c2-5dc0-af9d-e241ef91d77e",
+        "parking_id": "c7e1aedd-3112-5192-984a-1dff177f201e",
+        "total_spaces": 100,
+        "available_spaces": 30,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "5963030c-4bcf-50fc-88a4-4724d1cd841f"
+      },
+      "latest_collection": {
+        "id": "5963030c-4bcf-50fc-88a4-4724d1cd841f",
+        "parking_id": "c7e1aedd-3112-5192-984a-1dff177f201e",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 9900,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 705,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "a9cf6750-796b-5402-b3a5-67a8f69b70d1",
+      "name": "성수동 홍성빌딩",
+      "address": "성수동1가 656-410",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "7d75a7bc-3795-58db-8b67-2d9634fc4e83",
+        "parking_id": "a9cf6750-796b-5402-b3a5-67a8f69b70d1",
+        "total_spaces": 100,
+        "available_spaces": 10,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "9a39f2cd-8f1a-56e4-b7c0-5d7fabb30e6d"
+      },
+      "latest_collection": {
+        "id": "9a39f2cd-8f1a-56e4-b7c0-5d7fabb30e6d",
+        "parking_id": "a9cf6750-796b-5402-b3a5-67a8f69b70d1",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 7000,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 780,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "a8e03d7f-f5ae-5ae8-92cc-5ade52467610",
+      "name": "갤러리아포레 더몰 상가",
+      "address": "성동구 성수동1가 685-696",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "6fee8a22-e431-5862-910a-03b475322445",
+        "parking_id": "a8e03d7f-f5ae-5ae8-92cc-5ade52467610",
+        "total_spaces": 100,
+        "available_spaces": 0,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "51fe7526-e0e7-5f12-908a-1b0ca69ab6f4"
+      },
+      "latest_collection": {
+        "id": "51fe7526-e0e7-5f12-908a-1b0ca69ab6f4",
+        "parking_id": "a8e03d7f-f5ae-5ae8-92cc-5ade52467610",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 8000,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 855,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "71526098-5957-53ad-aa71-5082a32e299c",
+      "name": "누디트서울숲",
+      "address": "성수동1가 656-1731",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "e13d3ccd-ccdc-5507-af63-23cb844575d2",
+        "parking_id": "71526098-5957-53ad-aa71-5082a32e299c",
+        "total_spaces": 100,
+        "available_spaces": 80,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "6506b8ff-f17d-5a97-ad78-769d50aef81f"
+      },
+      "latest_collection": {
+        "id": "6506b8ff-f17d-5a97-ad78-769d50aef81f",
+        "parking_id": "71526098-5957-53ad-aa71-5082a32e299c",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 9000,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 930,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "a01255d6-de2c-5f3a-b645-501d589d8cb6",
+      "name": "성수1가1동 공영주차장",
+      "address": "성수동1가 656-260",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "a8bc5e2f-c083-559f-82d7-0faf27b2533c",
+        "parking_id": "a01255d6-de2c-5f3a-b645-501d589d8cb6",
+        "total_spaces": 100,
+        "available_spaces": 50,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "0e68c14f-36c5-593d-aca6-b4b6a25c1978"
+      },
+      "latest_collection": {
+        "id": "0e68c14f-36c5-593d-aca6-b4b6a25c1978",
+        "parking_id": "a01255d6-de2c-5f3a-b645-501d589d8cb6",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 7900,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 1005,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "c5940038-d14e-5bd2-a8a2-1b7682b49e3e",
+      "name": "센터포인트 성수",
+      "address": "성수동2가 280-11",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "553ef3f0-628e-5023-8799-e59d2e6e6451",
+        "parking_id": "c5940038-d14e-5bd2-a8a2-1b7682b49e3e",
+        "total_spaces": 100,
+        "available_spaces": 30,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "7a1583f4-06c8-5ca4-8fe5-d650ba11c445"
+      },
+      "latest_collection": {
+        "id": "7a1583f4-06c8-5ca4-8fe5-d650ba11c445",
+        "parking_id": "c5940038-d14e-5bd2-a8a2-1b7682b49e3e",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 9900,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 1080,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "8f81431b-9018-5982-9327-c3a74c7c59bc",
+      "name": "디타워 서울포레스트",
+      "address": "성수동1가 685-700",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "bffddd0e-d6b4-5c6a-aaff-9afaae5bb690",
+        "parking_id": "8f81431b-9018-5982-9327-c3a74c7c59bc",
+        "total_spaces": 100,
+        "available_spaces": 10,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "b0cb2352-d6f3-5ad7-b98c-8bafbf7e2640"
+      },
+      "latest_collection": {
+        "id": "b0cb2352-d6f3-5ad7-b98c-8bafbf7e2640",
+        "parking_id": "8f81431b-9018-5982-9327-c3a74c7c59bc",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 7000,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 1155,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    },
+    {
+      "id": "c0af6bc5-1cc5-5a1d-8641-c73366a306f4",
+      "name": "뚝섬유수지 공영주차장",
+      "address": "성수동1가 685-63",
+      "source": "seoul_parking_web",
+      "source_parking_id": null,
+      "observation": {
+        "id": "3bf54585-c9e0-5da7-a4d9-1e6dca0ae885",
+        "parking_id": "c0af6bc5-1cc5-5a1d-8641-c73366a306f4",
+        "total_spaces": 100,
+        "available_spaces": 0,
+        "source_updated_at": "2026-10-22T02:55:00Z",
+        "collected_at": "2026-10-22T02:56:00Z",
+        "quality_status": "VALID",
+        "collection_attempt_id": "cd5e5da8-a155-5445-ab98-edef685ef89e"
+      },
+      "latest_collection": {
+        "id": "cd5e5da8-a155-5445-ab98-edef685ef89e",
+        "parking_id": "c0af6bc5-1cc5-5a1d-8641-c73366a306f4",
+        "started_at": "2026-10-22T02:56:00Z",
+        "finished_at": "2026-10-22T02:56:01Z",
+        "result_status": "SUCCESS",
+        "error_code": null,
+        "error_message": null,
+        "raw_payload": null,
+        "retry_of_id": null
+      },
+      "demo_product": {
+        "name": "휴일 당일권",
+        "price_won": 8000,
+        "hours_label": "00:00 ~ 23:59 이용 가능",
+        "distance_m": 1230,
+        "conditions": [
+          "테스트용 가상 상품·이용 조건입니다.",
+          "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+          "주차권 선택이 도착 시점의 자리를 보장하지 않습니다."
+        ]
+      }
+    }
+  ]
+}

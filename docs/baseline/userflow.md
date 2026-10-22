@@ -1,3 +1,5 @@
+> 과거 기획 원본입니다. API 중심 전제와 이전 정책이 포함되어 있습니다. 현재 합의는 [팀 인수인계](../../TEAM_HANDOFF.md)와 [DB 설계](../design/DB_DESIGN.md)를 따릅니다.
+
 
 flowchart TB
 
