@@ -1,0 +1,7 @@
+project_id = "parkingzone"
+
+[functions.collect-seoul-parking]
+verify_jwt = true
+
+[functions.parking-status]
+verify_jwt = true

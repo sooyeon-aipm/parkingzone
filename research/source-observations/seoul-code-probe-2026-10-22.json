@@ -1,0 +1,481 @@
+{
+  "purpose": "ONE_OFF_FEASIBILITY_PROBE_NOT_OPERATIONAL",
+  "source": "https://parking.seoul.go.kr/search/parking/list.do",
+  "timezone_assumption": "Asia/Seoul for offset-free cur_parking_time",
+  "identity_policy": "주소 일치는 후보 추출에만 사용; 동일 시설 확정 등록은 미실행",
+  "batches": [
+    {
+      "request": {
+        "Gu": "성동구",
+        "Dong": "성수동1가",
+        "Keyword": "",
+        "index": 1,
+        "Type": 63,
+        "Rule": 0
+      },
+      "fetched_at": "2026-10-22T14:45:54.581427+00:00",
+      "returned_rows": 49
+    },
+    {
+      "request": {
+        "Gu": "성동구",
+        "Dong": "성수동2가",
+        "Keyword": "",
+        "index": 1,
+        "Type": 63,
+        "Rule": 0
+      },
+      "fetched_at": "2026-10-22T14:45:54.741640+00:00",
+      "returned_rows": 60
+    }
+  ],
+  "targets": [
+    {
+      "parking_id": "5ee611f8-a49c-47dd-a7f0-45066df536e0",
+      "user_name": "강변 공영주차장",
+      "user_address": "성수동1가 366-1",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "172144",
+            "parking_name": "강변(건물) 공영주차장(구)",
+            "address": "성동구 성수동1가 366-1",
+            "capacity": "99",
+            "cur_parking": "97",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:45:45",
+            "sync_time": "2026-10-13 13:27:47"
+          },
+          "fetched_at": "2026-10-22T14:45:54.581427+00:00",
+          "assessment": {
+            "total_spaces": 99,
+            "available_spaces": 2,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:45:45+00:00",
+            "age_minutes": 0.16
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "a6fef8f3-f08c-514d-916c-e909aeda0a30",
+      "user_name": "성수2가1동 공영주차장",
+      "user_address": "성수동2가 571-1",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "172134",
+            "parking_name": "성수2가1동(건물) 공영주차장(구)",
+            "address": "성동구 성수동2가 571-1",
+            "capacity": "161",
+            "cur_parking": "26",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:45:06",
+            "sync_time": "2026-10-13 13:26:02"
+          },
+          "fetched_at": "2026-10-22T14:45:54.741640+00:00",
+          "assessment": {
+            "total_spaces": 161,
+            "available_spaces": 135,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:45:06+00:00",
+            "age_minutes": 0.81
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "4e9357ca-5450-544f-b99b-b3dbe673dc29",
+      "user_name": "서울숲아이티밸리",
+      "user_address": "성수동1가 13-164",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "1367373",
+            "parking_name": "서울숲아이티밸리",
+            "address": "성동구 성수동1가 13-164 ",
+            "capacity": "300",
+            "cur_parking": "60",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:33:01",
+            "sync_time": "2023-06-28 15:28:55"
+          },
+          "fetched_at": "2026-10-22T14:45:54.581427+00:00",
+          "assessment": {
+            "total_spaces": 300,
+            "available_spaces": 240,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:33:01+00:00",
+            "age_minutes": 12.89
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "47bc4e54-7d49-5057-9fcc-b8273525a8b1",
+      "user_name": "성수무신사S1 주차장",
+      "user_address": "성수동2가 324-2",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "3248699",
+            "parking_name": "성수무신사S1 주차장",
+            "address": "성동구 성수동2가 324-2 ",
+            "capacity": "178",
+            "cur_parking": "0",
+            "que_status": "3",
+            "que_status_nm": "2일",
+            "cur_parking_time": "2026-10-21 16:29:54",
+            "sync_time": "2026-01-16 14:03:54"
+          },
+          "fetched_at": "2026-10-22T14:45:54.741640+00:00",
+          "assessment": {
+            "decision": "SOURCE_UNAVAILABLE",
+            "available_spaces": null
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "fc63d499-90e8-58a6-b6e8-6f96818e6b0d",
+      "user_name": "팩토리얼 성수",
+      "user_address": "성수동2가 314-11",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "3246814",
+            "parking_name": "팩토리얼 성수",
+            "address": "성동구 성수동2가 314-11 ",
+            "capacity": "154",
+            "cur_parking": "10",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:45:16",
+            "sync_time": "2026-02-02 17:50:47"
+          },
+          "fetched_at": "2026-10-22T14:45:54.741640+00:00",
+          "assessment": {
+            "total_spaces": 154,
+            "available_spaces": 144,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:45:16+00:00",
+            "age_minutes": 0.65
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "242929a2-08ae-5cbb-a563-5b5d55a01232",
+      "user_name": "무신사 E1",
+      "user_address": "성수동2가 271-22",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "3171517",
+            "parking_name": "무신사 E1",
+            "address": "성동구 성수동2가 271-22",
+            "capacity": "70",
+            "cur_parking": "15",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:42:56",
+            "sync_time": "2024-05-02 17:10:55"
+          },
+          "fetched_at": "2026-10-22T14:45:54.741640+00:00",
+          "assessment": {
+            "total_spaces": 70,
+            "available_spaces": 55,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:42:56+00:00",
+            "age_minutes": 2.98
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "265689e3-e0b5-5d2d-bdba-67ea4b6d77a5",
+      "user_name": "베이스 성수",
+      "user_address": "성수동2가 269-62",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "3122097",
+            "parking_name": "베이스 성수",
+            "address": "성동구 성수동2가 269-62",
+            "capacity": "111",
+            "cur_parking": "10",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:43:23",
+            "sync_time": "2026-03-24 15:29:23"
+          },
+          "fetched_at": "2026-10-22T14:45:54.741640+00:00",
+          "assessment": {
+            "total_spaces": 111,
+            "available_spaces": 101,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:43:23+00:00",
+            "age_minutes": 2.53
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "c7e1aedd-3112-5192-984a-1dff177f201e",
+      "user_name": "서울숲메가박스스퀘어",
+      "user_address": "성수동1가 656-335",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "1915369",
+            "parking_name": "서울숲메가박스스퀘어",
+            "address": "성동구 성수동1가 656-335 ",
+            "capacity": "230",
+            "cur_parking": "81",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:41:48",
+            "sync_time": "2024-11-22 16:18:15"
+          },
+          "fetched_at": "2026-10-22T14:45:54.581427+00:00",
+          "assessment": {
+            "total_spaces": 230,
+            "available_spaces": 149,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:41:48+00:00",
+            "age_minutes": 4.11
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "a9cf6750-796b-5402-b3a5-67a8f69b70d1",
+      "user_name": "성수동 홍성빌딩",
+      "user_address": "성수동1가 656-410",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "3153020",
+            "parking_name": "성수동 홍성빌딩",
+            "address": "성동구 성수동1가 656-410 ",
+            "capacity": "20",
+            "cur_parking": "3",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:45:02",
+            "sync_time": "2025-03-21 10:05:03"
+          },
+          "fetched_at": "2026-10-22T14:45:54.581427+00:00",
+          "assessment": {
+            "total_spaces": 20,
+            "available_spaces": 17,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:45:02+00:00",
+            "age_minutes": 0.88
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "a8e03d7f-f5ae-5ae8-92cc-5ade52467610",
+      "user_name": "갤러리아포레 더몰 상가",
+      "user_address": "성동구 성수동1가 685-696",
+      "identity_review": "AMBIGUOUS",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "3147217",
+            "parking_name": "갤러리아 포레아파트 주차장",
+            "address": "성동구 성수동1가 685-696 ",
+            "capacity": "1504",
+            "cur_parking": "0",
+            "que_status": "0",
+            "que_status_nm": "미연계",
+            "cur_parking_time": "",
+            "sync_time": "2023-06-30 11:42:05"
+          },
+          "fetched_at": "2026-10-22T14:45:54.581427+00:00",
+          "assessment": {
+            "decision": "SOURCE_UNAVAILABLE",
+            "available_spaces": null
+          }
+        },
+        {
+          "source_fields": {
+            "parking_code": "3204785",
+            "parking_name": "갤러리아포레 더몰 상가 주차장",
+            "address": "성동구 성수동1가 685-696* ",
+            "capacity": "785",
+            "cur_parking": "18",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:45:02",
+            "sync_time": "2023-06-30 11:40:44"
+          },
+          "fetched_at": "2026-10-22T14:45:54.581427+00:00",
+          "assessment": {
+            "total_spaces": 785,
+            "available_spaces": 767,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:45:02+00:00",
+            "age_minutes": 0.88
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "71526098-5957-53ad-aa71-5082a32e299c",
+      "user_name": "누디트서울숲",
+      "user_address": "성수동1가 656-1731",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "3161407",
+            "parking_name": "누디트서울숲 주차장",
+            "address": "성동구 성수동1가 656-1731 ",
+            "capacity": "122",
+            "cur_parking": "21",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:39:55",
+            "sync_time": "2024-09-19 16:29:46"
+          },
+          "fetched_at": "2026-10-22T14:45:54.581427+00:00",
+          "assessment": {
+            "total_spaces": 122,
+            "available_spaces": 101,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:39:55+00:00",
+            "age_minutes": 5.99
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "a01255d6-de2c-5f3a-b645-501d589d8cb6",
+      "user_name": "성수1가1동 공영주차장",
+      "user_address": "성수동1가 656-260",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "172120",
+            "parking_name": "성수1가1동(건물) 공영주차장(구)",
+            "address": "성동구 성수동1가 656-260",
+            "capacity": "91",
+            "cur_parking": "0",
+            "que_status": "2",
+            "que_status_nm": "2시간",
+            "cur_parking_time": "2026-10-22 22:29:49",
+            "sync_time": "2026-10-13 13:25:00"
+          },
+          "fetched_at": "2026-10-22T14:45:54.581427+00:00",
+          "assessment": {
+            "decision": "SOURCE_UNAVAILABLE",
+            "available_spaces": null
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "c5940038-d14e-5bd2-a8a2-1b7682b49e3e",
+      "user_name": "센터포인트 성수",
+      "user_address": "성수동2가 280-11",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "3164972",
+            "parking_name": "센터포인트 성수",
+            "address": "성동구 성수동2가 280-11 ",
+            "capacity": "58",
+            "cur_parking": "5",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:42:58",
+            "sync_time": "2025-08-11 10:50:11"
+          },
+          "fetched_at": "2026-10-22T14:45:54.741640+00:00",
+          "assessment": {
+            "total_spaces": 58,
+            "available_spaces": 53,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:42:58+00:00",
+            "age_minutes": 2.95
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "8f81431b-9018-5982-9327-c3a74c7c59bc",
+      "user_name": "디타워 서울포레스트",
+      "user_address": "성수동1가 685-700",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "3115921",
+            "parking_name": "디타워 서울포레스트",
+            "address": "성동구 성수동1가 685-700 ",
+            "capacity": "826",
+            "cur_parking": "228",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:45:43",
+            "sync_time": "2026-09-23 15:05:02"
+          },
+          "fetched_at": "2026-10-22T14:45:54.581427+00:00",
+          "assessment": {
+            "total_spaces": 826,
+            "available_spaces": 598,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:45:43+00:00",
+            "age_minutes": 0.19
+          }
+        }
+      ]
+    },
+    {
+      "parking_id": "c0af6bc5-1cc5-5a1d-8641-c73366a306f4",
+      "user_name": "뚝섬유수지 공영주차장",
+      "user_address": "성수동1가 685-63",
+      "identity_review": "CANDIDATE_ONLY",
+      "candidates": [
+        {
+          "source_fields": {
+            "parking_code": "1914210",
+            "parking_name": "뚝섬유수지(평면) 공영주차장(구)",
+            "address": "성동구 성수동1가 685-63",
+            "capacity": "329",
+            "cur_parking": "230",
+            "que_status": "1",
+            "que_status_nm": "20분",
+            "cur_parking_time": "2026-10-22 23:40:44",
+            "sync_time": "2026-10-13 13:28:38"
+          },
+          "fetched_at": "2026-10-22T14:45:54.581427+00:00",
+          "assessment": {
+            "total_spaces": 329,
+            "available_spaces": 99,
+            "decision": "FRESH",
+            "source_updated_at": "2026-10-22T14:40:44+00:00",
+            "age_minutes": 5.18
+          }
+        }
+      ]
+    }
+  ]
+}

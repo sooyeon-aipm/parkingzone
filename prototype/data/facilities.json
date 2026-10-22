@@ -1,0 +1,331 @@
+{
+  "catalog_version": 1,
+  "lots": [
+    {
+      "id": "5ee611f8-a49c-47dd-a7f0-45066df536e0",
+      "name": "강변 공영주차장",
+      "address": "성수동1가 366-1",
+      "location": null,
+      "products": [],
+      "location_verified_at": null,
+      "product_verified_at": null
+    },
+    {
+      "id": "a6fef8f3-f08c-514d-916c-e909aeda0a30",
+      "name": "성수2가1동 공영주차장",
+      "address": "성수동2가 571-1",
+      "location": null,
+      "products": [],
+      "location_verified_at": null,
+      "product_verified_at": null
+    },
+    {
+      "id": "4e9357ca-5450-544f-b99b-b3dbe673dc29",
+      "name": "서울숲아이티밸리",
+      "address": "성수동1가 13-164",
+      "location": null,
+      "products": [
+        {
+          "id": "modu-15328",
+          "name": "야간권",
+          "price_won": 4000,
+          "hours_label": "17:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/15328",
+          "verified_at": "2026-10-22T16:43:03Z",
+          "available_dates": [
+            "2026-10-23"
+          ],
+          "duration_minutes": 419,
+          "category": "야간권",
+          "conditions": [
+            "당일 17:00~23:59 안에서 이용할 수 있습니다.",
+            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
+            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/262904",
+            "jibun_address": "서울특별시 성동구 성수동1가 13-166"
+          },
+          "sale_starts_at": "2026-10-23T11:00:00+09:00"
+        }
+      ],
+      "location_verified_at": null,
+      "product_verified_at": "2026-10-22T16:43:03Z",
+      "product_link_review": {
+        "decision": "MAPPED",
+        "facility_authority": "SEOUL_PARKING",
+        "source_addresses_differ": true
+      }
+    },
+    {
+      "id": "47bc4e54-7d49-5057-9fcc-b8273525a8b1",
+      "name": "성수무신사S1 주차장",
+      "address": "성수동2가 324-2",
+      "location": null,
+      "products": [
+        {
+          "id": "modu-38592",
+          "name": "1시간권",
+          "price_won": 3000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/38592",
+          "verified_at": "2026-10-22T16:34:39Z",
+          "available_dates": [
+            "2026-10-23"
+          ],
+          "duration_minutes": 60,
+          "category": "시간권",
+          "conditions": [
+            "지하 3~6층만 주차할 수 있습니다. 1층 출입은 비상용 EV만 이용할 수 있습니다.",
+            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
+            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267670",
+            "road_address": "서울특별시 성동구 성수이로 62",
+            "jibun_address": "서울특별시 성동구 성수동2가 324-2"
+          }
+        }
+      ],
+      "location_verified_at": null,
+      "product_verified_at": "2026-10-22T16:34:39Z",
+      "facility_info": {
+        "source_url": "https://app.modu.kr/p/267670",
+        "verified_at": "2026-10-22T16:34:39Z",
+        "hourly_fee_won": 6000,
+        "operating_hours": "00:00 ~ 24:00",
+        "ticket_status": "VERIFIED_OFFERS"
+      }
+    },
+    {
+      "id": "fc63d499-90e8-58a6-b6e8-6f96818e6b0d",
+      "name": "팩토리얼 성수",
+      "address": "성수동2가 314-11",
+      "location": null,
+      "products": [
+        {
+          "id": "modu-35859",
+          "name": "평일 1시간권(자주식)",
+          "price_won": 3900,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/35859",
+          "verified_at": "2026-10-22T16:34:39Z",
+          "available_dates": [
+            "2026-10-23"
+          ],
+          "duration_minutes": 60,
+          "category": "시간권",
+          "conditions": [
+            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
+            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/269161",
+            "road_address": "서울특별시 성동구 연무장7길 13",
+            "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          }
+        },
+        {
+          "id": "modu-35512",
+          "name": "평일 3시간권(자주식)",
+          "price_won": 15000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/35512",
+          "verified_at": "2026-10-22T16:34:39Z",
+          "available_dates": [
+            "2026-10-23"
+          ],
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [
+            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
+            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/269161",
+            "road_address": "서울특별시 성동구 연무장7길 13",
+            "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          }
+        }
+      ],
+      "location_verified_at": null,
+      "product_verified_at": "2026-10-22T16:34:39Z",
+      "facility_info": {
+        "source_url": "https://app.modu.kr/p/269161",
+        "verified_at": "2026-10-22T16:34:39Z",
+        "hourly_fee_won": 6000,
+        "operating_hours": "00:00 ~ 24:00",
+        "ticket_status": "VERIFIED_OFFERS"
+      }
+    },
+    {
+      "id": "242929a2-08ae-5cbb-a563-5b5d55a01232",
+      "name": "무신사 E1",
+      "address": "성수동2가 271-22",
+      "location": null,
+      "products": [],
+      "location_verified_at": null,
+      "product_verified_at": null
+    },
+    {
+      "id": "265689e3-e0b5-5d2d-bdba-67ea4b6d77a5",
+      "name": "베이스 성수",
+      "address": "성수동2가 269-62",
+      "location": null,
+      "products": [],
+      "location_verified_at": null,
+      "product_verified_at": null
+    },
+    {
+      "id": "c7e1aedd-3112-5192-984a-1dff177f201e",
+      "name": "서울숲메가박스스퀘어",
+      "address": "성수동1가 656-335",
+      "location": null,
+      "products": [
+        {
+          "id": "modu-40328",
+          "name": "평일 3시간권",
+          "price_won": 5700,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/40328",
+          "verified_at": "2026-10-22T16:43:03Z",
+          "available_dates": [
+            "2026-10-23"
+          ],
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [
+            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
+            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/t/40328",
+            "jibun_address": "서울특별시 성동구 성수동1가 656-951"
+          }
+        },
+        {
+          "id": "modu-25605",
+          "name": "평일 당일권",
+          "price_won": 20300,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/25605",
+          "verified_at": "2026-10-22T16:44:00Z",
+          "available_dates": [
+            "2026-10-23"
+          ],
+          "duration_minutes": 1439,
+          "category": "당일권",
+          "conditions": [
+            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
+            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/t/40328",
+            "jibun_address": "서울특별시 성동구 성수동1가 656-951"
+          }
+        }
+      ],
+      "location_verified_at": null,
+      "product_verified_at": "2026-10-22T16:43:03Z",
+      "product_link_review": {
+        "decision": "MAPPED",
+        "facility_authority": "SEOUL_PARKING",
+        "source_addresses_differ": true
+      }
+    },
+    {
+      "id": "a9cf6750-796b-5402-b3a5-67a8f69b70d1",
+      "name": "성수동 홍성빌딩",
+      "address": "성수동1가 656-410",
+      "location": null,
+      "products": [],
+      "location_verified_at": null,
+      "product_verified_at": null
+    },
+    {
+      "id": "a8e03d7f-f5ae-5ae8-92cc-5ade52467610",
+      "name": "갤러리아포레 더몰 상가",
+      "address": "성동구 성수동1가 685-696",
+      "location": null,
+      "products": [],
+      "location_verified_at": null,
+      "product_verified_at": null
+    },
+    {
+      "id": "71526098-5957-53ad-aa71-5082a32e299c",
+      "name": "누디트서울숲",
+      "address": "성수동1가 656-1731",
+      "location": null,
+      "products": [],
+      "location_verified_at": null,
+      "product_verified_at": null
+    },
+    {
+      "id": "a01255d6-de2c-5f3a-b645-501d589d8cb6",
+      "name": "성수1가1동 공영주차장",
+      "address": "성수동1가 656-260",
+      "location": null,
+      "products": [],
+      "location_verified_at": null,
+      "product_verified_at": null
+    },
+    {
+      "id": "c5940038-d14e-5bd2-a8a2-1b7682b49e3e",
+      "name": "센터포인트 성수",
+      "address": "성수동2가 280-11",
+      "location": null,
+      "products": [],
+      "location_verified_at": null,
+      "product_verified_at": null
+    },
+    {
+      "id": "8f81431b-9018-5982-9327-c3a74c7c59bc",
+      "name": "디타워 서울포레스트",
+      "address": "성수동1가 685-700",
+      "location": null,
+      "products": [],
+      "location_verified_at": null,
+      "product_verified_at": null
+    },
+    {
+      "id": "c0af6bc5-1cc5-5a1d-8641-c73366a306f4",
+      "name": "뚝섬유수지 공영주차장",
+      "address": "성수동1가 685-63",
+      "location": null,
+      "products": [],
+      "location_verified_at": null,
+      "product_verified_at": null,
+      "facility_info": {
+        "source_url": "https://app.modu.kr/p/263488",
+        "verified_at": "2026-10-22T16:34:39Z",
+        "hourly_fee_won": 3000,
+        "operating_hours": "00:00 ~ 24:00",
+        "ticket_status": "NOT_SOLD"
+      }
+    }
+  ]
+}

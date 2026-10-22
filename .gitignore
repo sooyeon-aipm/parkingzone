@@ -1,5 +1,10 @@
 .DS_Store
 **/.DS_Store
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
 
 # 팀 Notion 반영 증거는 로컬 보관
 docs/records/NOTION_SYNC_*.md

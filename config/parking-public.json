@@ -1,0 +1,5 @@
+{
+  "note": "공개 anon 키. 비밀 키가 아니며 테이블/RPC의 직접 읽기·쓰기는 허용되지 않음. 서버 secret/service_role 키로 교체하지 말 것.",
+  "status_url": "https://ksuzhoeahgqbvrbchwpb.supabase.co/functions/v1/parking-status",
+  "anon_key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtzdXpob2VhaGdxYnZyYmNod3BiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI1NjI2ODYsImV4cCI6MjEwODEzODY4Nn0.WELrT2IcO6H9M6OxIXjGui9KhlTNhodQ8XFn5o-sSRc"
+}
