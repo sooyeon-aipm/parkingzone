@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/parking", "destination": "/api/parking.js" },
+    { "source": "/(.*)", "destination": "/prototype/$1" }
+  ]
+}
