@@ -249,3 +249,7 @@ AI 첫 화면만 구현/내 공유 거주자·월주차 신청 전/Chrome 검증
 ## 본문 맨 위 당기기 결함 수정
 
 Chrome Device Toolbar의 터치 모드에서 본문스크롤248→0에도 시트높이766.80px는 유지됐다. 이어 맨위 당기기는 touchstart/touchend가 오고 종료좌표차이가204.55px였지만 중간move가 기록되지 않아 moved=false로 접기가 무시됐다. 임시 DOM 진단으로 구분한 뒤 진단코드는 제거했다. end에서도8px이상 이동을 판단하도록 고쳐 빠른 입력에도 동작하게 했다. 동일 Chrome 제스처에서 펼침766.80px→중간426px/scroll0 전환을 확인했다. 회귀검사는 move 없는 터치의 접기,스크롤 중 시작/작은탭의 높이유지2개다. 전체 Node47/47 및 문법/diff검사 통과. 이 결과는 Chrome터치모드이며 실제아이폰Safari로 표현하지 않는다. 증거 docs/review/evidence/2026-10-24/body-pull-fixed.jpg.
+
+## 최종 배포 대조 완료
+
+b3c70e3를main에푸시했고Vercel성공상태/운영bottom-sheet.js와로컬수정본의바이트일치를확인했다. 운영Chrome터치모드의실제본문당기기에서도높이766.80→426px/scroll0으로접혔다. 네트워크는No throttling이고DevTools를닫았다. 운영증거 docs/review/evidence/2026-10-24/body-pull-deployed.jpg. 최종점검표에최초6개요구와플랜동작조건별근거를대조했다. 남은사용자결정없음. 실기기Safari/수연검토/실제UT를완료로추가하지않는다.
