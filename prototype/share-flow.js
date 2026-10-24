@@ -1,3 +1,4 @@
+import {createAddressPicker,addressPreview} from './share-address.js';
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function shareFormComplete(form, photos) {
   return Boolean(form.name?.trim() && form.address?.trim() && Number.isInteger(Number(form.spaces)) && Number(form.spaces)>0 && String(form.fee).trim() && Number.isFinite(Number(form.fee)) && Number(form.fee)>=0 && photos[0] && photos[1]);
@@ -6,14 +7,28 @@ export function shareConditionResult(external, designated) {
   return external===null || designated===null ? 'incomplete' : external && designated ? 'ready' : 'unavailable';
 }
 
-// 입력은 화면 메모리에서만 유지하며 전송·등록·영구 저장하지 않는다.
+// 폼·사진은 화면 메모리에만 유지한다. 주소 검색어만 네이버 Geocoding으로 조회한다.
 export function initShareFlow(root) {
   let page='home',type=null,operation=null,external=null,designated=null,dialog=null,consent=false;
-  let form={},photos=[null,null];
+  let form={},photos=[null,null],disposePreview=()=>{};
+  const addressPicker=createAddressPicker(root.parentElement,value=>{
+    form.address=value.label;form.addressSelection=value;
+    root.querySelector('[data-share-address]').textContent=value.label;
+    root.querySelector('[data-share-next]').disabled=!shareFormComplete(form,photos);
+    updateAddressPreview();
+  });
+  async function updateAddressPreview() {
+    disposePreview();disposePreview=()=>{};
+    const element=root.querySelector('[data-share-address-map]');
+    if(!element || !form.addressSelection) return;
+    try {const cleanup=await addressPreview(element,form.addressSelection);if(element.isConnected)disposePreview=cleanup;else cleanup();}
+    catch {if(element.isConnected)element.textContent='지도 표시 불가 · 주소를 확인해 주세요.';}
+  }
   const title=()=>page==='home'?'내 공유주차장':page==='form'?'필수정보 입력':'주차공유';
   const choice=(key,value,label,description,selected)=>`<button class="share-choice ${selected?'selected':''}" data-share-choice="${key}" data-value="${value}" aria-pressed="${selected}"><strong>${label}</strong>${description?`<small>${description}</small>`:''}</button>`;
   const footer=(label,disabled=false)=>`<footer class="share-footer"><button data-share-next ${disabled?'disabled':''}>${label}</button></footer>`;
   function render() {
+    disposePreview();disposePreview=()=>{};
     let body='',bottom='';
     if(page==='home') {
       body='<div class="share-intro"><div class="share-illustration" aria-hidden="true">⌂<span>₩</span></div><h3>빈 주차공간만 있으면<br>누구나 수익을 올릴 수 있습니다</h3><p>수익창출과 무단 주차 예방까지!</p></div>';
@@ -28,13 +43,14 @@ export function initShareFlow(root) {
       body=`<h3>공유 조건을 만족하는지 확인해 주세요.</h3><h4>외부인이 주차 가능한 곳인가요?</h4><div class="share-pair">${choice('external','yes','외부인 주차 가능','',external===true)}${choice('external','no','아니오','',external===false)}</div><h4>지정 주차면이 있나요?</h4><div class="share-pair">${choice('designated','yes','지정주차면','',designated===true)}${choice('designated','no','아니오','',designated===false)}</div>`;
       bottom=footer('다음',shareConditionResult(external,designated)==='incomplete');
     } else if(page==='form') {
-      body=`<form class="share-form" autocomplete="off"><label>주차공간 이름<input name="name" value="${escape(form.name)}" placeholder="모두의주차장" required></label><label>주소 검색<input name="address" value="${escape(form.address)}" placeholder="주차공간 주소" required></label><label>주차 면 수<input name="spaces" type="number" min="1" step="1" value="${escape(form.spaces)}" placeholder="- 면" required></label><label>30분당 주차 요금<input name="fee" type="number" min="0" value="${escape(form.fee)}" placeholder="- 원" required></label><label>주차장 설명(선택)<textarea name="description" placeholder="주차공간을 찾기 쉽게 설명해 주시면 더 많은 운전자가 주차합니다.">${escape(form.description)}</textarea></label><h4>주차장 사진</h4><label class="share-photo">(필수) 주차환경 파악 가능한 전경사진<input type="file" accept="image/*" data-photo-slot="0"><span data-photo-name="0">${escape(photos[0]?.name??'＋')}</span></label><label class="share-photo">(필수) 토지·건물 관계증빙 서류사진<input type="file" accept="image/*" data-photo-slot="1"><span data-photo-name="1">${escape(photos[1]?.name??'＋')}</span></label><p class="share-local-note">실제 등록·전송 없이 이 화면에서만 입력을 확인합니다.</p></form>`;
+      body=`<form class="share-form" autocomplete="off"><label>주차공간 이름<input name="name" value="${escape(form.name)}" placeholder="모두의주차장" required></label><div class="share-address-field"><span>주소</span><button type="button" data-share-address>${escape(form.address||'주소 검색')}</button><div data-share-address-map class="share-address-preview" aria-label="등록 주소 지도"></div></div><label>주차 면 수<input name="spaces" type="number" min="1" step="1" value="${escape(form.spaces)}" placeholder="- 면" required></label><label>30분당 주차 요금<input name="fee" type="number" min="0" value="${escape(form.fee)}" placeholder="- 원" required></label><label>주차장 설명(선택)<textarea name="description" placeholder="주차공간을 찾기 쉽게 설명해 주시면 더 많은 운전자가 주차합니다.">${escape(form.description)}</textarea></label><h4>주차장 사진</h4><label class="share-photo">(필수) 주차환경 파악 가능한 전경사진<input type="file" accept="image/*" data-photo-slot="0"><span data-photo-name="0">${escape(photos[0]?.name??'＋')}</span></label><label class="share-photo">(필수) 토지·건물 관계증빙 서류사진<input type="file" accept="image/*" data-photo-slot="1"><span data-photo-name="1">${escape(photos[1]?.name??'＋')}</span></label><p class="share-local-note">입력 내용과 사진은 실제 등록 신청으로 전송되지 않습니다.</p></form>`;
       bottom=footer('등록',!shareFormComplete(form,photos));
     } else if(page==='review') {
       body=`<div class="share-review"><h3>입력 내용을 확인했어요</h3><p>실제 주차장이 등록되거나 신청이 전송되지 않았습니다.</p><dl><dt>주차공간</dt><dd>${escape(form.name)}</dd><dt>주소</dt><dd>${escape(form.address)}</dd><dt>면 수</dt><dd>${escape(form.spaces)}면</dd><dt>30분 요금</dt><dd>${escape(form.fee)}원</dd></dl></div>`;
       bottom=footer('내 공유주차장으로 돌아가기');
     }
     root.innerHTML=`<header class="share-nav"><button data-share-back aria-label="내 공유 뒤로가기">〈</button><h2>${title()}</h2><span></span></header><div class="share-scroll">${body}</div>${bottom}${renderDialog()}`;
+    if(page==='form') updateAddressPreview();
   }
   function renderDialog() {
     if(!dialog) return '';
@@ -47,11 +63,12 @@ export function initShareFlow(root) {
   }
   function back() {
     if(dialog) {dialog=null;render();return;}
-    if(page==='home') {root.hidden=true;form={};photos=[null,null];return;}
+    if(page==='home') {root.hidden=true;disposePreview();form={};photos=[null,null];return;}
     page=({type:'home',operation:'type',conditions:'operation',form:'conditions',review:'form'})[page];render();
   }
   root.addEventListener('click',event=>{
     const target=event.target.closest('button');if(!target) return;
+    if(target.hasAttribute('data-share-address')) {addressPicker.open(form.addressSelection,target);return;}
     if(target.hasAttribute('data-share-back')) return back();
     if(target.dataset.shareChoice) {
       const {shareChoice:key,value}=target.dataset;

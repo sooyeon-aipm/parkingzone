@@ -1,8 +1,8 @@
 // Client ID는 웹 도메인 제한이 적용되는 공개 식별자다. Client Secret은 사용하지 않는다.
 const CLIENT_ID = '7xmbdz57t0';
 let sdkPromise;
-function loadSdk() {
-  if (window.naver?.maps) return Promise.resolve(window.naver.maps);
+export function loadSdk() {
+  if (window.naver?.maps?.Service) return Promise.resolve(window.naver.maps);
   return sdkPromise ??= new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${CLIENT_ID}&submodules=geocoder`;
