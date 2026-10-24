@@ -199,3 +199,11 @@ Vercel대시보드를읽기전용으로확인했으나현재로그인은jjackbb�
 Node 39개 검사 및 diff 검사 통과. 남은 범위 문서의 오래된 요금/필터/미러링 상태와 질문을 최신 결정에 맞췄다. 이전 미리보기 ZIP은 코드 변경으로 오래되어 배포에 사용하지 않는다.
 
 지연 검증 후 25초 제한이 지나면 상세가 최초 조회 실패 안내와 활성 재시도 버튼으로 바뀌고 전역 로더는 다시 나타나지 않음을 확인했다. 테스트용 8767 서버는 검증 후 종료한다.
+
+## 운영 반영 확인 — 88add0c
+
+main 88add0c054441dad53e014077abeb6a7732bedfa를 기존 origin에 푸시했다. GitHub Vercel 상태가 pending→success로 바뀌었고 배포 URL은 https://vercel.com/sooyeon/parkingzone/4AE6e1vjNJGushtEDUGQP4LfNPsd 였다. 운영 주소 https://parkingzone.vercel.app/ 재접속에서 새 검색조건/공유 토글,15표식과 네이버 지도,센터포인트 성수 실제 현황51/58면(원천18:44/수집18:45),1시간권3,000원을 확인했다. 해당 시점 Chrome 오류 로그는 없었다. 화면 증거 /private/tmp/parkingzone-deployed-88add0c.jpg.
+
+운영 구매 버튼은 기존 명세대로 로컬 테스트 종료이며 센터포인트/1시간권/3,000원이 정확히 표시됐다. 다시 테스트하기로 지도 복귀했다. 실제 결제·예약·발급·외부 신청은 하지 않았다. 증거 /private/tmp/parkingzone-deployed-test-end.jpg. 사용자 UT로 계산하지 않는다.
+
+후속 실제 아이폰 Safari 검증을 위해 미러링 재개 및 다시 시도를 수행했으나 연결 중단 메시지가 반복됐다. 현재 연결 가능하다고 추정하거나 Mac Chrome을 실기기 증거로 대체하지 않는다. 남은 확인은 AI 입력/결과 재현 방식,내 공유 미관찰 분기 깊이,실기기 연결이다.
