@@ -1,6 +1,6 @@
 # 배포 개선 실행 기록
 
-기준: `docs/design/DEPLOYED_PROTOTYPE_IMPROVEMENT_PLAN.md`. 2026-10-24, 전체 플랜 실행 승인 이후의 기록. 아직 운영 배포하지 않았다.
+기준: `docs/design/DEPLOYED_PROTOTYPE_IMPROVEMENT_PLAN.md`. 2026-10-24의 순차 실행 기록이다. 아래 첫 표와 각 항목은 당시 상태이며 최신 판정은 [최종 점검표](../review/DEPLOYED_IMPROVEMENT_FINAL_AUDIT.md)를 따른다. 운영 반영 이력도 이 문서 후반에 구분한다.
 
 | 작업 단위 | 상태와 현재 근거 | 남은 일 |
 |---|---|---|
@@ -241,3 +241,11 @@ AI 첫 화면만 구현/내 공유 거주자·월주차 신청 전/Chrome 검증
 ## 첫 접속 직후 클릭 누락 수정
 
 운영검사에서첫내공유클릭은포커스만이동하고화면이열리지않았다. 기존정적HTML버튼이활성인상태에서모듈/카탈로그/리스너준비전에클릭한상황이었다. 홈페이지15개조작버튼에초기disabled와aria-busy를설정하고리스너연결이끝나면활성화한다. DB응답을기다려활성화하는구조는아니다. 로컬첫진입직후클릭이준비완료를기다린뒤내공유를열고aria-busy=false가되는것을확인했다. app.js문법/diff검사통과. 전체45개로직검사이후이번변경은초기HTML/버튼상태라해당Chrome경로만추가검사했다.
+
+## 실제 Chrome 오프라인·온라인 복구 최종 확인
+
+운영 사이트의 센터포인트 성수51/58면,원천19:44/수집19:45를 읽은 뒤 Chrome DevTools Network를 Offline으로 바꿨다. 수동 재조회에서 net::ERR_INTERNET_DISCONNECTED를 확인했다. 상세는 마지막 기록/51면·58면/수집19:45/재시도를 유지했다. No throttling으로 복원하고 같은 상세의 다시 불러오기로 정상 현재 상태 안내가 돌아왔다. 복구 시 원천값은 그대로였고 조회 시각을 원천/수집 시각으로 덮어쓰지 않았다. DevTools는 종료했다. 증거 docs/review/evidence/2026-10-24/offline-last-record.jpg 및 online-recovered.jpg.
+
+## 본문 맨 위 당기기 결함 수정
+
+Chrome Device Toolbar의 터치 모드에서 본문스크롤248→0에도 시트높이766.80px는 유지됐다. 이어 맨위 당기기는 touchstart/touchend가 오고 종료좌표차이가204.55px였지만 중간move가 기록되지 않아 moved=false로 접기가 무시됐다. 임시 DOM 진단으로 구분한 뒤 진단코드는 제거했다. end에서도8px이상 이동을 판단하도록 고쳐 빠른 입력에도 동작하게 했다. 동일 Chrome 제스처에서 펼침766.80px→중간426px/scroll0 전환을 확인했다. 회귀검사는 move 없는 터치의 접기,스크롤 중 시작/작은탭의 높이유지2개다. 전체 Node47/47 및 문법/diff검사 통과. 이 결과는 Chrome터치모드이며 실제아이폰Safari로 표현하지 않는다. 증거 docs/review/evidence/2026-10-24/body-pull-fixed.jpg.

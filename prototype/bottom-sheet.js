@@ -24,6 +24,8 @@ export function attachBottomSheet(sheet, {onExpand, onClose}) {
     start = null;
     sheet.classList.remove('dragging');
     sheet.style.removeProperty('height');
+    // 빠른 터치에서는 move 이벤트가 합쳐지거나 생략돼도 종료 좌표로 이동을 판단한다.
+    moved = moved || Math.abs(delta) >= 8;
     if (!moved) return;
     if (delta > 90 && !previous.expanded) onClose();
     else if (delta > 45) onExpand(false);
