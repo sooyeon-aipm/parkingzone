@@ -368,6 +368,8 @@ async function init() {
     $('#zoom-in').addEventListener('click', () => { parkingMap?.zoom(1); }); $('#zoom-out').addEventListener('click', () => { parkingMap?.zoom(-1); });
     $('#recenter').addEventListener('click', () => { parkingMap?.reset(); }); $('#search-here').addEventListener('click', () => isLive() ? refreshLive({force:true}) : toast('현재 테스트 목적지의 고정 가상 목록입니다. 실제 위치 검색과 연결되지 않았습니다.'));
     $('#purchase').addEventListener('click', finishTest); $('#restart').addEventListener('click', reset);
+    document.querySelectorAll('[data-startup-control]').forEach(button=>{button.disabled=false;});
+    $('.phone').setAttribute('aria-busy','false');
     $('#load-message').textContent='';
     startRefreshLoop({refresh:()=>refreshLive()});
     // 새 네트워크 호출 없이 경과 시간만 반영한다. 20분을 넘긴 값을 현재로 고정하지 않는다.
