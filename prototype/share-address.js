@@ -1,3 +1,4 @@
+import {requestCurrentAddress,locationErrorMessage} from './current-location.js';
 import {loadSdk} from './parking-map.js';
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function normalizeAddress(item) {
@@ -21,6 +22,20 @@ async function searchAddresses(query) {
     });
   });
 }
+export async function reverseAddress(point,isCurrent=()=>true) {
+  const maps=await loadSdk();
+  if(!isCurrent()) throw new Error('LOCATION_CANCELLED');
+  return new Promise((resolve,reject)=>{
+    const timer=setTimeout(()=>reject(new Error('REVERSE_TIMEOUT')),15000);
+    maps.Service.reverseGeocode({coords:new maps.LatLng(point.lat,point.lng),orders:'addr,roadaddr'},(status,response)=>{
+      clearTimeout(timer);
+      const address=response?.v2?.address;
+      const result=normalizeAddress({y:point.lat,x:point.lng,jibunAddress:address?.jibunAddress,roadAddress:address?.roadAddress});
+      if(status!==maps.Service.Status.OK || response?.v2?.status?.code!==0 || !result) return reject(new Error('REVERSE_FAILED'));
+      resolve(result);
+    });
+  });
+}
 export async function addressPreview(element,point) {
   if(!point) return ()=>{};
   const maps=await loadSdk();
@@ -35,7 +50,7 @@ export function createAddressPicker(parent,onConfirm) {
   const root=document.createElement('section');
   root.className='full-screen address-screen';root.hidden=true;root.setAttribute('aria-label','등록할 주소 검색');
   parent.append(root);
-  let page='search',query='',results=[],selected=null,detail='',request=0,dispose=()=>{},returnFocus=null;
+  let page='search',query='',results=[],selected=null,detail='',request=0,dispose=()=>{},returnFocus=null,locating=false;
   const close=()=>{request++;dispose();dispose=()=>{};root.hidden=true;returnFocus?.focus({preventScroll:true});};
   async function renderMap() {
     const element=root.querySelector('.address-map');if(!element) return;
@@ -44,7 +59,7 @@ export function createAddressPicker(parent,onConfirm) {
   }
   function render() {
     dispose();dispose=()=>{};
-    root.innerHTML=`<header class="address-nav"><button data-address-back aria-label="주소 검색 뒤로가기">〈</button>${page==='search'?`<form data-address-search><input aria-label="등록할 주소 검색" placeholder="등록할 주소 검색" value="${escape(query)}" autocomplete="off"><button type="submit">검색</button></form>`:'<h2>상세 주소</h2>'}</header>${page==='search'?`<div class="address-search-body"><button class="address-locate" disabled title="현재 위치 검색은 아직 연결되지 않았습니다">◎ 현재 위치로 검색하기</button><p class="address-search-note">도로명 또는 지번 주소로 검색해 주세요.</p><p data-address-status role="status"></p><div class="address-results">${results.map((item,i)=>`<button data-address-result="${i}"><strong>${escape(item.road||item.jibun)}</strong><small>${escape(item.jibun)}</small></button>`).join('')}</div></div>`:`<div class="address-map" aria-label="선택한 주소 지도"></div><div class="address-confirm"><p>${escape(selected.jibun||selected.road)}</p><input data-address-detail aria-label="상세 주소" placeholder="상세 주소를 입력해 주세요." value="${escape(detail)}"><button data-address-confirm>위치 확정하기</button></div>`}`;
+    root.innerHTML=`<header class="address-nav"><button data-address-back aria-label="주소 검색 뒤로가기">〈</button>${page==='search'?`<form data-address-search><input aria-label="등록할 주소 검색" placeholder="등록할 주소 검색" value="${escape(query)}" autocomplete="off"><button type="submit">검색</button></form>`:'<h2>상세 주소</h2>'}</header>${page==='search'?`<div class="address-search-body"><button type="button" class="address-locate" data-address-locate ${locating?'disabled aria-busy="true"':''}>◎ 현재 위치로 검색하기</button><p class="address-search-note">현재 위치 검색 시 기기 위치를 네이버에 전달해 주소를 조회합니다.</p><p data-address-status role="status"></p><div class="address-results">${results.map((item,i)=>`<button data-address-result="${i}"><strong>${escape(item.road||item.jibun)}</strong><small>${escape(item.jibun)}</small></button>`).join('')}</div></div>`:`<div class="address-map" aria-label="선택한 주소 지도"></div><div class="address-confirm"><p>${escape(selected.jibun||selected.road)}</p><input data-address-detail aria-label="상세 주소" placeholder="상세 주소를 입력해 주세요." value="${escape(detail)}"><button data-address-confirm>위치 확정하기</button></div>`}`;
     if(page==='detail') renderMap();
   }
   root.addEventListener('submit',async event=>{
@@ -61,8 +76,25 @@ export function createAddressPicker(parent,onConfirm) {
     if(event.target.matches('[data-address-search] input')) {request++;query=event.target.value;results=[];root.querySelector('.address-results').replaceChildren();root.querySelector('[data-address-status]').textContent='';}
     if(event.target.matches('[data-address-detail]')) detail=event.target.value;
   });
-  root.addEventListener('click',event=>{
+  root.addEventListener('click',async event=>{
     const button=event.target.closest('button');if(!button) return;
+    if(button.hasAttribute('data-address-locate')) {
+      if(locating) return;
+      const version=++request;
+      locating=true;button.disabled=true;button.setAttribute('aria-busy','true');
+      const status=root.querySelector('[data-address-status]');status.textContent='현재 위치를 확인하고 있어요.';
+      try {
+        const point=await requestCurrentAddress({reverse:reverseAddress,isCurrent:()=>version===request&&!root.hidden&&page==='search'});
+        if(version!==request||root.hidden||page!=='search') return;
+        selected=point;detail='';page='detail';render();
+      } catch(error) {
+        if(version===request&&!root.hidden&&page==='search') status.textContent=locationErrorMessage(error);
+      } finally {
+        locating=false;
+        const current=root.querySelector('[data-address-locate]');if(current){current.disabled=false;current.removeAttribute('aria-busy');}
+      }
+      return;
+    }
     if(button.hasAttribute('data-address-back')) {if(page==='detail'){request++;page='search';render();}else close();}
     if(button.hasAttribute('data-address-result')) {const result=results[Number(button.dataset.addressResult)];if(!result)return;request++;selected=result;detail='';page='detail';render();}
     if(button.hasAttribute('data-address-confirm')) {const value=confirmedAddress(selected,detail);if(value){onConfirm(value);close();}}
