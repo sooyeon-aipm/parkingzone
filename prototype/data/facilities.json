@@ -8,7 +8,21 @@
       "location": null,
       "products": [],
       "location_verified_at": null,
-      "product_verified_at": null
+      "product_verified_at": null,
+      "facility_info": {
+        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+        "verified_at": "2026-10-24T07:43:24Z",
+        "hourly_fee_won": 3000,
+        "unit_minutes": 5,
+        "unit_fee_won": 250,
+        "effective_from": "2026-10-01",
+        "daily_max_won": null
+      },
+      "search_info": {
+        "public": true,
+        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+        "verified_at": "2026-10-24T07:43:24Z"
+      }
     },
     {
       "id": "a6fef8f3-f08c-514d-916c-e909aeda0a30",
@@ -17,7 +31,21 @@
       "location": null,
       "products": [],
       "location_verified_at": null,
-      "product_verified_at": null
+      "product_verified_at": null,
+      "facility_info": {
+        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+        "verified_at": "2026-10-24T07:43:24Z",
+        "hourly_fee_won": 3000,
+        "unit_minutes": 5,
+        "unit_fee_won": 250,
+        "effective_from": "2026-10-01",
+        "daily_max_won": null
+      },
+      "search_info": {
+        "public": true,
+        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+        "verified_at": "2026-10-24T07:43:24Z"
+      }
     },
     {
       "id": "4e9357ca-5450-544f-b99b-b3dbe673dc29",
@@ -26,39 +54,135 @@
       "location": null,
       "products": [
         {
-          "id": "modu-15328",
-          "name": "야간권",
-          "price_won": 4000,
-          "hours_label": "17:00 ~ 23:59 이용가능",
-          "source_url": "https://app.modu.kr/t/15328",
-          "verified_at": "2026-10-22T16:43:03Z",
+          "id": "modu-15885",
+          "name": "휴일 3시간권",
+          "price_won": 3000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/15885",
+          "verified_at": "2026-10-24T07:57:24Z",
           "available_dates": [
-            "2026-10-23"
+            "2026-10-24"
           ],
-          "duration_minutes": 419,
-          "category": "야간권",
+          "duration_minutes": 180,
+          "category": "시간권",
           "conditions": [
-            "당일 17:00~23:59 안에서 이용할 수 있습니다.",
-            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "당일 유효시간 안에서 3시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
             "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
-            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
-            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
             "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 또는 주차권 연속 사용 시 전액 현장 요금이 적용될 수 있습니다.",
             "입차 후 환불할 수 없습니다."
           ],
           "identity_source": {
             "facility_url": "https://app.modu.kr/p/262904",
             "jibun_address": "서울특별시 성동구 성수동1가 13-166"
-          },
-          "sale_starts_at": "2026-10-23T11:00:00+09:00"
+          }
+        },
+        {
+          "id": "modu-15884",
+          "name": "휴일 5시간권",
+          "price_won": 5000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/15884?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T08:14:51Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 300,
+          "category": "시간권",
+          "conditions": [
+            "당일 유효시간 안에서 5시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/262904",
+            "jibun_address": "서울특별시 성동구 성수동1가 13-166"
+          }
+        },
+        {
+          "id": "modu-15328",
+          "name": "야간권",
+          "price_won": 4000,
+          "hours_label": "17:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/15328?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T08:16:46Z",
+          "available_dates": [
+            "2026-10-23",
+            "2026-10-24"
+          ],
+          "duration_minutes": 419,
+          "category": "야간권",
+          "conditions": [
+            "17:00 ~ 23:59 범위에서만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 또는 주차권 연속 사용 시 전액 현장 요금이 적용될 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/262904",
+            "jibun_address": "서울특별시 성동구 성수동1가 13-166"
+          }
+        },
+        {
+          "id": "modu-15327",
+          "name": "심야권",
+          "price_won": 6000,
+          "hours_label": "17:00 ~ 익일 07:00 이용가능",
+          "source_url": "https://app.modu.kr/t/15327?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T08:16:46Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 840,
+          "category": "야간권",
+          "conditions": [
+            "17:00 ~ 익일 07:00 범위에서만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 또는 주차권 연속 사용 시 전액 현장 요금이 적용될 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/262904",
+            "jibun_address": "서울특별시 성동구 성수동1가 13-166"
+          }
         }
       ],
       "location_verified_at": null,
-      "product_verified_at": "2026-10-22T16:43:03Z",
+      "product_verified_at": "2026-10-24T07:57:24Z",
       "product_link_review": {
         "decision": "MAPPED",
         "facility_authority": "SEOUL_PARKING",
         "source_addresses_differ": true
+      },
+      "facility_info": {
+        "source_url": "https://app.modu.kr/p/262904",
+        "verified_at": "2026-10-24T07:38:09Z",
+        "hourly_fee_won": 3000,
+        "basic_minutes": 30,
+        "basic_fee_won": 1500,
+        "additional_minutes": 30,
+        "additional_fee_won": 1500,
+        "daily_max_won": null,
+        "operating_hours": null,
+        "ticket_status": "VERIFIED_OFFERS"
+      },
+      "search_info": {
+        "partner": true,
+        "source_url": "https://app.modu.kr/p/262904",
+        "verified_at": "2026-10-24T08:31:04.868443+00:00"
       }
     },
     {
@@ -73,9 +197,10 @@
           "price_won": 3000,
           "hours_label": "00:00 ~ 23:59 이용가능",
           "source_url": "https://app.modu.kr/t/38592",
-          "verified_at": "2026-10-22T16:34:39Z",
+          "verified_at": "2026-10-24T07:35:36Z",
           "available_dates": [
-            "2026-10-23"
+            "2026-10-23",
+            "2026-10-24"
           ],
           "duration_minutes": 60,
           "category": "시간권",
@@ -93,16 +218,109 @@
             "road_address": "서울특별시 성동구 성수이로 62",
             "jibun_address": "서울특별시 성동구 성수동2가 324-2"
           }
+        },
+        {
+          "id": "modu-31349",
+          "name": "휴일 3시간권",
+          "price_won": 6600,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/31349?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T08:13:54Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [
+            "당일 유효시간 안에서 3시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267670",
+            "road_address": "서울특별시 성동구 성수이로 62",
+            "jibun_address": "서울특별시 성동구 성수동2가 324-2"
+          }
+        },
+        {
+          "id": "modu-31347",
+          "name": "휴일 당일권",
+          "price_won": 9900,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/31347?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T08:13:54Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 1439,
+          "category": "당일권",
+          "conditions": [
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267670",
+            "road_address": "서울특별시 성동구 성수이로 62",
+            "jibun_address": "서울특별시 성동구 성수동2가 324-2"
+          }
+        },
+        {
+          "id": "modu-31988",
+          "name": "휴일 야간권",
+          "price_won": 6000,
+          "hours_label": "17:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/31988?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T08:13:54Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 419,
+          "category": "야간권",
+          "conditions": [
+            "17:00부터 23:59까지 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267670",
+            "road_address": "서울특별시 성동구 성수이로 62",
+            "jibun_address": "서울특별시 성동구 성수동2가 324-2"
+          }
         }
       ],
       "location_verified_at": null,
-      "product_verified_at": "2026-10-22T16:34:39Z",
+      "product_verified_at": "2026-10-24T07:35:36Z",
       "facility_info": {
         "source_url": "https://app.modu.kr/p/267670",
-        "verified_at": "2026-10-22T16:34:39Z",
+        "verified_at": "2026-10-24T07:35:36Z",
         "hourly_fee_won": 6000,
         "operating_hours": "00:00 ~ 24:00",
-        "ticket_status": "VERIFIED_OFFERS"
+        "ticket_status": "VERIFIED_OFFERS",
+        "basic_minutes": 30,
+        "basic_fee_won": 3000,
+        "additional_minutes": 10,
+        "additional_fee_won": 1000,
+        "daily_max_won": null
+      },
+      "search_info": {
+        "partner": true,
+        "source_url": "https://app.modu.kr/p/267670",
+        "verified_at": "2026-10-24T08:31:04.868443+00:00"
       }
     },
     {
@@ -162,16 +380,131 @@
             "road_address": "서울특별시 성동구 연무장7길 13",
             "jibun_address": "서울특별시 성동구 성수동2가 314-11"
           }
+        },
+        {
+          "id": "modu-37099",
+          "name": "휴일 3시간권(자주식)",
+          "price_won": 6000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/37099",
+          "verified_at": "2026-10-24T07:57:24Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [
+            "당일 유효시간 안에서 3시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 또는 주차권 연속 사용 시 전액 현장 요금이 적용될 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/269161",
+            "road_address": "서울특별시 성동구 연무장7길 13",
+            "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          }
+        },
+        {
+          "id": "modu-35515",
+          "name": "휴일 5시간권(자주식)",
+          "price_won": 9000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/35515?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T08:14:51Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 300,
+          "category": "시간권",
+          "conditions": [
+            "당일 유효시간 안에서 5시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/269161",
+            "road_address": "서울특별시 성동구 연무장7길 13",
+            "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          }
+        },
+        {
+          "id": "modu-37480",
+          "name": "휴일 8시간권(자주식)",
+          "price_won": 11000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/37480?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T08:14:51Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 480,
+          "category": "시간권",
+          "conditions": [
+            "당일 유효시간 안에서 8시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/269161",
+            "road_address": "서울특별시 성동구 연무장7길 13",
+            "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          }
+        },
+        {
+          "id": "modu-35511",
+          "name": "휴일 당일권(자주식)",
+          "price_won": 12000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/35511?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T08:14:51Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 1439,
+          "category": "당일권",
+          "conditions": [
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/269161",
+            "road_address": "서울특별시 성동구 연무장7길 13",
+            "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          }
         }
       ],
       "location_verified_at": null,
-      "product_verified_at": "2026-10-22T16:34:39Z",
+      "product_verified_at": "2026-10-24T07:57:24Z",
       "facility_info": {
         "source_url": "https://app.modu.kr/p/269161",
         "verified_at": "2026-10-22T16:34:39Z",
         "hourly_fee_won": 6000,
         "operating_hours": "00:00 ~ 24:00",
         "ticket_status": "VERIFIED_OFFERS"
+      },
+      "search_info": {
+        "partner": true,
+        "source_url": "https://app.modu.kr/p/269161",
+        "verified_at": "2026-10-24T08:31:04.868443+00:00"
       }
     },
     {
@@ -181,7 +514,19 @@
       "location": null,
       "products": [],
       "location_verified_at": null,
-      "product_verified_at": null
+      "product_verified_at": null,
+      "facility_info": {
+        "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
+        "source_label": "서울시 기준 · 모두의주차장 미대조",
+        "verified_at": "2026-10-24T07:47:24.241351+00:00",
+        "source_parking_id": "3171517",
+        "basic_minutes": 15,
+        "basic_fee_won": 1000,
+        "additional_minutes": 15,
+        "additional_fee_won": 1000,
+        "hourly_fee_won": 4000,
+        "daily_max_won": 40000
+      }
     },
     {
       "id": "265689e3-e0b5-5d2d-bdba-67ea4b6d77a5",
@@ -190,7 +535,19 @@
       "location": null,
       "products": [],
       "location_verified_at": null,
-      "product_verified_at": null
+      "product_verified_at": null,
+      "facility_info": {
+        "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
+        "source_label": "서울시 기준 · 모두의주차장 미대조",
+        "verified_at": "2026-10-24T07:47:24.241351+00:00",
+        "source_parking_id": "3122097",
+        "basic_minutes": 30,
+        "basic_fee_won": 4000,
+        "additional_minutes": 15,
+        "additional_fee_won": 2000,
+        "hourly_fee_won": 8000,
+        "daily_max_won": null
+      }
     },
     {
       "id": "c7e1aedd-3112-5192-984a-1dff177f201e",
@@ -247,14 +604,45 @@
             "facility_url": "https://app.modu.kr/t/40328",
             "jibun_address": "서울특별시 성동구 성수동1가 656-951"
           }
+        },
+        {
+          "id": "modu-22768",
+          "name": "휴일 당일권",
+          "price_won": 18000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/22768?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T07:49:06Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 1439,
+          "category": "당일권",
+          "conditions": [
+            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
+            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/t/40328",
+            "jibun_address": "서울특별시 성동구 성수동1가 656-951"
+          }
         }
       ],
       "location_verified_at": null,
-      "product_verified_at": "2026-10-22T16:43:03Z",
+      "product_verified_at": "2026-10-24T07:49:06Z",
       "product_link_review": {
         "decision": "MAPPED",
         "facility_authority": "SEOUL_PARKING",
         "source_addresses_differ": true
+      },
+      "search_info": {
+        "card": true,
+        "source_url": "https://app.modu.kr/p/266083",
+        "verified_at": "2026-10-24T08:31:04.868443+00:00",
+        "partner": true
       }
     },
     {
@@ -264,7 +652,30 @@
       "location": null,
       "products": [],
       "location_verified_at": null,
-      "product_verified_at": null
+      "product_verified_at": null,
+      "facility_info": {
+        "source_url": "https://app.modu.kr/p/109583",
+        "verified_at": "2026-10-24T08:09:43Z",
+        "source_updated_date": "2025-03-19",
+        "hourly_fee_won": 5000,
+        "basic_minutes": 30,
+        "basic_fee_won": 2000,
+        "additional_minutes": 10,
+        "additional_fee_won": 1000,
+        "daily_max_won": null,
+        "operating_hours": null,
+        "ticket_status": "NOT_SOLD",
+        "ticket_status_verified_at": "2026-10-24T08:09:43Z",
+        "ticket_status_source_url": "https://app.modu.kr/p/109583",
+        "source_address": "서울특별시 성동구 왕십리로 38",
+        "address_reference_url": "https://landbookarchitects.net/contact",
+        "operating_hours_review": "CONFLICT: Modu 07:00–22:00 / Seoul weekday06:00–21:00; awaiting decision"
+      },
+      "search_info": {
+        "card": true,
+        "source_url": "https://app.modu.kr/p/109583",
+        "verified_at": "2026-10-24T08:09:43Z"
+      }
     },
     {
       "id": "a8e03d7f-f5ae-5ae8-92cc-5ade52467610",
@@ -273,7 +684,19 @@
       "location": null,
       "products": [],
       "location_verified_at": null,
-      "product_verified_at": null
+      "product_verified_at": null,
+      "facility_info": {
+        "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
+        "source_label": "서울시 기준 · 모두의주차장 미대조",
+        "verified_at": "2026-10-24T07:47:23.843910+00:00",
+        "source_parking_id": "3204785",
+        "basic_minutes": 10,
+        "basic_fee_won": 2000,
+        "additional_minutes": 10,
+        "additional_fee_won": 2000,
+        "hourly_fee_won": 12000,
+        "daily_max_won": null
+      }
     },
     {
       "id": "71526098-5957-53ad-aa71-5082a32e299c",
@@ -282,7 +705,19 @@
       "location": null,
       "products": [],
       "location_verified_at": null,
-      "product_verified_at": null
+      "product_verified_at": null,
+      "facility_info": {
+        "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
+        "source_label": "서울시 기준 · 모두의주차장 미대조",
+        "verified_at": "2026-10-24T07:47:23.843910+00:00",
+        "source_parking_id": "3161407",
+        "basic_minutes": 30,
+        "basic_fee_won": 3000,
+        "additional_minutes": 10,
+        "additional_fee_won": 1000,
+        "hourly_fee_won": 6000,
+        "daily_max_won": 50000
+      }
     },
     {
       "id": "a01255d6-de2c-5f3a-b645-501d589d8cb6",
@@ -291,16 +726,132 @@
       "location": null,
       "products": [],
       "location_verified_at": null,
-      "product_verified_at": null
+      "product_verified_at": null,
+      "facility_info": {
+        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+        "verified_at": "2026-10-24T07:43:24Z",
+        "hourly_fee_won": 3000,
+        "unit_minutes": 5,
+        "unit_fee_won": 250,
+        "effective_from": "2026-10-01",
+        "daily_max_won": null
+      },
+      "search_info": {
+        "public": true,
+        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+        "verified_at": "2026-10-24T07:43:24Z"
+      }
     },
     {
       "id": "c5940038-d14e-5bd2-a8a2-1b7682b49e3e",
       "name": "센터포인트 성수",
       "address": "성수동2가 280-11",
       "location": null,
-      "products": [],
+      "products": [
+        {
+          "id": "modu-34771",
+          "name": "1시간권",
+          "price_won": 3000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/34771?parkingDate=2026-10-24&durationId=PT1H",
+          "verified_at": "2026-10-24T08:07:21Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 60,
+          "category": "시간권",
+          "conditions": [
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267781",
+            "road_address": "서울 성동구 광나루로8길 22",
+            "jibun_address": "성수동2가 280-11",
+            "address_reference_url": "https://dorojuso.kr/1120011500102800011004939/"
+          }
+        },
+        {
+          "id": "modu-31647",
+          "name": "휴일 당일권",
+          "price_won": 8000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/31647?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T08:14:51Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 1439,
+          "category": "당일권",
+          "conditions": [
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267781",
+            "road_address": "서울 성동구 광나루로8길 22",
+            "jibun_address": "성수동2가 280-11",
+            "address_reference_url": "https://dorojuso.kr/1120011500102800011004939/"
+          }
+        },
+        {
+          "id": "modu-31649",
+          "name": "심야권",
+          "price_won": 5000,
+          "hours_label": "18:00 ~ 익일 06:00 이용가능",
+          "source_url": "https://app.modu.kr/t/31649?parkingDate=2026-10-24",
+          "verified_at": "2026-10-24T08:16:46Z",
+          "available_dates": [
+            "2026-10-24"
+          ],
+          "duration_minutes": 720,
+          "category": "야간권",
+          "conditions": [
+            "18:00 ~ 익일 06:00 범위에서만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267781",
+            "road_address": "서울 성동구 광나루로8길 22",
+            "jibun_address": "성수동2가 280-11",
+            "address_reference_url": "https://dorojuso.kr/1120011500102800011004939/"
+          }
+        }
+      ],
       "location_verified_at": null,
-      "product_verified_at": null
+      "product_verified_at": "2026-10-24T08:07:21Z",
+      "facility_info": {
+        "source_url": "https://app.modu.kr/p/267781",
+        "verified_at": "2026-10-24T08:07:21Z",
+        "hourly_fee_won": 6000,
+        "basic_minutes": 30,
+        "basic_fee_won": 3000,
+        "additional_minutes": 30,
+        "additional_fee_won": 3000,
+        "daily_max_won": null,
+        "operating_hours": "00:00 ~ 24:00"
+      },
+      "search_info": {
+        "partner": true,
+        "source_url": "https://app.modu.kr/p/267781",
+        "verified_at": "2026-10-24T08:07:21Z"
+      }
     },
     {
       "id": "8f81431b-9018-5982-9327-c3a74c7c59bc",
@@ -309,7 +860,19 @@
       "location": null,
       "products": [],
       "location_verified_at": null,
-      "product_verified_at": null
+      "product_verified_at": null,
+      "facility_info": {
+        "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
+        "source_label": "서울시 기준 · 모두의주차장 미대조",
+        "verified_at": "2026-10-24T07:47:23.843910+00:00",
+        "source_parking_id": "3115921",
+        "basic_minutes": 30,
+        "basic_fee_won": 3000,
+        "additional_minutes": 10,
+        "additional_fee_won": 1000,
+        "hourly_fee_won": 6000,
+        "daily_max_won": 45000
+      }
     },
     {
       "id": "c0af6bc5-1cc5-5a1d-8641-c73366a306f4",
@@ -320,11 +883,20 @@
       "location_verified_at": null,
       "product_verified_at": null,
       "facility_info": {
-        "source_url": "https://app.modu.kr/p/263488",
-        "verified_at": "2026-10-22T16:34:39Z",
+        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+        "verified_at": "2026-10-24T07:43:24Z",
         "hourly_fee_won": 3000,
         "operating_hours": "00:00 ~ 24:00",
-        "ticket_status": "NOT_SOLD"
+        "ticket_status": "NOT_SOLD",
+        "unit_minutes": 5,
+        "unit_fee_won": 250,
+        "effective_from": "2026-10-01",
+        "daily_max_won": null
+      },
+      "search_info": {
+        "public": true,
+        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+        "verified_at": "2026-10-24T07:43:24Z"
       }
     }
   ]
