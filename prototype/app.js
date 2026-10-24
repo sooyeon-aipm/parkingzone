@@ -250,7 +250,7 @@ function reset() {
   Object.assign(state,{selectedId:null,selectedProductId:null,detailOrigin:'map',destinationId:null,query:'',sort:'name',expanded:false,category:'제안',duration:'1시간',date:koreaDate(),followToday:true,scenario:participantView ? participantScenario : 'normal',returnY:0,zoom:1,tickets:true,completed:false});
   $('#purchase').disabled = false;
   $('#search').value = ''; $('#destination-label').textContent = '목적지 또는 주소 검색'; $('#open-date').textContent = '오늘 · 1시간';
-  ['#search-screen','#date-screen','#filter-screen','#filter-options-screen','#share-screen','#completion','#toast','#favorites-screen','#tickets-screen','#ticket-history-screen'].forEach(s => $(s).hidden = true); $('#ticket-toggle').setAttribute('aria-pressed','true'); $('#ticket-toggle b').textContent = 'ON'; changeMode(participantView || isLive() ? 'improved' : 'baseline'); setService('parking');
+  ['#ai-screen','#search-screen','#date-screen','#filter-screen','#filter-options-screen','#share-screen','#completion','#toast','#favorites-screen','#tickets-screen','#ticket-history-screen'].forEach(s => $(s).hidden = true); $('#ticket-toggle').setAttribute('aria-pressed','true'); $('#ticket-toggle b').textContent = 'ON'; changeMode(participantView || isLive() ? 'improved' : 'baseline'); setService('parking');
 }
 function updateDataLabels(message='') {
   if(message) toast(message);
@@ -325,7 +325,10 @@ async function init() {
     $('#sort-distance').addEventListener('click', () => { state.sort='distance'; renderList(); }); $('#sort-price').addEventListener('click', () => { state.sort='price'; renderList(); });
     document.querySelectorAll('[data-category]').forEach(b => b.addEventListener('click', () => { state.category=b.dataset.category; renderList(); }));
     document.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => changeMode(b.dataset.mode)));
-    document.querySelectorAll('[data-unsupported]').forEach(b => b.addEventListener('click', () => toast(`${b.dataset.unsupported}은 화면 참고 영역입니다. 이번 테스트는 당일 주차권 선택 흐름입니다.`)));
+    const closeAi=()=>{$('#ai-screen').hidden=true;$('#open-ai').focus({preventScroll:true});};
+    $('#open-ai').addEventListener('click',()=>{$('#ai-screen').hidden=false;$('#close-ai').focus({preventScroll:true});});
+    $('#close-ai').addEventListener('click',closeAi);
+    $('#ai-screen').addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();closeAi();}});
     $('#open-tickets').addEventListener('click',()=>{$('#tickets-screen').hidden=false;});
     const shareFlow=initShareFlow($('#share-screen'));
     $('#open-share').addEventListener('click',()=>shareFlow.open());
