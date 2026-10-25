@@ -252,16 +252,11 @@ function reset() {
   $('#search').value = ''; $('#destination-label').textContent = '목적지 또는 주소 검색'; $('#open-date').textContent = '오늘 · 1시간';
   ['#ai-screen','#search-screen','#date-screen','#filter-screen','#filter-options-screen','#share-screen','#completion','#toast','#favorites-screen','#tickets-screen','#ticket-history-screen'].forEach(s => $(s).hidden = true); $('#ticket-toggle').setAttribute('aria-pressed','true'); $('#ticket-toggle b').textContent = 'ON'; changeMode(participantView || isLive() ? 'improved' : 'baseline'); setService('parking');
 }
-function updateDataLabels(message='') {
-  if(message) toast(message);
-  $('.statusbar span').textContent=new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(displayAsOf()));
-}
 const refreshPolicy = createRefreshPolicy({load: performLiveRefresh});
 function refreshLive(options) { return refreshPolicy.refresh(options); }
 async function performLiveRefresh() {
   const version = ++requestVersion;
 
-  updateDataLabels();
   try {
     const res = await fetch('/api/parking', {cache:'no-store', signal:AbortSignal.timeout(25000)});
     if (!res.ok) throw new Error('LIVE_READ_FAILED');
@@ -269,14 +264,13 @@ async function performLiveRefresh() {
     if (version !== requestVersion || !isLive()) return;
     firstReadPending=false; readError=false;
     dataset = snapshot; liveLoadedAt = performance.now(); liveLoadedWallAt = Date.now();
-    refreshVisibleViews(); updateDataLabels();
+    refreshVisibleViews();
     $('#load-message').textContent = '';
     return true;
   } catch {
     if (version !== requestVersion || !isLive()) return;
     firstReadPending=false; readError=true;
     refreshVisibleViews();
-    updateDataLabels();
     $('#load-message').textContent = '';
     return false;
   }
@@ -373,7 +367,7 @@ async function init() {
     $('#load-message').textContent='';
     startRefreshLoop({refresh:()=>refreshLive()});
     // 새 네트워크 호출 없이 경과 시간만 반영한다. 20분을 넘긴 값을 현재로 고정하지 않는다.
-    setInterval(() => { if (!document.hidden && isLive()) { refreshVisibleViews(); updateDataLabels(); } },30000);
+    setInterval(() => { if (!document.hidden && isLive()) { refreshVisibleViews(); } },30000);
 
   } catch(error) { $('#load-message').textContent='데이터를 불러오지 못했습니다. README의 실행 방법을 확인해 주세요.'; console.error(error); }
 }
