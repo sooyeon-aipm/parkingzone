@@ -5,3 +5,6 @@ verify_jwt = true
 
 [functions.parking-status]
 verify_jwt = true
+
+[functions.collect-modu-passes]
+verify_jwt = true

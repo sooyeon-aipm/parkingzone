@@ -1,0 +1,125 @@
+{
+  "id": 262904,
+  "name": "서울숲IT밸리 주차장",
+  "address": "서울 성동구 성수동1가 13-166",
+  "total": 328,
+  "partner": true,
+  "hourly": 3000,
+  "tickets": [
+    {
+      "couponSeq": 15885,
+      "couponName": "휴일 3시간권",
+      "couponTypeSeq": 2000,
+      "couponTypeGroup": 0,
+      "couponTypeName": "시간권",
+      "labelDetailCodes": [],
+      "price": 3000,
+      "stock": 16,
+      "usagePeriodLabel": "00:00 ~ 23:59 이용가능",
+      "purchaseAvailability": {
+        "status": "AVAILABLE",
+        "purchaseOpenDateTime": null
+      },
+      "vacancyNotification": {
+        "status": "UNAVAILABLE"
+      },
+      "usingDateLabel": "구매당일",
+      "usingTimeLabel": "00:00~23:59",
+      "isOpen": true,
+      "isSoldOut": false,
+      "nextTimeLabel": "10/25(일) 00:00부터 구매가능"
+    },
+    {
+      "couponSeq": 15884,
+      "couponName": "휴일 5시간권",
+      "couponTypeSeq": 2000,
+      "couponTypeGroup": 0,
+      "couponTypeName": "시간권",
+      "labelDetailCodes": [],
+      "price": 5000,
+      "stock": 33,
+      "usagePeriodLabel": "00:00 ~ 23:59 이용가능",
+      "purchaseAvailability": {
+        "status": "AVAILABLE",
+        "purchaseOpenDateTime": null
+      },
+      "vacancyNotification": {
+        "status": "UNAVAILABLE"
+      },
+      "usingDateLabel": "구매당일",
+      "usingTimeLabel": "00:00~23:59",
+      "isOpen": true,
+      "isSoldOut": false,
+      "nextTimeLabel": "10/25(일) 00:00부터 구매가능"
+    },
+    {
+      "couponSeq": 15328,
+      "couponName": "야간권",
+      "couponTypeSeq": 1400,
+      "couponTypeGroup": 0,
+      "couponTypeName": "야간권",
+      "labelDetailCodes": [],
+      "price": 4000,
+      "stock": 17,
+      "usagePeriodLabel": "17:00 ~ 23:59 이용가능",
+      "purchaseAvailability": {
+        "status": "AVAILABLE",
+        "purchaseOpenDateTime": null
+      },
+      "vacancyNotification": {
+        "status": "UNAVAILABLE"
+      },
+      "usingDateLabel": "구매당일",
+      "usingTimeLabel": "17:00~23:59",
+      "isOpen": true,
+      "isSoldOut": false,
+      "nextTimeLabel": "10/25(일) 11:00부터 구매가능"
+    },
+    {
+      "couponSeq": 15327,
+      "couponName": "심야권",
+      "couponTypeSeq": 1500,
+      "couponTypeGroup": 0,
+      "couponTypeName": "심야권",
+      "labelDetailCodes": [],
+      "price": 6000,
+      "stock": 20,
+      "usagePeriodLabel": "17:00 ~ 익일 07:00 이용가능",
+      "purchaseAvailability": {
+        "status": "AVAILABLE",
+        "purchaseOpenDateTime": null
+      },
+      "vacancyNotification": {
+        "status": "UNAVAILABLE"
+      },
+      "usingDateLabel": "구매당일",
+      "usingTimeLabel": "17:00~익일 07:00",
+      "isOpen": true,
+      "isSoldOut": false,
+      "nextTimeLabel": "10/25(일) 11:00부터 구매가능"
+    },
+    {
+      "couponSeq": 15326,
+      "couponName": "휴일 당일권",
+      "couponTypeSeq": 1000,
+      "couponTypeGroup": 0,
+      "couponTypeName": "당일권",
+      "labelDetailCodes": [],
+      "price": 8000,
+      "stock": 10,
+      "usagePeriodLabel": "00:00 ~ 23:59 이용가능",
+      "purchaseAvailability": {
+        "status": "AVAILABLE",
+        "purchaseOpenDateTime": null
+      },
+      "vacancyNotification": {
+        "status": "UNAVAILABLE"
+      },
+      "usingDateLabel": "구매당일",
+      "usingTimeLabel": "00:00~23:59",
+      "isOpen": true,
+      "isSoldOut": false,
+      "nextTimeLabel": "10/25(일) 00:00부터 구매가능"
+    }
+  ]
+}

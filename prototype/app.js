@@ -1,6 +1,6 @@
 import {parkingTypeLabel,compactFacilityMeta,typeIcon,facilityProductsHtml,measuredPeekHeight} from './facility-sheet.js?v=20261025-fifteen4';
 import { buildView, sourceTimeLabel } from './model.js';
-import { connectCatalog } from './catalog.js';
+import { connectCatalog } from './catalog.js?v=20261025-passes1';
 import {straightDistance,distanceLabel} from './geo.js';
 import { createParkingMap } from './parking-map.js?v=20261025-fifteen4';
 import { createRefreshPolicy } from './refresh-policy.js';
@@ -39,7 +39,7 @@ const dateLabel = value => value===koreaDate() ? '오늘' : value.replaceAll('-'
 const saleOpen = product => product && product.available!==false && (!product.sale_starts_at || Date.parse(displayAsOf()) >= Date.parse(product.sale_starts_at));
 const saleLabel = product => product?.available===false ? `${selectedDate().slice(5).replace('-','/')} 이용불가` : saleOpen(product) ? '' : `${new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(product.sale_starts_at))} 판매예정`;
 function productsFor(lot) {
-  return serviceProducts((lot.observed_products?.some(p=>p.observed_date===selectedDate())?lot.observed_products:lot.products),state.service).filter(product => product.available!==false && product.available_dates?.includes(selectedDate()) &&
+  return serviceProducts((lot.pass_source_registered||lot.observed_products?.some(p=>p.observed_date===selectedDate())?lot.observed_products:lot.products),state.service).filter(product => product.available!==false && product.available_dates?.includes(selectedDate()) &&
     (['제안',product.category].includes(state.category)) &&
     (state.service!=='parking' || durationMatches(product,state.duration)));
 }
@@ -198,7 +198,7 @@ function measureDetailPeek() {
 }
 function renderDetail() {
   const lot=dataset.lots.find(l=>l.id===state.selectedId);if(!lot)return;
-  const item=view(lot),products=state.service==='parking'&&lot.observed_products?.some(p=>p.observed_date===selectedDate())?lot.observed_products.filter(p=>p.observed_date===selectedDate()):productsFor(lot),type=parkingTypeLabel(lot);
+  const item=view(lot),products=state.service==='parking'&&(lot.pass_source_registered||lot.observed_products?.some(p=>p.observed_date===selectedDate()))?lot.observed_products.filter(p=>p.observed_date===selectedDate()):productsFor(lot),type=parkingTypeLabel(lot);
   const unavailable=Boolean(state.selectedProductId&&!selectedProduct(lot));
   $('#detail').classList.toggle('expanded',state.expanded);
   applyDetailProgress(state.expanded?1:0);
@@ -218,7 +218,8 @@ function renderDetail() {
   const actions=`<nav class="facility-actions" aria-label="주차장 기능"><button data-facility-action="share"><span>↥</span>전달</button><button data-facility-action="edit"><span>✎</span>수정요청</button><button data-facility-action="favorite" aria-pressed="${favorite}"><span>${favorite?'★':'☆'}</span>즐겨찾기</button><button data-facility-action="directions"><span>➜</span>내비</button></nav>`;
   const onsite=lot.facility_info?.ticket_status==='NOT_SOLD';
   const cards=onsite?`<div class="facility-onsite"><p><span>주차요금</span><strong>1시간 ${money(lot.facility_info.hourly_fee_won)}원</strong></p><p><span>운영시간</span><strong>${escape(lot.facility_info.operating_hours??'정보 미확인')}</strong></p></div><p class="facility-unsupported">앱 결제를 지원하지 않는 주차장입니다</p><button class="facility-request" data-request-pass>여기도 이용권 만들어 주세요</button>`:products.length?facilityProductsHtml(products,{selectedId:state.selectedProductId,completed:state.completed,saleOpen,saleLabel}):`<p class="empty facility-no-products">${escape(noProductLabel(lot))}</p>`;
-  const html=`${actions}${statusPanel(item,lot)}${lot.facility_info?.banner_text?`<div class="facility-banner">${escape(lot.facility_info.banner_text)}</div>`:''}${unavailable?'<p class="facility-unavailable" role="status">선택한 주차권은 현재 조건에서 이용할 수 없습니다. 다른 상품을 직접 선택해 주세요.</p>':''}<div class="facility-products" id="facility-products">${cards}</div>${products.length?'<button class="facility-all-products" data-all-products>이용권 모두보기</button>':''}<section class="info-block facility-info"><p>⌖ ${escape(lot.facility_info?.source_address??lot.address)}</p><h3>시간요금</h3><p>${facilityFeeLines(lot.facility_info).map(escape).join('<br>')}</p><details><summary>입출차·주차권 안내</summary><p>만차 혹은 현장 사정에 따라 주차가 어려울 수 있습니다.</p><p>주차 상태는 갱신 시점 기준이며 도착 시 자리를 보장하지 않습니다.</p><p>구매하기는 선택 결과의 테스트 종료이며 실제 결제·예약·발급은 이루어지지 않습니다.</p></details></section>`;
+  const passNotice=lot.pass_collection?.last_result==='ERROR'?'<p class="facility-unavailable">주차권 정보를 다시 확인하지 못했어요. 마지막 확인 정보이며 구매할 수 없습니다.</p>':'';
+  const html=`${actions}${statusPanel(item,lot)}${passNotice}${lot.facility_info?.banner_text?`<div class="facility-banner">${escape(lot.facility_info.banner_text)}</div>`:''}${unavailable?'<p class="facility-unavailable" role="status">선택한 주차권은 현재 조건에서 이용할 수 없습니다. 다른 상품을 직접 선택해 주세요.</p>':''}<div class="facility-products" id="facility-products">${cards}</div>${products.length?'<button class="facility-all-products" data-all-products>이용권 모두보기</button>':''}<section class="info-block facility-info"><p>⌖ ${escape(lot.facility_info?.source_address??lot.address)}</p><h3>시간요금</h3><p>${facilityFeeLines(lot.facility_info).map(escape).join('<br>')}</p><details><summary>입출차·주차권 안내</summary><p>만차 혹은 현장 사정에 따라 주차가 어려울 수 있습니다.</p><p>주차 상태는 갱신 시점 기준이며 도착 시 자리를 보장하지 않습니다.</p><p>구매하기는 선택 결과의 테스트 종료이며 실제 결제·예약·발급은 이루어지지 않습니다.</p></details></section>`;
   const content=$('#detail-content');
   if(content.dataset.renderedHtml!==html){const scroll=content.scrollTop;updateHtml(content,html);content.dataset.renderedHtml=html;content.scrollTop=scroll;}
   applyDetailProgress(state.expanded?1:0);

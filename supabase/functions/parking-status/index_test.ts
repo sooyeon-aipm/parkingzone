@@ -10,7 +10,7 @@ Deno.test('서버 키로 고정 RPC만 호출하고 결과는 캐시하지 않�
   Deno.env.set('SUPABASE_URL','https://example.supabase.co');
   const snapshot = {data_origin:'LIVE',as_of:new Date().toISOString(),lots:[]};
   const fetcher = ((url: string, options: RequestInit) => {
-    assert(url === 'https://example.supabase.co/rest/v1/rpc/parking_read_snapshot');
+    assert(url === 'https://example.supabase.co/rest/v1/rpc/parking_read_snapshot_with_passes');
     assert((options.headers as Record<string,string>).apikey === 'test-server-key');
     assert(options.body === '{}');
     return Promise.resolve(Response.json(snapshot));

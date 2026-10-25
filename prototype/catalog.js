@@ -1,3 +1,4 @@
+import {connectPassSnapshot} from './pass-catalog.js?v=20261025-passes1';
 // 시설 원문과 검증된 상품만 사용한다. 주차 현황·가격·거리를 만들어 채우지 않는다.
 export function connectCatalog(snapshot, catalog) {
   if (snapshot?.data_origin !== 'LIVE' || !Number.isFinite(Date.parse(snapshot.as_of)) || !Array.isArray(snapshot.lots)) throw new Error('INVALID_SNAPSHOT');
@@ -7,13 +8,15 @@ export function connectCatalog(snapshot, catalog) {
     if (lot.observation && lot.observation.parking_id !== lot.id) throw new Error('MISMATCHED_OBSERVATION');
     records.set(lot.id,lot);
   }
+  const passRecords=new Map();
+  for(const record of snapshot.pass_snapshots??[]){if(passRecords.has(record.parking_id)||!catalog.lots.some(l=>l.id===record.parking_id))throw Error('INVALID_PASS_FACILITY');passRecords.set(record.parking_id,record);}
   const ids = new Set(catalog.lots.map(lot => lot.id));
   if (ids.size !== catalog.lots.length || [...records.keys()].some(id => !ids.has(id))) throw new Error('UNKNOWN_FACILITY');
   return {
     data_origin:'LIVE', as_of:snapshot.as_of,
     lots:catalog.lots.map(facility => {
       const actual = records.get(facility.id);
-      return { ...facility,
+      return { ...connectPassSnapshot(facility,passRecords.get(facility.id),snapshot.as_of),
         observation:actual?.observation ?? null,
         latest_collection:actual?.latest_collection ?? null,
         products:(facility.products ?? []).filter(product =>

@@ -1,0 +1,13 @@
+Deno.env.set('PARKING_TEST_MODE','1');
+const {parsePage,collectOne,koreaDate}=await import('./index.ts');
+const fixture=JSON.parse(await Deno.readTextFile(new URL('./fixture.json',import.meta.url)));
+const source={parking_id:'example',provider_id:fixture.id,expected_name:fixture.name,expected_address:fixture.address};
+const html=(change:any={})=>{const props={id:String(fixture.id),pin:{seq:fixture.id,basic:{name:fixture.name,address:fixture.address,partnerStatus:true}},tickets:fixture.tickets,...change};const flight='42:'+JSON.stringify(['$','$L1',null,props])+'\n';return `<script>self.__next_f.push(${JSON.stringify([1,flight])})</script>`;};
+const equal=(a:unknown,b:unknown)=>{if(JSON.stringify(a)!==JSON.stringify(b))throw Error(JSON.stringify({a,b}));};
+Deno.test('공개 스트림 전체 상품을 읽고 화면 첫4개로 자르지 않는다',()=>{const p=parsePage(html(),source,'2026-10-25');equal(p.length,5);equal(p[0].provider_product_id,15885);equal(p[0].price_won,3000);});
+Deno.test('시설 ID/이름/주소가 다르면 상품을 연결하지 않는다',()=>{for(const s of [{...source,expected_name:'다른 시설'},{...source,expected_address:'성수동2가 1'}]){let rejected=false;try{parsePage(html(),s,'2026-10-25');}catch{rejected=true;}equal(rejected,true);}});
+Deno.test('판매예정은 KST로 해석하고 만석·판매불가를 AVAILABLE로 바꾸지 않는다',()=>{const tickets=structuredClone(fixture.tickets);tickets[0].purchaseAvailability={status:'NOT_YET_OPEN',purchaseOpenDateTime:'2026-10-26T11:00:00'};tickets[1].purchaseAvailability.status='CLOSED';const p=parsePage(html({tickets}),source,'2026-10-26');equal(p[0].sale_starts_at,'2026-10-26T11:00:00+09:00');equal(p[1].sale_status,'CLOSED');});
+Deno.test('중복 상품·알 수 없는 판매상태·손상 페이지는 실패로 남긴다',()=>{const cases=[html({tickets:[fixture.tickets[0],fixture.tickets[0]]}),html({tickets:[{...fixture.tickets[0],purchaseAvailability:{status:'NEW_UNKNOWN'}}]}),'<html>장애</html>'];for(const body of cases){let rejected=false;try{parsePage(body,source,'2026-10-25');}catch{rejected=true;}equal(rejected,true);}});
+Deno.test('빈 전체 상품 배열은 파싱 실패와 구분한다',()=>equal(parsePage(html({tickets:[]}),source,'2026-10-25'),[]));
+Deno.test('HTTP429는 재시도 폭주 대신 rate-limit 실패로 분류한다',async()=>{let code='';try{await collectOne(source,koreaDate(),()=>Promise.resolve(new Response('',{status:429})));}catch(e){code=(e as Error).message;}equal(code,'SOURCE_RATE_LIMITED');});
+Deno.test('과거 날짜를 오늘 수집으로 바꿔 저장하지 않는다',async()=>{let code='';try{await collectOne(source,'2020-01-01');}catch(e){code=(e as Error).message;}equal(code,'ONLY_TODAY_COLLECTION');});

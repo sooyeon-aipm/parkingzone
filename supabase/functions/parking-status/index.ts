@@ -10,7 +10,7 @@ export async function handler(req: Request, fetcher: typeof fetch = fetch): Prom
   const base = Deno.env.get('SUPABASE_URL');
   if (!key || !base) return Response.json({ error: 'SERVER_CONFIG_MISSING' }, { status: 503, headers });
   try {
-    const res = await fetcher(`${base}/rest/v1/rpc/parking_read_snapshot`, {
+    const res = await fetcher(`${base}/rest/v1/rpc/parking_read_snapshot_with_passes`, {
       method: 'POST', signal: AbortSignal.timeout(15_000),
       headers: { 'Content-Type': 'application/json', apikey: key,
         ...(key.startsWith('eyJ') ? { Authorization: `Bearer ${key}` } : {}) },
