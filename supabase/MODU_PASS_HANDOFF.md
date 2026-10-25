@@ -65,3 +65,10 @@
 - 재조회: `checks/modu_pass_readback.sql`
 
 공개 크롤러 안내(`https://app.modu.kr/robots.txt`)는 공개 경로 Allow /, 내이용권·구매 경로 Disallow로 확인했다. 허용 안내가 장기 제공 계약을 의미하지 않는다. 인증 우회·차단 우회는 하지 않으며 구조나 제한이 달라지면 실패 상태로 남긴다.
+
+## 화면 연결 배포 확인
+
+- 화면 반영 커밋 `067f564`, 자동 수집/화면 DB 연결 커밋 `6f58fdd`를 main에 푸시했다. 각각 Vercel 상태 `success / Deployment has completed` 확인.
+- 운영 `https://parkingzone.vercel.app/`에서 `app.js?v=20261025-passes1` 로드 및 서울숲IT밸리 전체5상품 확인. 활성 구매 테스트 버튼5개, 해당 Chrome 오류·경고0건. 실제 결제는 실행하지 않았다.
+- `deployed-db-products.png`는 운영 화면에서 새로 연결된 휴일 당일권8,000원과 고정 상태 박스를 확인한 캡처다.
+- 작업 종료 시점 자동 수집 Cron은 활성, 7일 정리 Cron은 실행 직전 확인 답변 대기로 비활성(미생성) 상태다.
