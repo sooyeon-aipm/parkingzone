@@ -1,18 +1,19 @@
+import {parkingTypeLabel,compactFacilityMeta,typeIcon,facilityProductsHtml,measuredPeekHeight} from './facility-sheet.js?v=20261025-fifteen4';
 import { buildView, sourceTimeLabel } from './model.js';
 import { connectCatalog } from './catalog.js';
 import {straightDistance,distanceLabel} from './geo.js';
-import { createParkingMap } from './parking-map.js';
+import { createParkingMap } from './parking-map.js?v=20261025-fifteen4';
 import { createRefreshPolicy } from './refresh-policy.js';
 import { startRefreshLoop } from './refresh-loop.js';
-import { attachBottomSheet } from './bottom-sheet.js';
-import { facilityFeeLines } from './facility-fees.js';
+import { attachBottomSheet } from './bottom-sheet.js?v=20261025-fifteen4';
+import { facilityFeeLines } from './facility-fees.js?v=20261025-fifteen4';
 import { readFavorites, saveFavorites } from './favorites.js';
 import { updateHtml } from './dom-update.js';
 import { koreaDate, shiftMonth, monthDays, selectableDate } from './calendar.js';
 import { serviceProducts, durationMatches } from './service-filter.js';
 import { initialProductId, selectedProductById } from './product-selection.js';
 import {defaultSearchFilters, matchesSearchFilters} from './search-filters.js';
-import {mapDisplay,visibleInMapLayer} from './map-display.js';
+import {mapDisplay,visibleInMapLayer} from './map-display.js?v=20261025-fifteen4';
 import {initShareFlow} from './share-flow.js';
 let parkingMap;
 let searchFilters=defaultSearchFilters();
@@ -35,10 +36,10 @@ function toast(message) { clearTimeout(toastTimer); $('#toast').textContent = me
 const view = lot => buildView(lot, displayAsOf(), {readError});
 const selectedDate = () => state.followToday ? koreaDate() : state.date;
 const dateLabel = value => value===koreaDate() ? '오늘' : value.replaceAll('-','.');
-const saleOpen = product => product && (!product.sale_starts_at || Date.parse(displayAsOf()) >= Date.parse(product.sale_starts_at));
-const saleLabel = product => saleOpen(product) ? '' : `${new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(product.sale_starts_at))} 판매예정`;
+const saleOpen = product => product && product.available!==false && (!product.sale_starts_at || Date.parse(displayAsOf()) >= Date.parse(product.sale_starts_at));
+const saleLabel = product => product?.available===false ? `${selectedDate().slice(5).replace('-','/')} 이용불가` : saleOpen(product) ? '' : `${new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(product.sale_starts_at))} 판매예정`;
 function productsFor(lot) {
-  return serviceProducts(lot.products,state.service).filter(product => product.available_dates?.includes(selectedDate()) &&
+  return serviceProducts((lot.observed_products?.some(p=>p.observed_date===selectedDate())?lot.observed_products:lot.products),state.service).filter(product => product.available!==false && product.available_dates?.includes(selectedDate()) &&
     (['제안',product.category].includes(state.category)) &&
     (state.service!=='parking' || durationMatches(product,state.duration)));
 }
@@ -133,13 +134,13 @@ function showList() {
   $('#results').hidden = false; $('#detail').hidden = true; $('#map-header').hidden = true; $('#home-footer').hidden = true; renderList();
 }
 function showMap() {
-  $('#results').hidden = true; $('#detail').hidden = true; $('#map-header').hidden = false; $('#home-footer').hidden = false; renderMarkers();
+  state.selectedId=null;state.selectedProductId=null;state.expanded=false; $('#results').hidden = true; $('#detail').hidden = true; $('#map-header').hidden = false; $('#map-header').style.opacity=''; $('#home-footer').hidden = false; renderMarkers();
 }
-function statusPanel(item) {
-  if (state.mode === 'baseline') return '';
-  const record = item.latest_record;
-  if (firstReadPending && !record) return '<section class="status-panel" aria-label="주차 상태"><p role="status">주차현황을 확인하고 있어요.</p></section>';
-  return `<section class="status-panel" aria-label="주차 상태"><div class="panel-heading"><strong>${item.display.mode === 'CURRENT' ? '주차장 현재 상태' : item.display.mode === 'NO_DATA' ? '주차 정보' : '마지막 기록'}</strong></div>${record ? `<div class="space-count">${record.available_spaces}면 <small>/ 전체 ${record.total_spaces}면</small></div>` : ''}<p>${escape(item.display.warning)}</p>${isLive() && record ? `<p>수집 ${escape(new Intl.DateTimeFormat('ko-KR', { timeZone:'Asia/Seoul', hour:'2-digit', minute:'2-digit', hourCycle:'h23' }).format(new Date(record.collected_at)))}</p>` : ''}${readError ? '<button type="button" class="retry-parking" data-refresh-parking>다시 불러오기</button>' : ''}</section>`;
+function statusPanel(item,lot) {
+  const record=item.latest_record,type=typeIcon(parkingTypeLabel(lot));
+  const warning=firstReadPending&&!record?'주차현황을 확인하고 있어요.':item.display.warning;
+  const oldRecord=record&&item.display.mode!=='CURRENT'?'<span class="facility-record-label">마지막 기록</span>':'';
+  return `<section class="status-panel facility-status" aria-label="주차장 현재 상태"><div class="panel-heading">${type}<strong>주차장 현재 상태</strong>${oldRecord}</div>${record?`<div class="space-count">${record.available_spaces}면 <small>/ 전체 ${record.total_spaces}면</small></div>`:''}<p>${escape(warning)}</p>${readError?'<button type="button" class="retry-parking" data-refresh-parking>다시 불러오기</button>':''}</section>`;
 }
 const selectedProduct = lot => selectedProductById(productsFor(lot),state.selectedProductId);
 const noProductLabel = lot => lot.facility_info?.ticket_status==='NOT_SOLD' && lot.facility_info.ticket_status_source_url && Number.isFinite(Date.parse(lot.facility_info.ticket_status_verified_at))
@@ -156,48 +157,88 @@ function toggleFavorite() {
   try { saveFavorites(localStorage,[...ids]); $('#favorites-error').textContent=''; renderDetail(); }
   catch { toast('즐겨찾기를 저장하지 못했습니다. 다시 시도해 주세요.'); }
 }
+function handleFacilityAction(action) {
+  const lot=dataset.lots.find(l=>l.id===state.selectedId);if(!lot)return;
+  if(action==='favorite'){toggleFavorite();return;}
+  const candidate=lot.facility_info?.source_url;
+  const source=candidate?.startsWith('https://')?candidate:`${lot.facility_info?.display_name??lot.name} · ${lot.facility_info?.source_address??lot.address}`;
+  const content=$('#facility-action-content');
+  $('#facility-action-title').textContent=({share:'전달',edit:'수정요청',directions:'내비'})[action]??'주차장 정보';
+  if(action==='share') content.innerHTML=`<p>${escape(lot.facility_info?.display_name??lot.name)}</p><input id="facility-copy-value" aria-label="공유할 주차장 링크" value="${escape(source)}" readonly><button data-copy-facility>링크 복사</button><p id="facility-action-message" role="status"></p>`;
+  if(action==='directions') content.innerHTML=`<p>${escape(lot.name)}</p><p>${escape(lot.address)}</p><input id="facility-copy-value" aria-label="주차장 주소" value="${escape(lot.address)}" readonly><button data-copy-facility>주소 복사</button><button id="facility-show-on-map">지도에서 위치 보기</button><p id="facility-action-message" role="status"></p>`;
+  if(action==='edit') content.innerHTML='<form id="facility-edit-form"><label>수정할 내용<textarea name="message" placeholder="어떤 정보가 다른지 적어 주세요." required></textarea></label><p>이 화면에서만 확인하며 원본 서비스로 전송하지 않습니다.</p><button type="submit">내용 확인</button><p id="facility-action-message" role="status"></p></form>';
+  $('#facility-action-screen').hidden=false;
+  const copy=content.querySelector('[data-copy-facility]');
+  if(copy)copy.onclick=async()=>{try{await navigator.clipboard.writeText($('#facility-copy-value').value);$('#facility-action-message').textContent='복사했어요.';}catch{$('#facility-action-message').textContent='복사하지 못했습니다. 위 내용을 직접 선택해 복사해 주세요.';}};
+  const show=content.querySelector('#facility-show-on-map');if(show)show.onclick=()=>{$('#facility-action-screen').hidden=true;showMap();parkingMap?.focus(lot.id);};
+  const edit=content.querySelector('#facility-edit-form');if(edit)edit.onsubmit=event=>{event.preventDefault();$('#facility-action-message').textContent='입력 내용을 확인했어요. 실제 수정 요청은 전송되지 않았습니다.';};
+  $('#close-facility-action').focus({preventScroll:true});
+}
+function applyDetailProgress(progress) {
+  const p=Math.max(0,Math.min(1,progress));
+  $('#detail').style.setProperty('--detail-progress',String(p));
+  $('#detail').classList.toggle('detail-full',p>=.5);
+  $('#map-header').hidden=p>=.999;
+  $('#map-header').style.opacity=String(1-p);
+  const actions=$('#detail-content').querySelector('.facility-actions');if(actions){actions.inert=p<.5;actions.setAttribute('aria-hidden',String(p<.5));}
+  $('#detail-directions').tabIndex=p<.5?0:-1;$('#back').tabIndex=p>=.5?0:-1;
+  for(const id of ['detail-type-compact','detail-compact-meta','detail-directions']) $('#'+id).setAttribute('aria-hidden',String(p>=.5));
+}
+let detailMeasureFrame=0;
+function measureDetailPeek() {
+  cancelAnimationFrame(detailMeasureFrame);
+  detailMeasureFrame=requestAnimationFrame(()=>{
+    const sheet=$('#detail'),content=$('#detail-content');
+    if(sheet.hidden||state.expanded||sheet.classList.contains('dragging')) return;
+    const price=content.querySelector('.facility-product-price')??content.querySelector('.facility-onsite');
+    const fallback=$('.facility-identity').getBoundingClientRect().height+(content.querySelector('.status-panel')?.getBoundingClientRect().height??80)+125;
+    const height=measuredPeekHeight({priceBottom:price?.getBoundingClientRect().bottom,sheetTop:sheet.getBoundingClientRect().top,parentHeight:sheet.parentElement.clientHeight,fallbackHeight:fallback});
+    sheet.style.setProperty('--detail-peek-height',`${height}px`);
+  });
+}
 function renderDetail() {
-  const lot = dataset.lots.find(lot => lot.id === state.selectedId); if (!lot) return;
-  const item = view(lot), p = selectedProduct(lot);
-  const selectionUnavailable = Boolean(state.selectedProductId && !p);
-  $('#back').setAttribute('aria-label',state.detailOrigin==='favorites'?'즐겨찾기로 돌아가기':state.detailOrigin==='map'?'지도로 돌아가기':'비교 목록으로 돌아가기');
-  $('#purchase').hidden = !p;
-  $('#purchase').disabled = state.completed || !saleOpen(p);
-  $('#purchase').textContent = p && !saleOpen(p) ? saleLabel(p) : '구매하기';
-  $('#detail').classList.toggle('expanded', state.expanded);
-  $('#expand').setAttribute('aria-expanded', String(state.expanded));
-  $('#expand').setAttribute('aria-label', state.expanded ? '상품 상세 접기' : '상품 상세 펼치기');
-  $('#detail-heading').setAttribute('aria-expanded', String(state.expanded));
-  $('#detail-heading').setAttribute('aria-label', state.expanded ? '상품 상세 접기' : '상품 상세 펼치기');
-  const headingHtml = `${state.mode === 'improved' ? badge(item) : ''}<span class="detail-heading-name" title="${escape(lot.name)}">${escape(lot.name)}</span>`;
-  if ($('#detail-heading').dataset.renderedHtml !== headingHtml) { $('#detail-heading').innerHTML=headingHtml; $('#detail-heading').dataset.renderedHtml=headingHtml; }
-  $('#detail-updated').hidden = state.mode !== 'improved';
-  $('#detail-updated').textContent = item.latest_record ? sourceTimeLabel(item.latest_record) : '최근 기록 없음';
-  const detailHtml = `<h2 class="product-title">${escape(p?.name ?? "주차장 정보")} ${p ? money(p.price_won)+"원" : "상세 보기"}</h2><p class="product-time">${escape(p?.hours_label ?? (selectionUnavailable ? '선택한 주차권은 현재 조건에서 이용할 수 없습니다. 뒤로 돌아가 다시 선택해 주세요.' : noProductLabel(lot)))}</p>${statusPanel(item)}<section class="conditions"><h3>🚨 결제 전 유의사항</h3><ul>${(p?.conditions ?? []).map(text => `<li>${escape(text)}</li>`).join('')}</ul></section>${state.expanded ? `<div class="photo-placeholder"><div>주차장 입구 사진<br>자료 확인 대기</div><div>시설 내부 사진<br>자료 확인 대기</div></div><section class="info-block"><h3>${escape(lot.name)}</h3><p>${escape(lot.address)}</p><button id="toggle-favorite" class="favorite-toggle" aria-pressed="${favoriteIds().includes(lot.id)}">${favoriteIds().includes(lot.id) ? "★ 즐겨찾기 해제" : "☆ 즐겨찾기 추가"}</button><h4>현장 요금 정보</h4><p>${facilityFeeLines(lot.facility_info).map(escape).join('<br>')}</p></section><section class="info-block"><h3>입출차 주의사항</h3><p>${p ? '선택한 주차권의 결제 전 유의사항을 확인해 주세요.' : '확인된 시설별 차량 제한·입출차 정보가 없습니다.'}</p><h4>주차권 공통 안내사항</h4><ul><li>만차 혹은 현장 사정에 따라 주차가 어려울 수 있습니다.</li><li>주차 상태는 표시된 갱신 시점 기준입니다.</li><li>이 프로토타입의 상품은 실제 입차에 사용할 수 없습니다.</li></ul><details><summary>공통 안내 전체 보기</summary><p>유효 시간과 입출차 횟수 등 선택한 주차권의 이용 조건을 확인해 주세요.</p><p>이 화면의 구매하기는 선택 결과를 기록하고 테스트를 종료합니다.</p></details></section>` : '<button id="more-detail" class="more">상세 정보 펼쳐 보기 ⌃</button>'}`;
-  if ($('#detail-content').dataset.renderedHtml !== detailHtml) {
-    const scrollTop = $('#detail-content').scrollTop;
-    const openSections = [...$('#detail-content').querySelectorAll('details')].map(section => section.open);
-    updateHtml($('#detail-content'), detailHtml);
-    $('#detail-content').dataset.renderedHtml = detailHtml;
-    $('#detail-content').querySelectorAll('details').forEach((section,index) => {section.open = openSections[index] ?? false;});
-    $('#detail-content').scrollTop = scrollTop;
-    if ($('#more-detail')) $('#more-detail').onclick=toggleExpanded;
-    if ($('#toggle-favorite')) $('#toggle-favorite').onclick=toggleFavorite;
+  const lot=dataset.lots.find(l=>l.id===state.selectedId);if(!lot)return;
+  const item=view(lot),products=state.service==='parking'&&lot.observed_products?.some(p=>p.observed_date===selectedDate())?lot.observed_products.filter(p=>p.observed_date===selectedDate()):productsFor(lot),type=parkingTypeLabel(lot);
+  const unavailable=Boolean(state.selectedProductId&&!selectedProduct(lot));
+  $('#detail').classList.toggle('expanded',state.expanded);
+  applyDetailProgress(state.expanded?1:0);
+  for(const element of [$('#expand'),$('#detail-heading')]) {
+    element.setAttribute('aria-expanded',String(state.expanded));
+    element.setAttribute('aria-label',state.expanded?'주차장 상세 접기':'주차장 상세 펼치기');
   }
+  $('#back').setAttribute('aria-label',state.detailOrigin==='favorites'?'즐겨찾기로 돌아가기':state.detailOrigin==='list'?'비교 목록으로 돌아가기':'지도로 돌아가기');
+  const displayName=lot.facility_info?.display_name??lot.name;
+  const heading=`${badge(item)}<span class="detail-heading-name" title="${escape(displayName)}">${escape(displayName)}</span>`;
+  if($('#detail-heading').dataset.renderedHtml!==heading){$('#detail-heading').innerHTML=heading;$('#detail-heading').dataset.renderedHtml=heading;}
+  const compactType=typeIcon(type);
+  if($('#detail-type-compact').innerHTML!==compactType)$('#detail-type-compact').innerHTML=compactType;
+  $('#detail-updated').textContent=item.latest_record?sourceTimeLabel(item.latest_record):'최근 기록 없음';
+  $('#detail-compact-meta').textContent=compactFacilityMeta(lot,item.latest_record);
+  const favorite=favoriteIds().includes(lot.id);
+  const actions=`<nav class="facility-actions" aria-label="주차장 기능"><button data-facility-action="share"><span>↥</span>전달</button><button data-facility-action="edit"><span>✎</span>수정요청</button><button data-facility-action="favorite" aria-pressed="${favorite}"><span>${favorite?'★':'☆'}</span>즐겨찾기</button><button data-facility-action="directions"><span>➜</span>내비</button></nav>`;
+  const onsite=lot.facility_info?.ticket_status==='NOT_SOLD';
+  const cards=onsite?`<div class="facility-onsite"><p><span>주차요금</span><strong>1시간 ${money(lot.facility_info.hourly_fee_won)}원</strong></p><p><span>운영시간</span><strong>${escape(lot.facility_info.operating_hours??'정보 미확인')}</strong></p></div><p class="facility-unsupported">앱 결제를 지원하지 않는 주차장입니다</p><button class="facility-request" data-request-pass>여기도 이용권 만들어 주세요</button>`:products.length?facilityProductsHtml(products,{selectedId:state.selectedProductId,completed:state.completed,saleOpen,saleLabel}):`<p class="empty facility-no-products">${escape(noProductLabel(lot))}</p>`;
+  const html=`${actions}${statusPanel(item,lot)}${lot.facility_info?.banner_text?`<div class="facility-banner">${escape(lot.facility_info.banner_text)}</div>`:''}${unavailable?'<p class="facility-unavailable" role="status">선택한 주차권은 현재 조건에서 이용할 수 없습니다. 다른 상품을 직접 선택해 주세요.</p>':''}<div class="facility-products" id="facility-products">${cards}</div>${products.length?'<button class="facility-all-products" data-all-products>이용권 모두보기</button>':''}<section class="info-block facility-info"><p>⌖ ${escape(lot.facility_info?.source_address??lot.address)}</p><h3>시간요금</h3><p>${facilityFeeLines(lot.facility_info).map(escape).join('<br>')}</p><details><summary>입출차·주차권 안내</summary><p>만차 혹은 현장 사정에 따라 주차가 어려울 수 있습니다.</p><p>주차 상태는 갱신 시점 기준이며 도착 시 자리를 보장하지 않습니다.</p><p>구매하기는 선택 결과의 테스트 종료이며 실제 결제·예약·발급은 이루어지지 않습니다.</p></details></section>`;
+  const content=$('#detail-content');
+  if(content.dataset.renderedHtml!==html){const scroll=content.scrollTop;updateHtml(content,html);content.dataset.renderedHtml=html;content.scrollTop=scroll;}
+  applyDetailProgress(state.expanded?1:0);
+  if(content.scrollTop===0)measureDetailPeek();
 }
-function openDetail(id, productId=null, origin=null) {
-  state.detailOrigin=origin ?? ($('#results').hidden ? 'map' : 'list');
-  const lot = dataset.lots.find(lot=>lot.id===id);
-  state.selectedProductId = initialProductId(lot ? productsFor(lot) : [],productId);
-  state.returnY = $('#parking-list').scrollTop; state.selectedId = id; state.expanded = false;
-  $('#results').hidden = true; $('#detail').hidden = false; $('#map-header').hidden = true; $('#home-footer').hidden = true;
-  renderMarkers(); renderDetail(); $('#detail-content').scrollTop = 0;
+function openDetail(id,productId=null,origin=null) {
+  state.detailOrigin=origin??($('#results').hidden?'map':'list');
+  const lot=dataset.lots.find(l=>l.id===id);
+  state.selectedProductId=initialProductId(lot?productsFor(lot):[],productId);
+  state.returnY=$('#parking-list').scrollTop;state.selectedId=id;state.expanded=false;
+  $('#results').hidden=true;$('#detail').hidden=false;$('#home-footer').hidden=true;
+  $('#detail-content').scrollTop=0;renderMarkers();renderDetail();
 }
-function toggleExpanded() { state.expanded = !state.expanded; renderDetail(); }
+function toggleExpanded(){state.expanded=!state.expanded;if(!state.expanded)$('#detail-content').scrollTop=0;renderDetail();if(!state.expanded)requestAnimationFrame(()=>{$('#detail-content').scrollTop=0;measureDetailPeek();});}
 function backToList() {
-  if(state.detailOrigin==='map') {showMap(); return;}
-  if(state.detailOrigin==='favorites') {showMap(); renderFavorites(); $('#favorites-screen').hidden=false; return;}
-  showList(); $('#parking-list').scrollTop = state.returnY;
+  state.selectedId=null;state.selectedProductId=null;state.expanded=false;
+  $('#map-header').style.opacity='';
+  if(state.detailOrigin==='map'){showMap();return;}
+  if(state.detailOrigin==='favorites'){showMap();renderFavorites();$('#favorites-screen').hidden=false;return;}
+  showList();$('#parking-list').scrollTop=state.returnY;
 }
 function changeMode(mode) {
   state.mode = mode;
@@ -213,6 +254,7 @@ function renderSearch() {
 function submitSearch(term) {
   const matches=dataset.lots.filter(lot=>`${lot.name} ${lot.address}`.includes(term));
   state.destinationId=term && term!=='성수동' && matches.length===1 ? matches[0].id : null;
+  state.selectedId=null;state.selectedProductId=null;state.expanded=false;
   state.query=term; state.sort=state.destinationId?'distance':'name';
   $('#destination-label').textContent=term || '목적지 또는 주소 검색';
   $('#search-screen').hidden=true; state.category='제안'; showMap();
@@ -231,16 +273,17 @@ function readRecords() {
   const cutoff = Date.now() - 7 * 86400000;
   return JSON.parse(localStorage.getItem(storageKey) || '[]').filter(r => Number.isFinite(Date.parse(r.recorded_at)) && Date.parse(r.recorded_at) >= cutoff);
 }
-function finishTest() {
+function finishTest(productId=state.selectedProductId) {
   if (state.completed) return;
-  const lot = dataset.lots.find(l => l.id === state.selectedId), product = lot ? selectedProduct(lot) : null;
+  const lot = dataset.lots.find(l => l.id === state.selectedId), product = lot ? selectedProductById(productsFor(lot),productId) : null;
   if (!product) { toast('확인된 주차권이 없습니다.'); return; }
   if (!saleOpen(product)) { toast(saleLabel(product)); return; }
+  state.selectedProductId=product.id;
   const result = {id:crypto.randomUUID(),parking_id:lot.id,parking_name:lot.name,product_name:product.name,price_won:product.price_won,selected_date:selectedDate(),duration:state.duration,recorded_at:new Date().toISOString(),data_as_of:dataset.as_of,test_only:true};
   try { const records=readRecords(); records.push(result); localStorage.setItem(storageKey,JSON.stringify(records)); }
   catch { toast('선택 기록을 저장하지 못했습니다. 다시 시도해 주세요.'); return; }
   $('#completion-detail').innerHTML=`<strong>${escape(lot.name)}</strong><br>${escape(product.name)} · ${money(product.price_won)}원<br>${escape(dateLabel(selectedDate()))} · ${escape(state.duration)}<br><small>실제 결제·예약·주차권 발급은 이루어지지 않았습니다.</small>`;
-  state.completed=true; $('#purchase').disabled=true; $('#completion').hidden=false;
+  state.completed=true; renderDetail(); $('#completion').hidden=false;
   $('#restart').focus({preventScroll:true});
 }
 function reset() {
@@ -248,9 +291,8 @@ function reset() {
   sharedLayer=true;
   $('#shared-toggle').setAttribute('aria-pressed','true'); $('#shared-toggle b').textContent='ON';
   Object.assign(state,{selectedId:null,selectedProductId:null,detailOrigin:'map',destinationId:null,query:'',sort:'name',expanded:false,category:'제안',duration:'1시간',date:koreaDate(),followToday:true,scenario:participantView ? participantScenario : 'normal',returnY:0,zoom:1,tickets:true,completed:false});
-  $('#purchase').disabled = false;
   $('#search').value = ''; $('#destination-label').textContent = '목적지 또는 주소 검색'; $('#open-date').textContent = '오늘 · 1시간';
-  ['#ai-screen','#search-screen','#date-screen','#filter-screen','#filter-options-screen','#share-screen','#completion','#toast','#favorites-screen','#tickets-screen','#ticket-history-screen'].forEach(s => $(s).hidden = true); $('#ticket-toggle').setAttribute('aria-pressed','true'); $('#ticket-toggle b').textContent = 'ON'; changeMode(participantView || isLive() ? 'improved' : 'baseline'); setService('parking');
+  ['#facility-action-screen','#ai-screen','#search-screen','#date-screen','#filter-screen','#filter-options-screen','#share-screen','#completion','#toast','#favorites-screen','#tickets-screen','#ticket-history-screen'].forEach(s => $(s).hidden = true); $('#ticket-toggle').setAttribute('aria-pressed','true'); $('#ticket-toggle b').textContent = 'ON'; changeMode(participantView || isLive() ? 'improved' : 'baseline'); setService('parking');
 }
 const refreshPolicy = createRefreshPolicy({load: performLiveRefresh});
 function refreshLive(options) { return refreshPolicy.refresh(options); }
@@ -285,7 +327,17 @@ async function init() {
       if(state.destinationId) { parkingMap?.focus(state.destinationId); renderList(); }
     }).then(map => { parkingMap=map; renderMarkers(); });
     renderList(); renderCalendar(); showMap();
-    $('#detail-content').addEventListener('click',event=>{if(event.target.closest('[data-refresh-parking]')) refreshLive({force:true});});
+    $('#detail-content').addEventListener('click',event=>{
+      const target=event.target.closest('button');if(!target)return;
+      if(target.hasAttribute('data-refresh-parking')) refreshLive({force:true});
+      if(target.dataset.buyProduct) finishTest(target.dataset.buyProduct);
+      if(target.dataset.facilityAction) handleFacilityAction(target.dataset.facilityAction);
+      if(target.hasAttribute('data-request-pass')){toast('현재 이 주차장은 앱 주차권을 판매하지 않습니다. 실제 요청은 전송되지 않았습니다.');return;}
+      if(target.hasAttribute('data-all-products')){state.expanded=true;renderDetail();$('#detail-content').scrollTo({top:0,behavior:'smooth'});}
+    });
+    $('#detail-directions').addEventListener('click',()=>handleFacilityAction('directions'));
+    $('#close-facility-action').addEventListener('click',()=>{$('#facility-action-screen').hidden=true;});
+    new ResizeObserver(()=>measureDetailPeek()).observe($('.phone'));
     $('#parking-list').addEventListener('click', event => { const button = event.target.closest('[data-lot]'); if (button) openDetail(button.dataset.lot,button.dataset.product); });
     $('#monthly-mode').addEventListener('click',()=>setService(state.service==='monthly'?'parking':'monthly'));
     $('#carwash-mode').addEventListener('click',()=>setService(state.service==='carwash'?'parking':'carwash'));
@@ -314,7 +366,7 @@ async function init() {
     $('#open-list').addEventListener('click', showList); $('#close-list').addEventListener('click', () => { const expanded=$('#results').classList.toggle('expanded'); $('#close-list').setAttribute('aria-expanded',String(expanded)); }); $('#back').addEventListener('click', backToList);
     $('#list-map').addEventListener('click',showMap);
     attachBottomSheet($('#results'), {onClose:showMap,onExpand:expanded => {$('#results').classList.toggle('expanded',expanded); $('#close-list').setAttribute('aria-expanded',String(expanded));}});
-    attachBottomSheet($('#detail'), {onClose:showMap,onExpand:expanded => {state.expanded=expanded; renderDetail();}});
+    attachBottomSheet($('#detail'), {onClose:backToList,onExpand:expanded=>{state.expanded=expanded;if(!expanded)$('#detail-content').scrollTop=0;renderDetail();if(!expanded)requestAnimationFrame(()=>{$('#detail-content').scrollTop=0;measureDetailPeek();});},getCollapsedHeight:()=>parseFloat($('#detail').style.getPropertyValue('--detail-peek-height'))||$('.phone').clientHeight*.5,getExpandedHeight:()=>$('.phone').clientHeight,onDrag:applyDetailProgress,expandOnContentSwipe:true});
     $('#expand').addEventListener('click', toggleExpanded); $('#detail-heading').addEventListener('click', toggleExpanded);
     $('#sort-distance').addEventListener('click', () => { state.sort='distance'; renderList(); }); $('#sort-price').addEventListener('click', () => { state.sort='price'; renderList(); });
     document.querySelectorAll('[data-category]').forEach(b => b.addEventListener('click', () => { state.category=b.dataset.category; renderList(); }));
@@ -361,7 +413,7 @@ async function init() {
     $('#shared-toggle').addEventListener('click',()=>{sharedLayer=!sharedLayer;$('#shared-toggle b').textContent=sharedLayer?'ON':'OFF';$('#shared-toggle').setAttribute('aria-pressed',String(sharedLayer));refreshVisibleViews();});
     $('#zoom-in').addEventListener('click', () => { parkingMap?.zoom(1); }); $('#zoom-out').addEventListener('click', () => { parkingMap?.zoom(-1); });
     $('#recenter').addEventListener('click', () => { parkingMap?.reset(); }); $('#search-here').addEventListener('click', () => isLive() ? refreshLive({force:true}) : toast('현재 테스트 목적지의 고정 가상 목록입니다. 실제 위치 검색과 연결되지 않았습니다.'));
-    $('#purchase').addEventListener('click', finishTest); $('#restart').addEventListener('click', reset);
+    $('#restart').addEventListener('click', reset);
     document.querySelectorAll('[data-startup-control]').forEach(button=>{button.disabled=false;});
     $('.phone').setAttribute('aria-busy','false');
     $('#load-message').textContent='';

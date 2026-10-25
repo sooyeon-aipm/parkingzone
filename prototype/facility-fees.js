@@ -6,6 +6,7 @@ const minutes = value => Number.isInteger(value) && value > 0;
 export function facilityFeeLines(info) {
   if (!info) return ['확인된 현장 요금 정보가 없습니다.'];
   const lines = [];
+  if (minutes(info.initial_free_minutes)) lines.push(`초기 무료 ${info.initial_free_minutes}분`);
   if (info.source_label) lines.push(info.source_label);
   if (minutes(info.unit_minutes) && amount(info.unit_fee_won)) lines.push(`${info.unit_minutes}분당 ${won(info.unit_fee_won)}`);
   if (minutes(info.basic_minutes) && amount(info.basic_fee_won)) lines.push(`기본 ${info.basic_minutes}분 ${won(info.basic_fee_won)}`);

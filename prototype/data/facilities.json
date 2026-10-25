@@ -11,18 +11,49 @@
       "product_verified_at": null,
       "facility_info": {
         "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
-        "verified_at": "2026-10-24T07:43:24Z",
+        "verified_at": "2026-10-25",
         "hourly_fee_won": 3000,
         "unit_minutes": 5,
         "unit_fee_won": 250,
         "effective_from": "2026-10-01",
-        "daily_max_won": null
+        "daily_max_won": null,
+        "display_name": "강변건물 공영 주차장",
+        "source_address": "둘레길 47-5",
+        "total_spaces": 99,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/01-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "",
+        "ticket_status": "NOT_SOLD",
+        "operating_hours": "00:00 ~ 24:00"
       },
       "search_info": {
         "public": true,
-        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
-        "verified_at": "2026-10-24T07:43:24Z"
-      }
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/01-selected.png",
+        "verified_at": "2026-10-25",
+        "partner": false,
+        "kind": "public",
+        "card": true
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+            "verified_at": "2026-10-24T07:43:24Z",
+            "hourly_fee_won": 3000,
+            "unit_minutes": 5,
+            "unit_fee_won": 250,
+            "effective_from": "2026-10-01",
+            "daily_max_won": null
+          },
+          "search_info": {
+            "public": true,
+            "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+            "verified_at": "2026-10-24T07:43:24Z"
+          }
+        }
+      ],
+      "observed_products": []
     },
     {
       "id": "a6fef8f3-f08c-514d-916c-e909aeda0a30",
@@ -34,18 +65,49 @@
       "product_verified_at": null,
       "facility_info": {
         "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
-        "verified_at": "2026-10-24T07:43:24Z",
+        "verified_at": "2026-10-25",
         "hourly_fee_won": 3000,
         "unit_minutes": 5,
         "unit_fee_won": 250,
         "effective_from": "2026-10-01",
-        "daily_max_won": null
+        "daily_max_won": null,
+        "display_name": "성수2가1동건물 공영 주차장",
+        "source_address": "성덕정길 115",
+        "total_spaces": 161,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/02-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "",
+        "ticket_status": "NOT_SOLD",
+        "operating_hours": "00:00 ~ 24:00"
       },
       "search_info": {
         "public": true,
-        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
-        "verified_at": "2026-10-24T07:43:24Z"
-      }
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/02-selected.png",
+        "verified_at": "2026-10-25",
+        "partner": false,
+        "kind": "public",
+        "card": true
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+            "verified_at": "2026-10-24T07:43:24Z",
+            "hourly_fee_won": 3000,
+            "unit_minutes": 5,
+            "unit_fee_won": 250,
+            "effective_from": "2026-10-01",
+            "daily_max_won": null
+          },
+          "search_info": {
+            "public": true,
+            "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+            "verified_at": "2026-10-24T07:43:24Z"
+          }
+        }
+      ],
+      "observed_products": []
     },
     {
       "id": "4e9357ca-5450-544f-b99b-b3dbe673dc29",
@@ -168,8 +230,8 @@
         "source_addresses_differ": true
       },
       "facility_info": {
-        "source_url": "https://app.modu.kr/p/262904",
-        "verified_at": "2026-10-24T07:38:09Z",
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/03-selected.png",
+        "verified_at": "2026-10-25",
         "hourly_fee_won": 3000,
         "basic_minutes": 30,
         "basic_fee_won": 1500,
@@ -177,13 +239,169 @@
         "additional_fee_won": 1500,
         "daily_max_won": null,
         "operating_hours": null,
-        "ticket_status": "VERIFIED_OFFERS"
+        "ticket_status": "VERIFIED_OFFERS",
+        "display_name": "서울숲IT밸리 주차장",
+        "source_address": "성수동1가 13-166",
+        "total_spaces": 328,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/03-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "",
+        "fee_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/03-selected.png",
+        "source_label": "모두의주차장 원본 확인"
       },
       "search_info": {
         "partner": true,
-        "source_url": "https://app.modu.kr/p/262904",
-        "verified_at": "2026-10-24T08:31:04.868443+00:00"
-      }
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/03-selected.png",
+        "verified_at": "2026-10-25",
+        "public": false,
+        "kind": "partner",
+        "card": true
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://app.modu.kr/p/262904",
+            "verified_at": "2026-10-24T07:38:09Z",
+            "hourly_fee_won": 3000,
+            "basic_minutes": 30,
+            "basic_fee_won": 1500,
+            "additional_minutes": 30,
+            "additional_fee_won": 1500,
+            "daily_max_won": null,
+            "operating_hours": null,
+            "ticket_status": "VERIFIED_OFFERS"
+          },
+          "search_info": {
+            "partner": true,
+            "source_url": "https://app.modu.kr/p/262904",
+            "verified_at": "2026-10-24T08:31:04.868443+00:00"
+          }
+        }
+      ],
+      "observed_products": [
+        {
+          "id": "modu-15885",
+          "name": "휴일 3시간권",
+          "price_won": 3000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/15885",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [
+            "당일 유효시간 안에서 3시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 또는 주차권 연속 사용 시 전액 현장 요금이 적용될 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/262904",
+            "jibun_address": "서울특별시 성동구 성수동1가 13-166"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/03-selected.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-15884",
+          "name": "휴일 5시간권",
+          "price_won": 5000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/15884?parkingDate=2026-10-24",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 300,
+          "category": "시간권",
+          "conditions": [
+            "당일 유효시간 안에서 5시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/262904",
+            "jibun_address": "서울특별시 성동구 성수동1가 13-166"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/03-selected.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-15328",
+          "name": "야간권",
+          "price_won": 4000,
+          "hours_label": "17:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/15328?parkingDate=2026-10-24",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 419,
+          "category": "야간권",
+          "conditions": [
+            "17:00 ~ 23:59 범위에서만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 또는 주차권 연속 사용 시 전액 현장 요금이 적용될 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/262904",
+            "jibun_address": "서울특별시 성동구 성수동1가 13-166"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/03-selected.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-15327",
+          "name": "심야권",
+          "price_won": 6000,
+          "hours_label": "17:00 ~ 익일 07:00 이용가능",
+          "source_url": "https://app.modu.kr/t/15327?parkingDate=2026-10-24",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 840,
+          "category": "야간권",
+          "conditions": [
+            "17:00 ~ 익일 07:00 범위에서만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 또는 주차권 연속 사용 시 전액 현장 요금이 적용될 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/262904",
+            "jibun_address": "서울특별시 성동구 성수동1가 13-166"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/03-selected.png",
+          "conditions_verified": true
+        }
+      ]
     },
     {
       "id": "47bc4e54-7d49-5057-9fcc-b8273525a8b1",
@@ -306,8 +524,8 @@
       "location_verified_at": null,
       "product_verified_at": "2026-10-24T07:35:36Z",
       "facility_info": {
-        "source_url": "https://app.modu.kr/p/267670",
-        "verified_at": "2026-10-24T07:35:36Z",
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/04-selected.png",
+        "verified_at": "2026-10-25",
         "hourly_fee_won": 6000,
         "operating_hours": "00:00 ~ 24:00",
         "ticket_status": "VERIFIED_OFFERS",
@@ -315,13 +533,174 @@
         "basic_fee_won": 3000,
         "additional_minutes": 10,
         "additional_fee_won": 1000,
-        "daily_max_won": null
+        "daily_max_won": null,
+        "display_name": "아마노 무신사S1 주차장",
+        "source_address": "성수이로 62",
+        "total_spaces": 178,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/04-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "지하 3~6층만 주차 가능 / 1층 출입은 비상용 EV로만 이용 가능합니다",
+        "fee_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/04-selected.png",
+        "source_label": "모두의주차장 원본 확인"
       },
       "search_info": {
         "partner": true,
-        "source_url": "https://app.modu.kr/p/267670",
-        "verified_at": "2026-10-24T08:31:04.868443+00:00"
-      }
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/04-selected.png",
+        "verified_at": "2026-10-25",
+        "public": false,
+        "kind": "partner",
+        "card": true
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://app.modu.kr/p/267670",
+            "verified_at": "2026-10-24T07:35:36Z",
+            "hourly_fee_won": 6000,
+            "operating_hours": "00:00 ~ 24:00",
+            "ticket_status": "VERIFIED_OFFERS",
+            "basic_minutes": 30,
+            "basic_fee_won": 3000,
+            "additional_minutes": 10,
+            "additional_fee_won": 1000,
+            "daily_max_won": null
+          },
+          "search_info": {
+            "partner": true,
+            "source_url": "https://app.modu.kr/p/267670",
+            "verified_at": "2026-10-24T08:31:04.868443+00:00"
+          }
+        }
+      ],
+      "observed_products": [
+        {
+          "id": "modu-38592",
+          "name": "1시간권",
+          "price_won": 3000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/38592",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 60,
+          "category": "시간권",
+          "conditions": [
+            "지하 3~6층만 주차할 수 있습니다. 1층 출입은 비상용 EV만 이용할 수 있습니다.",
+            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
+            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267670",
+            "road_address": "서울특별시 성동구 성수이로 62",
+            "jibun_address": "서울특별시 성동구 성수동2가 324-2"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/04-selected.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-31349",
+          "name": "휴일 3시간권",
+          "price_won": 6600,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/31349?parkingDate=2026-10-24",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [
+            "당일 유효시간 안에서 3시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267670",
+            "road_address": "서울특별시 성동구 성수이로 62",
+            "jibun_address": "서울특별시 성동구 성수동2가 324-2"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/04-selected.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-31988",
+          "name": "휴일 야간권",
+          "price_won": 6000,
+          "hours_label": "17:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/31988?parkingDate=2026-10-24",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 419,
+          "category": "야간권",
+          "conditions": [
+            "17:00부터 23:59까지 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267670",
+            "road_address": "서울특별시 성동구 성수이로 62",
+            "jibun_address": "서울특별시 성동구 성수동2가 324-2"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/04-selected.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-31347",
+          "name": "휴일 당일권",
+          "price_won": 9900,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/31347?parkingDate=2026-10-24",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 1439,
+          "category": "당일권",
+          "conditions": [
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267670",
+            "road_address": "서울특별시 성동구 성수이로 62",
+            "jibun_address": "서울특별시 성동구 성수동2가 324-2"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/04-selected.png",
+          "conditions_verified": true
+        }
+      ]
     },
     {
       "id": "fc63d499-90e8-58a6-b6e8-6f96818e6b0d",
@@ -386,10 +765,11 @@
           "name": "휴일 3시간권(자주식)",
           "price_won": 6000,
           "hours_label": "00:00 ~ 23:59 이용가능",
-          "source_url": "https://app.modu.kr/t/37099",
-          "verified_at": "2026-10-24T07:57:24Z",
+          "source_url": "https://app.modu.kr/t/37099?parkingDate=2026-10-25",
+          "verified_at": "2026-10-25T08:00:24.737954+00:00",
           "available_dates": [
-            "2026-10-24"
+            "2026-10-24",
+            "2026-10-25"
           ],
           "duration_minutes": 180,
           "category": "시간권",
@@ -406,6 +786,22 @@
             "facility_url": "https://app.modu.kr/p/269161",
             "road_address": "서울특별시 성동구 연무장7길 13",
             "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          },
+          "verification_history": [
+            {
+              "source_url": "https://app.modu.kr/t/37099",
+              "verified_at": "2026-10-24T07:57:24Z",
+              "available_dates": [
+                "2026-10-24"
+              ]
+            }
+          ],
+          "availability_evidence": {
+            "date": "2026-10-25",
+            "source_url": "https://app.modu.kr/p/269161",
+            "method": "공식 시설 페이지의 오늘 상품 링크·명칭·금액·시간 및 아이폰 미러링 카드 대조",
+            "verified_at": "2026-10-25T08:00:24.737954+00:00",
+            "conditions_note": "기존 상품의 이용 조건은 보존했으며 오늘 모든 조건을 다시 검증한 것은 아님"
           }
         },
         {
@@ -413,10 +809,11 @@
           "name": "휴일 5시간권(자주식)",
           "price_won": 9000,
           "hours_label": "00:00 ~ 23:59 이용가능",
-          "source_url": "https://app.modu.kr/t/35515?parkingDate=2026-10-24",
-          "verified_at": "2026-10-24T08:14:51Z",
+          "source_url": "https://app.modu.kr/t/35515?parkingDate=2026-10-25",
+          "verified_at": "2026-10-25T08:00:24.737954+00:00",
           "available_dates": [
-            "2026-10-24"
+            "2026-10-24",
+            "2026-10-25"
           ],
           "duration_minutes": 300,
           "category": "시간권",
@@ -434,6 +831,22 @@
             "facility_url": "https://app.modu.kr/p/269161",
             "road_address": "서울특별시 성동구 연무장7길 13",
             "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          },
+          "verification_history": [
+            {
+              "source_url": "https://app.modu.kr/t/35515?parkingDate=2026-10-24",
+              "verified_at": "2026-10-24T08:14:51Z",
+              "available_dates": [
+                "2026-10-24"
+              ]
+            }
+          ],
+          "availability_evidence": {
+            "date": "2026-10-25",
+            "source_url": "https://app.modu.kr/p/269161",
+            "method": "공식 시설 페이지의 오늘 상품 링크·명칭·금액·시간 및 아이폰 미러링 카드 대조",
+            "verified_at": "2026-10-25T08:00:24.737954+00:00",
+            "conditions_note": "기존 상품의 이용 조건은 보존했으며 오늘 모든 조건을 다시 검증한 것은 아님"
           }
         },
         {
@@ -441,10 +854,11 @@
           "name": "휴일 8시간권(자주식)",
           "price_won": 11000,
           "hours_label": "00:00 ~ 23:59 이용가능",
-          "source_url": "https://app.modu.kr/t/37480?parkingDate=2026-10-24",
-          "verified_at": "2026-10-24T08:14:51Z",
+          "source_url": "https://app.modu.kr/t/37480?parkingDate=2026-10-25",
+          "verified_at": "2026-10-25T08:00:24.737954+00:00",
           "available_dates": [
-            "2026-10-24"
+            "2026-10-24",
+            "2026-10-25"
           ],
           "duration_minutes": 480,
           "category": "시간권",
@@ -462,6 +876,22 @@
             "facility_url": "https://app.modu.kr/p/269161",
             "road_address": "서울특별시 성동구 연무장7길 13",
             "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          },
+          "verification_history": [
+            {
+              "source_url": "https://app.modu.kr/t/37480?parkingDate=2026-10-24",
+              "verified_at": "2026-10-24T08:14:51Z",
+              "available_dates": [
+                "2026-10-24"
+              ]
+            }
+          ],
+          "availability_evidence": {
+            "date": "2026-10-25",
+            "source_url": "https://app.modu.kr/p/269161",
+            "method": "공식 시설 페이지의 오늘 상품 링크·명칭·금액·시간 및 아이폰 미러링 카드 대조",
+            "verified_at": "2026-10-25T08:00:24.737954+00:00",
+            "conditions_note": "기존 상품의 이용 조건은 보존했으며 오늘 모든 조건을 다시 검증한 것은 아님"
           }
         },
         {
@@ -469,10 +899,11 @@
           "name": "휴일 당일권(자주식)",
           "price_won": 12000,
           "hours_label": "00:00 ~ 23:59 이용가능",
-          "source_url": "https://app.modu.kr/t/35511?parkingDate=2026-10-24",
-          "verified_at": "2026-10-24T08:14:51Z",
+          "source_url": "https://app.modu.kr/t/35511?parkingDate=2026-10-25",
+          "verified_at": "2026-10-25T08:00:24.737954+00:00",
           "available_dates": [
-            "2026-10-24"
+            "2026-10-24",
+            "2026-10-25"
           ],
           "duration_minutes": 1439,
           "category": "당일권",
@@ -489,23 +920,264 @@
             "facility_url": "https://app.modu.kr/p/269161",
             "road_address": "서울특별시 성동구 연무장7길 13",
             "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          },
+          "verification_history": [
+            {
+              "source_url": "https://app.modu.kr/t/35511?parkingDate=2026-10-24",
+              "verified_at": "2026-10-24T08:14:51Z",
+              "available_dates": [
+                "2026-10-24"
+              ]
+            }
+          ],
+          "availability_evidence": {
+            "date": "2026-10-25",
+            "source_url": "https://app.modu.kr/p/269161",
+            "method": "공식 시설 페이지의 오늘 상품 링크·명칭·금액·시간 및 아이폰 미러링 카드 대조",
+            "verified_at": "2026-10-25T08:00:24.737954+00:00",
+            "conditions_note": "기존 상품의 이용 조건은 보존했으며 오늘 모든 조건을 다시 검증한 것은 아님"
           }
         }
       ],
       "location_verified_at": null,
-      "product_verified_at": "2026-10-24T07:57:24Z",
+      "product_verified_at": "2026-10-25T08:00:24.737954+00:00",
       "facility_info": {
         "source_url": "https://app.modu.kr/p/269161",
-        "verified_at": "2026-10-22T16:34:39Z",
+        "verified_at": "2026-10-25",
         "hourly_fee_won": 6000,
         "operating_hours": "00:00 ~ 24:00",
-        "ticket_status": "VERIFIED_OFFERS"
+        "ticket_status": "VERIFIED_OFFERS",
+        "display_name": "아마노 팩토리얼 성수 주차장",
+        "total_spaces": 154,
+        "banner_text": "맛집까지 도보5분!",
+        "layout_source_url": "https://app.modu.kr/p/269161",
+        "layout_verified_at": "2026-10-25",
+        "source_address": "연무장7길 13",
+        "layout_evidence": "docs/design/wireframes/2026-10-25-bottom-sheet/source-original.png"
       },
       "search_info": {
         "partner": true,
-        "source_url": "https://app.modu.kr/p/269161",
-        "verified_at": "2026-10-24T08:31:04.868443+00:00"
-      }
+        "source_url": "docs/design/wireframes/2026-10-25-bottom-sheet/source-original.png",
+        "verified_at": "2026-10-25",
+        "card": true,
+        "public": false,
+        "kind": "partner"
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://app.modu.kr/p/269161",
+            "verified_at": "2026-10-22T16:34:39Z",
+            "hourly_fee_won": 6000,
+            "operating_hours": "00:00 ~ 24:00",
+            "ticket_status": "VERIFIED_OFFERS",
+            "display_name": "아마노 팩토리얼 성수 주차장",
+            "total_spaces": 154,
+            "banner_text": "맛집까지 도보5분!",
+            "layout_source_url": "https://app.modu.kr/p/269161",
+            "layout_verified_at": "2026-10-25T08:00:24.737954+00:00"
+          },
+          "search_info": {
+            "partner": true,
+            "source_url": "https://app.modu.kr/p/269161",
+            "verified_at": "2026-10-25T08:00:24.737954+00:00",
+            "card": true
+          }
+        }
+      ],
+      "observed_products": [
+        {
+          "id": "modu-37099",
+          "name": "휴일 3시간권(자주식)",
+          "price_won": 6000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/37099?parkingDate=2026-10-25",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [
+            "당일 유효시간 안에서 3시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 또는 주차권 연속 사용 시 전액 현장 요금이 적용될 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/269161",
+            "road_address": "서울특별시 성동구 연무장7길 13",
+            "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          },
+          "verification_history": [
+            {
+              "source_url": "https://app.modu.kr/t/37099",
+              "verified_at": "2026-10-24T07:57:24Z",
+              "available_dates": [
+                "2026-10-24"
+              ]
+            }
+          ],
+          "availability_evidence": {
+            "date": "2026-10-25",
+            "source_url": "https://app.modu.kr/p/269161",
+            "method": "공식 시설 페이지의 오늘 상품 링크·명칭·금액·시간 및 아이폰 미러링 카드 대조",
+            "verified_at": "2026-10-25T08:00:24.737954+00:00",
+            "conditions_note": "기존 상품의 이용 조건은 보존했으며 오늘 모든 조건을 다시 검증한 것은 아님"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-bottom-sheet/source-original.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-35515",
+          "name": "휴일 5시간권(자주식)",
+          "price_won": 9000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/35515?parkingDate=2026-10-25",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 300,
+          "category": "시간권",
+          "conditions": [
+            "당일 유효시간 안에서 5시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/269161",
+            "road_address": "서울특별시 성동구 연무장7길 13",
+            "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          },
+          "verification_history": [
+            {
+              "source_url": "https://app.modu.kr/t/35515?parkingDate=2026-10-24",
+              "verified_at": "2026-10-24T08:14:51Z",
+              "available_dates": [
+                "2026-10-24"
+              ]
+            }
+          ],
+          "availability_evidence": {
+            "date": "2026-10-25",
+            "source_url": "https://app.modu.kr/p/269161",
+            "method": "공식 시설 페이지의 오늘 상품 링크·명칭·금액·시간 및 아이폰 미러링 카드 대조",
+            "verified_at": "2026-10-25T08:00:24.737954+00:00",
+            "conditions_note": "기존 상품의 이용 조건은 보존했으며 오늘 모든 조건을 다시 검증한 것은 아님"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-bottom-sheet/source-original.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-37480",
+          "name": "휴일 8시간권(자주식)",
+          "price_won": 11000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/37480?parkingDate=2026-10-25",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 480,
+          "category": "시간권",
+          "conditions": [
+            "당일 유효시간 안에서 8시간만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/269161",
+            "road_address": "서울특별시 성동구 연무장7길 13",
+            "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          },
+          "verification_history": [
+            {
+              "source_url": "https://app.modu.kr/t/37480?parkingDate=2026-10-24",
+              "verified_at": "2026-10-24T08:14:51Z",
+              "available_dates": [
+                "2026-10-24"
+              ]
+            }
+          ],
+          "availability_evidence": {
+            "date": "2026-10-25",
+            "source_url": "https://app.modu.kr/p/269161",
+            "method": "공식 시설 페이지의 오늘 상품 링크·명칭·금액·시간 및 아이폰 미러링 카드 대조",
+            "verified_at": "2026-10-25T08:00:24.737954+00:00",
+            "conditions_note": "기존 상품의 이용 조건은 보존했으며 오늘 모든 조건을 다시 검증한 것은 아님"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-bottom-sheet/source-original.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-35511",
+          "name": "휴일 당일권(자주식)",
+          "price_won": 12000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/35511?parkingDate=2026-10-25",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 1439,
+          "category": "당일권",
+          "conditions": [
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/269161",
+            "road_address": "서울특별시 성동구 연무장7길 13",
+            "jibun_address": "서울특별시 성동구 성수동2가 314-11"
+          },
+          "verification_history": [
+            {
+              "source_url": "https://app.modu.kr/t/35511?parkingDate=2026-10-24",
+              "verified_at": "2026-10-24T08:14:51Z",
+              "available_dates": [
+                "2026-10-24"
+              ]
+            }
+          ],
+          "availability_evidence": {
+            "date": "2026-10-25",
+            "source_url": "https://app.modu.kr/p/269161",
+            "method": "공식 시설 페이지의 오늘 상품 링크·명칭·금액·시간 및 아이폰 미러링 카드 대조",
+            "verified_at": "2026-10-25T08:00:24.737954+00:00",
+            "conditions_note": "기존 상품의 이용 조건은 보존했으며 오늘 모든 조건을 다시 검증한 것은 아님"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-bottom-sheet/source-original.png",
+          "conditions_verified": true
+        }
+      ]
     },
     {
       "id": "242929a2-08ae-5cbb-a563-5b5d55a01232",
@@ -516,17 +1188,125 @@
       "location_verified_at": null,
       "product_verified_at": null,
       "facility_info": {
-        "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
-        "source_label": "서울시 기준 · 모두의주차장 미대조",
-        "verified_at": "2026-10-24T07:47:24.241351+00:00",
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+        "verified_at": "2026-10-25",
         "source_parking_id": "3171517",
-        "basic_minutes": 15,
-        "basic_fee_won": 1000,
+        "basic_minutes": 30,
+        "basic_fee_won": 4000,
         "additional_minutes": 15,
-        "additional_fee_won": 1000,
-        "hourly_fee_won": 4000,
-        "daily_max_won": 40000
-      }
+        "additional_fee_won": 2000,
+        "hourly_fee_won": 8000,
+        "daily_max_won": null,
+        "display_name": "아마노 무신사E1 주차장",
+        "source_address": "연무장길 83",
+        "total_spaces": 55,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "",
+        "ticket_status": "VERIFIED_OFFERS",
+        "fee_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+        "source_label": "모두의주차장 원본 확인"
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
+            "source_label": "서울시 기준 · 모두의주차장 미대조",
+            "verified_at": "2026-10-24T07:47:24.241351+00:00",
+            "source_parking_id": "3171517",
+            "basic_minutes": 15,
+            "basic_fee_won": 1000,
+            "additional_minutes": 15,
+            "additional_fee_won": 1000,
+            "hourly_fee_won": 4000,
+            "daily_max_won": 40000
+          },
+          "search_info": null
+        }
+      ],
+      "search_info": {
+        "partner": true,
+        "public": false,
+        "kind": "partner",
+        "card": true,
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+        "verified_at": "2026-10-25"
+      },
+      "observed_products": [
+        {
+          "id": "observed-242929a2-08ae-5cbb-a563-5b5d55a01232-1",
+          "name": "휴일 2시간권",
+          "price_won": 6000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+          "duration_minutes": 120,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-242929a2-08ae-5cbb-a563-5b5d55a01232-2",
+          "name": "휴일 4시간권",
+          "price_won": 8000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+          "duration_minutes": 240,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-242929a2-08ae-5cbb-a563-5b5d55a01232-3",
+          "name": "휴일 야간권",
+          "price_won": 6000,
+          "hours_label": "17:30 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+          "duration_minutes": 720,
+          "category": "야간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-242929a2-08ae-5cbb-a563-5b5d55a01232-4",
+          "name": "휴일 당일권",
+          "price_won": 11000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/06-selected.png",
+          "duration_minutes": 1440,
+          "category": "당일권",
+          "conditions": [],
+          "conditions_verified": false
+        }
+      ]
     },
     {
       "id": "265689e3-e0b5-5d2d-bdba-67ea4b6d77a5",
@@ -537,17 +1317,123 @@
       "location_verified_at": null,
       "product_verified_at": null,
       "facility_info": {
-        "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
-        "source_label": "서울시 기준 · 모두의주차장 미대조",
-        "verified_at": "2026-10-24T07:47:24.241351+00:00",
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+        "verified_at": "2026-10-25",
         "source_parking_id": "3122097",
         "basic_minutes": 30,
         "basic_fee_won": 4000,
         "additional_minutes": 15,
         "additional_fee_won": 2000,
         "hourly_fee_won": 8000,
-        "daily_max_won": null
-      }
+        "daily_max_won": null,
+        "display_name": "아마노 베이스성수 주차장",
+        "source_address": "뚝섬로17가길 49",
+        "total_spaces": 111,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "",
+        "ticket_status": "VERIFIED_OFFERS",
+        "fee_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+        "source_label": "모두의주차장 원본 확인"
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
+            "source_label": "서울시 기준 · 모두의주차장 미대조",
+            "verified_at": "2026-10-24T07:47:24.241351+00:00",
+            "source_parking_id": "3122097",
+            "basic_minutes": 30,
+            "basic_fee_won": 4000,
+            "additional_minutes": 15,
+            "additional_fee_won": 2000,
+            "hourly_fee_won": 8000,
+            "daily_max_won": null
+          },
+          "search_info": null
+        }
+      ],
+      "search_info": {
+        "partner": true,
+        "public": false,
+        "kind": "partner",
+        "card": false,
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+        "verified_at": "2026-10-25"
+      },
+      "observed_products": [
+        {
+          "id": "observed-265689e3-e0b5-5d2d-bdba-67ea4b6d77a5-1",
+          "name": "휴일 3시간권",
+          "price_won": 6600,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-265689e3-e0b5-5d2d-bdba-67ea4b6d77a5-2",
+          "name": "휴일 심야권",
+          "price_won": 7000,
+          "hours_label": "17:00 ~ 익일 07:00 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+          "duration_minutes": 720,
+          "category": "야간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-265689e3-e0b5-5d2d-bdba-67ea4b6d77a5-3",
+          "name": "휴일 당일권",
+          "price_won": 9900,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+          "duration_minutes": 1440,
+          "category": "당일권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-265689e3-e0b5-5d2d-bdba-67ea4b6d77a5-4",
+          "name": "평일 2시간권",
+          "price_won": 6900,
+          "hours_label": "10/25(일) 이용불가",
+          "available_dates": [],
+          "observed_date": "2026-10-25",
+          "available": false,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/07-selected.png",
+          "duration_minutes": 120,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        }
+      ]
     },
     {
       "id": "c7e1aedd-3112-5192-984a-1dff177f201e",
@@ -640,10 +1526,143 @@
       },
       "search_info": {
         "card": true,
-        "source_url": "https://app.modu.kr/p/266083",
-        "verified_at": "2026-10-24T08:31:04.868443+00:00",
-        "partner": true
-      }
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/08-selected.png",
+        "verified_at": "2026-10-25",
+        "partner": true,
+        "public": false,
+        "kind": "partner"
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {},
+          "search_info": {
+            "card": true,
+            "source_url": "https://app.modu.kr/p/266083",
+            "verified_at": "2026-10-24T08:31:04.868443+00:00",
+            "partner": true
+          }
+        }
+      ],
+      "facility_info": {
+        "display_name": "투루파킹 서울숲메가박스스퀘어 주차장",
+        "source_address": "성수동1가 656-951",
+        "total_spaces": 230,
+        "hourly_fee_won": 6300,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/08-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "",
+        "ticket_status": "VERIFIED_OFFERS",
+        "verified_at": "2026-10-25",
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/08-selected.png",
+        "basic_minutes": 30,
+        "basic_fee_won": 3000,
+        "additional_minutes": 10,
+        "additional_fee_won": 1100,
+        "fee_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/08-selected.png",
+        "source_label": "모두의주차장 원본 확인"
+      },
+      "observed_products": [
+        {
+          "id": "modu-22768",
+          "name": "휴일 당일권",
+          "price_won": 17700,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/22768?parkingDate=2026-10-24",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 1439,
+          "category": "당일권",
+          "conditions": [
+            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
+            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/t/40328",
+            "jibun_address": "서울특별시 성동구 성수동1가 656-951"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/08-selected.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-40328",
+          "name": "평일 3시간권",
+          "price_won": 5800,
+          "hours_label": "10/25(일) 이용불가",
+          "source_url": "https://app.modu.kr/t/40328",
+          "verified_at": "2026-10-25",
+          "available_dates": [],
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [
+            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
+            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/t/40328",
+            "jibun_address": "서울특별시 성동구 성수동1가 656-951"
+          },
+          "observed_date": "2026-10-25",
+          "available": false,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/08-selected.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "observed-c7e1aedd-3112-5192-984a-1dff177f201e-3",
+          "name": "평일 야간권",
+          "price_won": 4800,
+          "hours_label": "10/25(일) 이용불가",
+          "available_dates": [],
+          "observed_date": "2026-10-25",
+          "available": false,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/08-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/08-selected.png",
+          "duration_minutes": 720,
+          "category": "야간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "modu-25605",
+          "name": "평일 당일권",
+          "price_won": 20300,
+          "hours_label": "10/25(일) 이용불가",
+          "source_url": "https://app.modu.kr/t/25605",
+          "verified_at": "2026-10-25",
+          "available_dates": [],
+          "duration_minutes": 1439,
+          "category": "당일권",
+          "conditions": [
+            "입차 전에 구매해야 합니다. 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "이용 가능 시간과 구매한 시간 범위를 지켜야 합니다.",
+            "점포·방문 할인과 중복 적용할 수 없으며 사전정산기를 사용하면 주차권이 적용되지 않습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "입차 후 환불할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/t/40328",
+            "jibun_address": "서울특별시 성동구 성수동1가 656-951"
+          },
+          "observed_date": "2026-10-25",
+          "available": false,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/08-selected.png",
+          "conditions_verified": true
+        }
+      ]
     },
     {
       "id": "a9cf6750-796b-5402-b3a5-67a8f69b70d1",
@@ -654,8 +1673,8 @@
       "location_verified_at": null,
       "product_verified_at": null,
       "facility_info": {
-        "source_url": "https://app.modu.kr/p/109583",
-        "verified_at": "2026-10-24T08:09:43Z",
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/09-selected.png",
+        "verified_at": "2026-10-25",
         "source_updated_date": "2025-03-19",
         "hourly_fee_won": 5000,
         "basic_minutes": 30,
@@ -663,19 +1682,58 @@
         "additional_minutes": 10,
         "additional_fee_won": 1000,
         "daily_max_won": null,
-        "operating_hours": null,
+        "operating_hours": "07:00 ~ 22:00",
         "ticket_status": "NOT_SOLD",
         "ticket_status_verified_at": "2026-10-24T08:09:43Z",
         "ticket_status_source_url": "https://app.modu.kr/p/109583",
-        "source_address": "서울특별시 성동구 왕십리로 38",
+        "source_address": "왕십리로 38",
         "address_reference_url": "https://landbookarchitects.net/contact",
-        "operating_hours_review": "CONFLICT: Modu 07:00–22:00 / Seoul weekday06:00–21:00; awaiting decision"
+        "operating_hours_review": "CONFLICT: Modu 07:00–22:00 / Seoul weekday06:00–21:00; awaiting decision",
+        "display_name": "홍성빌딩 주차장",
+        "total_spaces": null,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/09-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "",
+        "fee_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/09-selected.png",
+        "source_label": "모두의주차장 원본 확인"
       },
       "search_info": {
         "card": true,
-        "source_url": "https://app.modu.kr/p/109583",
-        "verified_at": "2026-10-24T08:09:43Z"
-      }
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/09-selected.png",
+        "verified_at": "2026-10-25",
+        "partner": false,
+        "public": false,
+        "kind": "private"
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://app.modu.kr/p/109583",
+            "verified_at": "2026-10-24T08:09:43Z",
+            "source_updated_date": "2025-03-19",
+            "hourly_fee_won": 5000,
+            "basic_minutes": 30,
+            "basic_fee_won": 2000,
+            "additional_minutes": 10,
+            "additional_fee_won": 1000,
+            "daily_max_won": null,
+            "operating_hours": null,
+            "ticket_status": "NOT_SOLD",
+            "ticket_status_verified_at": "2026-10-24T08:09:43Z",
+            "ticket_status_source_url": "https://app.modu.kr/p/109583",
+            "source_address": "서울특별시 성동구 왕십리로 38",
+            "address_reference_url": "https://landbookarchitects.net/contact",
+            "operating_hours_review": "CONFLICT: Modu 07:00–22:00 / Seoul weekday06:00–21:00; awaiting decision"
+          },
+          "search_info": {
+            "card": true,
+            "source_url": "https://app.modu.kr/p/109583",
+            "verified_at": "2026-10-24T08:09:43Z"
+          }
+        }
+      ],
+      "observed_products": []
     },
     {
       "id": "a8e03d7f-f5ae-5ae8-92cc-5ade52467610",
@@ -686,17 +1744,118 @@
       "location_verified_at": null,
       "product_verified_at": null,
       "facility_info": {
-        "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
-        "source_label": "서울시 기준 · 모두의주차장 미대조",
-        "verified_at": "2026-10-24T07:47:23.843910+00:00",
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+        "verified_at": "2026-10-25",
         "source_parking_id": "3204785",
         "basic_minutes": 10,
         "basic_fee_won": 2000,
         "additional_minutes": 10,
         "additional_fee_won": 2000,
         "hourly_fee_won": 12000,
-        "daily_max_won": null
-      }
+        "daily_max_won": null,
+        "display_name": "Tmap주차 갤러리아포레더몰 주차장",
+        "source_address": "서울숲2길 32-14",
+        "total_spaces": 785,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "",
+        "ticket_status": "VERIFIED_OFFERS",
+        "fee_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+        "initial_free_minutes": 20,
+        "source_label": "모두의주차장 원본 확인"
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
+            "source_label": "서울시 기준 · 모두의주차장 미대조",
+            "verified_at": "2026-10-24T07:47:23.843910+00:00",
+            "source_parking_id": "3204785",
+            "basic_minutes": 10,
+            "basic_fee_won": 2000,
+            "additional_minutes": 10,
+            "additional_fee_won": 2000,
+            "hourly_fee_won": 12000,
+            "daily_max_won": null
+          },
+          "search_info": null
+        }
+      ],
+      "search_info": {
+        "partner": true,
+        "public": false,
+        "kind": "partner",
+        "card": true,
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+        "verified_at": "2026-10-25"
+      },
+      "observed_products": [
+        {
+          "id": "observed-a8e03d7f-f5ae-5ae8-92cc-5ade52467610-1",
+          "name": "평일 3시간권(선착순 특가)",
+          "price_won": 9000,
+          "hours_label": "10/25(일) 이용불가",
+          "available_dates": [],
+          "observed_date": "2026-10-25",
+          "available": false,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-a8e03d7f-f5ae-5ae8-92cc-5ade52467610-2",
+          "name": "평일 3시간권",
+          "price_won": 18000,
+          "hours_label": "10/25(일) 이용불가",
+          "available_dates": [],
+          "observed_date": "2026-10-25",
+          "available": false,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-a8e03d7f-f5ae-5ae8-92cc-5ade52467610-3",
+          "name": "평일 당일권(선착순 특가)",
+          "price_won": 14000,
+          "hours_label": "10/25(일) 이용불가",
+          "available_dates": [],
+          "observed_date": "2026-10-25",
+          "available": false,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+          "duration_minutes": 1440,
+          "category": "당일권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-a8e03d7f-f5ae-5ae8-92cc-5ade52467610-4",
+          "name": "평일 당일권",
+          "price_won": 30000,
+          "hours_label": "10/25(일) 이용불가",
+          "available_dates": [],
+          "observed_date": "2026-10-25",
+          "available": false,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/10-selected.png",
+          "duration_minutes": 1440,
+          "category": "당일권",
+          "conditions": [],
+          "conditions_verified": false
+        }
+      ]
     },
     {
       "id": "71526098-5957-53ad-aa71-5082a32e299c",
@@ -707,17 +1866,125 @@
       "location_verified_at": null,
       "product_verified_at": null,
       "facility_info": {
-        "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
-        "source_label": "서울시 기준 · 모두의주차장 미대조",
-        "verified_at": "2026-10-24T07:47:23.843910+00:00",
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+        "verified_at": "2026-10-25",
         "source_parking_id": "3161407",
         "basic_minutes": 30,
-        "basic_fee_won": 3000,
+        "basic_fee_won": 2000,
         "additional_minutes": 10,
         "additional_fee_won": 1000,
-        "hourly_fee_won": 6000,
-        "daily_max_won": 50000
-      }
+        "hourly_fee_won": 5000,
+        "daily_max_won": null,
+        "display_name": "케이엠파크 슈퍼패스트서울숲 주차장",
+        "source_address": "아차산로 6",
+        "total_spaces": 122,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "제한 높이 2.3m 주차장입니다. 2.3m이상 차량은 출입을 제한합니다.",
+        "ticket_status": "VERIFIED_OFFERS",
+        "fee_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+        "source_label": "모두의주차장 원본 확인"
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
+            "source_label": "서울시 기준 · 모두의주차장 미대조",
+            "verified_at": "2026-10-24T07:47:23.843910+00:00",
+            "source_parking_id": "3161407",
+            "basic_minutes": 30,
+            "basic_fee_won": 3000,
+            "additional_minutes": 10,
+            "additional_fee_won": 1000,
+            "hourly_fee_won": 6000,
+            "daily_max_won": 50000
+          },
+          "search_info": null
+        }
+      ],
+      "search_info": {
+        "partner": true,
+        "public": false,
+        "kind": "partner",
+        "card": true,
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+        "verified_at": "2026-10-25"
+      },
+      "observed_products": [
+        {
+          "id": "observed-71526098-5957-53ad-aa71-5082a32e299c-1",
+          "name": "휴일 2시간권",
+          "price_won": 5500,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+          "duration_minutes": 120,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-71526098-5957-53ad-aa71-5082a32e299c-2",
+          "name": "휴일 3시간권",
+          "price_won": 7500,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-71526098-5957-53ad-aa71-5082a32e299c-3",
+          "name": "휴일 6시간권",
+          "price_won": 11500,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+          "duration_minutes": 360,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-71526098-5957-53ad-aa71-5082a32e299c-4",
+          "name": "심야권",
+          "price_won": 9500,
+          "hours_label": "19:00 ~ 익일 08:00 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/11-selected.png",
+          "duration_minutes": 720,
+          "category": "야간권",
+          "conditions": [],
+          "conditions_verified": false
+        }
+      ]
     },
     {
       "id": "a01255d6-de2c-5f3a-b645-501d589d8cb6",
@@ -729,18 +1996,49 @@
       "product_verified_at": null,
       "facility_info": {
         "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
-        "verified_at": "2026-10-24T07:43:24Z",
+        "verified_at": "2026-10-25",
         "hourly_fee_won": 3000,
         "unit_minutes": 5,
         "unit_fee_won": 250,
         "effective_from": "2026-10-01",
-        "daily_max_won": null
+        "daily_max_won": null,
+        "display_name": "성수1가1동건물 주차장",
+        "source_address": "성덕정1길 6",
+        "total_spaces": 91,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/12-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "",
+        "ticket_status": "NOT_SOLD",
+        "operating_hours": "00:00 ~ 24:00"
       },
       "search_info": {
         "public": true,
-        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
-        "verified_at": "2026-10-24T07:43:24Z"
-      }
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/12-selected.png",
+        "verified_at": "2026-10-25",
+        "partner": false,
+        "kind": "public",
+        "card": true
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+            "verified_at": "2026-10-24T07:43:24Z",
+            "hourly_fee_won": 3000,
+            "unit_minutes": 5,
+            "unit_fee_won": 250,
+            "effective_from": "2026-10-01",
+            "daily_max_won": null
+          },
+          "search_info": {
+            "public": true,
+            "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+            "verified_at": "2026-10-24T07:43:24Z"
+          }
+        }
+      ],
+      "observed_products": []
     },
     {
       "id": "c5940038-d14e-5bd2-a8a2-1b7682b49e3e",
@@ -838,20 +2136,166 @@
       "product_verified_at": "2026-10-24T08:07:21Z",
       "facility_info": {
         "source_url": "https://app.modu.kr/p/267781",
-        "verified_at": "2026-10-24T08:07:21Z",
+        "verified_at": "2026-10-25",
         "hourly_fee_won": 6000,
         "basic_minutes": 30,
         "basic_fee_won": 3000,
         "additional_minutes": 30,
         "additional_fee_won": 3000,
         "daily_max_won": null,
-        "operating_hours": "00:00 ~ 24:00"
+        "operating_hours": "00:00 ~ 24:00",
+        "display_name": "아마노 센터포인트성수 주차장",
+        "source_address": "광나루로8길 22",
+        "total_spaces": 58,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/centerpoint-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "",
+        "ticket_status": "VERIFIED_OFFERS"
       },
       "search_info": {
         "partner": true,
-        "source_url": "https://app.modu.kr/p/267781",
-        "verified_at": "2026-10-24T08:07:21Z"
-      }
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/centerpoint-selected.png",
+        "verified_at": "2026-10-25",
+        "public": false,
+        "kind": "partner",
+        "card": false
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://app.modu.kr/p/267781",
+            "verified_at": "2026-10-24T08:07:21Z",
+            "hourly_fee_won": 6000,
+            "basic_minutes": 30,
+            "basic_fee_won": 3000,
+            "additional_minutes": 30,
+            "additional_fee_won": 3000,
+            "daily_max_won": null,
+            "operating_hours": "00:00 ~ 24:00"
+          },
+          "search_info": {
+            "partner": true,
+            "source_url": "https://app.modu.kr/p/267781",
+            "verified_at": "2026-10-24T08:07:21Z"
+          }
+        }
+      ],
+      "observed_products": [
+        {
+          "id": "modu-34771",
+          "name": "1시간권",
+          "price_won": 3000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/34771?parkingDate=2026-10-24&durationId=PT1H",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 60,
+          "category": "시간권",
+          "conditions": [
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267781",
+            "road_address": "서울 성동구 광나루로8길 22",
+            "jibun_address": "성수동2가 280-11",
+            "address_reference_url": "https://dorojuso.kr/1120011500102800011004939/"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/centerpoint-selected.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-31649",
+          "name": "심야권",
+          "price_won": 5000,
+          "hours_label": "18:00 ~ 익일 06:00 이용가능",
+          "source_url": "https://app.modu.kr/t/31649?parkingDate=2026-10-24",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 720,
+          "category": "야간권",
+          "conditions": [
+            "18:00 ~ 익일 06:00 범위에서만 이용할 수 있습니다.",
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267781",
+            "road_address": "서울 성동구 광나루로8길 22",
+            "jibun_address": "성수동2가 280-11",
+            "address_reference_url": "https://dorojuso.kr/1120011500102800011004939/"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/centerpoint-selected.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "modu-31647",
+          "name": "휴일 당일권",
+          "price_won": 8000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "source_url": "https://app.modu.kr/t/31647?parkingDate=2026-10-24",
+          "verified_at": "2026-10-25",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "duration_minutes": 1439,
+          "category": "당일권",
+          "conditions": [
+            "입차 전에 구매해야 하며 입차 후 구매 시 사용할 수 없습니다.",
+            "입출차는 1회만 가능하며 재입차 시 현장 요금이 발생합니다.",
+            "다른 할인 및 사전정산기와 함께 사용할 수 없습니다.",
+            "만차 또는 현장 사정에 따라 주차가 어려울 수 있습니다.",
+            "유효시간 외 이용 또는 주차권 연속 사용 시 적용이 취소되고 현장 요금이 부과될 수 있습니다.",
+            "입차 후 환불할 수 없습니다.",
+            "구매 당일 동일 차량번호로 동일 주차권을 재구매할 수 없습니다."
+          ],
+          "identity_source": {
+            "facility_url": "https://app.modu.kr/p/267781",
+            "road_address": "서울 성동구 광나루로8길 22",
+            "jibun_address": "성수동2가 280-11",
+            "address_reference_url": "https://dorojuso.kr/1120011500102800011004939/"
+          },
+          "observed_date": "2026-10-25",
+          "available": true,
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/centerpoint-selected.png",
+          "conditions_verified": true
+        },
+        {
+          "id": "observed-c5940038-d14e-5bd2-a8a2-1b7682b49e3e-4",
+          "name": "평일 5시간권",
+          "price_won": 10000,
+          "hours_label": "10/25(일) 이용불가",
+          "available_dates": [],
+          "observed_date": "2026-10-25",
+          "available": false,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/centerpoint-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/centerpoint-selected.png",
+          "duration_minutes": 300,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        }
+      ]
     },
     {
       "id": "8f81431b-9018-5982-9327-c3a74c7c59bc",
@@ -862,17 +2306,123 @@
       "location_verified_at": null,
       "product_verified_at": null,
       "facility_info": {
-        "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
-        "source_label": "서울시 기준 · 모두의주차장 미대조",
-        "verified_at": "2026-10-24T07:47:23.843910+00:00",
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+        "verified_at": "2026-10-25",
         "source_parking_id": "3115921",
         "basic_minutes": 30,
         "basic_fee_won": 3000,
         "additional_minutes": 10,
         "additional_fee_won": 1000,
         "hourly_fee_won": 6000,
-        "daily_max_won": 45000
-      }
+        "daily_max_won": 45000,
+        "display_name": "서울숲디타워 주차장",
+        "source_address": "왕십리로 83-21",
+        "total_spaces": 826,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": "",
+        "ticket_status": "VERIFIED_OFFERS",
+        "fee_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+        "source_label": "모두의주차장 원본 확인"
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://parking.seoul.go.kr/search/parking/list.do",
+            "source_label": "서울시 기준 · 모두의주차장 미대조",
+            "verified_at": "2026-10-24T07:47:23.843910+00:00",
+            "source_parking_id": "3115921",
+            "basic_minutes": 30,
+            "basic_fee_won": 3000,
+            "additional_minutes": 10,
+            "additional_fee_won": 1000,
+            "hourly_fee_won": 6000,
+            "daily_max_won": 45000
+          },
+          "search_info": null
+        }
+      ],
+      "search_info": {
+        "partner": true,
+        "public": false,
+        "kind": "partner",
+        "card": true,
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+        "verified_at": "2026-10-25"
+      },
+      "observed_products": [
+        {
+          "id": "observed-8f81431b-9018-5982-9327-c3a74c7c59bc-1",
+          "name": "휴일 3시간권",
+          "price_won": 10000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+          "duration_minutes": 180,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-8f81431b-9018-5982-9327-c3a74c7c59bc-2",
+          "name": "휴일 5시간권",
+          "price_won": 15000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+          "duration_minutes": 300,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-8f81431b-9018-5982-9327-c3a74c7c59bc-3",
+          "name": "휴일 당일권",
+          "price_won": 20000,
+          "hours_label": "00:00 ~ 23:59 이용가능",
+          "available_dates": [
+            "2026-10-25"
+          ],
+          "observed_date": "2026-10-25",
+          "available": true,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+          "duration_minutes": 1440,
+          "category": "당일권",
+          "conditions": [],
+          "conditions_verified": false
+        },
+        {
+          "id": "observed-8f81431b-9018-5982-9327-c3a74c7c59bc-4",
+          "name": "평일 5시간권",
+          "price_won": 15000,
+          "hours_label": "10/25(일) 이용불가",
+          "available_dates": [],
+          "observed_date": "2026-10-25",
+          "available": false,
+          "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+          "verified_at": "2026-10-25",
+          "evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/14-selected.png",
+          "duration_minutes": 300,
+          "category": "시간권",
+          "conditions": [],
+          "conditions_verified": false
+        }
+      ]
     },
     {
       "id": "c0af6bc5-1cc5-5a1d-8641-c73366a306f4",
@@ -884,20 +2434,51 @@
       "product_verified_at": null,
       "facility_info": {
         "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
-        "verified_at": "2026-10-24T07:43:24Z",
+        "verified_at": "2026-10-25",
         "hourly_fee_won": 3000,
         "operating_hours": "00:00 ~ 24:00",
         "ticket_status": "NOT_SOLD",
         "unit_minutes": 5,
         "unit_fee_won": 250,
         "effective_from": "2026-10-01",
-        "daily_max_won": null
+        "daily_max_won": null,
+        "display_name": "뚝섬유수지 공영 주차장",
+        "source_address": "성수동1가 685-63",
+        "total_spaces": 329,
+        "layout_evidence": "docs/design/wireframes/2026-10-25-all-facilities/evidence/15-selected.png",
+        "layout_verified_at": "2026-10-25",
+        "banner_text": ""
       },
       "search_info": {
         "public": true,
-        "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
-        "verified_at": "2026-10-24T07:43:24Z"
-      }
+        "source_url": "docs/design/wireframes/2026-10-25-all-facilities/evidence/15-selected.png",
+        "verified_at": "2026-10-25",
+        "partner": false,
+        "kind": "public",
+        "card": false
+      },
+      "reference_history": [
+        {
+          "date": "2026-10-25",
+          "facility_info": {
+            "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+            "verified_at": "2026-10-24T07:43:24Z",
+            "hourly_fee_won": 3000,
+            "operating_hours": "00:00 ~ 24:00",
+            "ticket_status": "NOT_SOLD",
+            "unit_minutes": 5,
+            "unit_fee_won": 250,
+            "effective_from": "2026-10-01",
+            "daily_max_won": null
+          },
+          "search_info": {
+            "public": true,
+            "source_url": "https://parking.happysd.or.kr/Guest/NoticeViewNew?seqNo=596&page=1",
+            "verified_at": "2026-10-24T07:43:24Z"
+          }
+        }
+      ],
+      "observed_products": []
     }
   ]
 }

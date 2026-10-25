@@ -29,7 +29,7 @@ export async function createParkingMap(element, onSelect, onLocations = () => {}
     }, {capture:true});
     const markers = new Map();
     const locations = new Map(), pending = new Set(), addressMatches = [];
-    let latest = [], shown = true, focusedId = null;
+    let latest = [], shown = true, focusedId = null, selected = null;
     function resolveLocation(lot) {
       if (locations.has(lot.id) || pending.has(lot.id)) return;
       pending.add(lot.id);
@@ -62,11 +62,11 @@ export async function createParkingMap(element, onSelect, onLocations = () => {}
         const label = String(lot.map_label ?? 'P');
         const caption=String(lot.map_caption ?? '');
         const kind=['ticket','onsite','shared'].includes(lot.map_kind)?lot.map_kind:'onsite';
-        const signature = JSON.stringify([point.lat, point.lng, lot.name, label,caption,kind]);
+        const signature = JSON.stringify([point.lat, point.lng, lot.name, label,caption,kind,selected===lot.id]);
         const current = markers.get(lot.id);
         if (current?.signature === signature) continue;
         const safe = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-        const icon = {content:`<button type="button" class="parking-map-pin" data-kind="${kind}" data-parking-id="${safe(lot.id)}" aria-label="${safe(lot.name)} ${safe(label)}" title="${safe(lot.name)}${caption?' · '+safe(caption):' · 현장 1시간 요금'}">${caption?`<span class="map-pin-caption">${safe(caption)}</span>`:''}<span>${safe(label)}</span></button>`,anchor:new maps.Point(26,caption?50:34)};
+        const icon = {content:`<button type="button" class="parking-map-pin" data-kind="${kind}" aria-pressed="${selected===lot.id}" data-parking-id="${safe(lot.id)}" aria-label="${safe(lot.name)} ${safe(label)}" title="${safe(lot.name)}${caption?' · '+safe(caption):' · 현장 1시간 요금'}">${caption?`<span class="map-pin-caption">${safe(caption)}</span>`:''}${kind==='ticket'?'<span class="map-type">제휴</span>':''}<span>${safe(label)}</span></button>`,anchor:new maps.Point(26,caption?50:34)};
         if (current) {
           current.marker.setPosition(new maps.LatLng(point.lat, point.lng));
           current.marker.setIcon(icon);
@@ -89,7 +89,7 @@ export async function createParkingMap(element, onSelect, onLocations = () => {}
         if (point && focusedId !== id) { map.panTo(new maps.LatLng(point.lat,point.lng)); focusedId=id; }
       },
       setLots(lots, selectedId, visible) {
-        latest = lots; shown = visible;
+        latest = lots; shown = visible; selected = selectedId;
         lots.forEach(lot => {
           if (Number.isFinite(lot.location?.lat) && Number.isFinite(lot.location?.lng) && lot.location_verified_at) locations.set(lot.id, lot.location);
           else resolveLocation(lot);

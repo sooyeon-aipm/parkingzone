@@ -1,0 +1,508 @@
+[
+  {
+    "i": 1,
+    "name": "강변건물 공영 주차장",
+    "kind": "공영",
+    "total": 99,
+    "fee": "1시간 3,000원",
+    "address": "둘레길 47-5",
+    "products": [],
+    "banner": "",
+    "card": true,
+    "marker": 3000,
+    "oper": "00:00 ~ 24:00",
+    "observed_marker": 3000,
+    "hourly_fee_won": 3000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "공식 시설공단 현황·2026-10-01 시행 공지"
+  },
+  {
+    "i": 2,
+    "name": "성수2가1동건물 공영 주차장",
+    "kind": "공영",
+    "total": 161,
+    "fee": "1시간 3,000원",
+    "address": "성덕정길 115",
+    "products": [],
+    "banner": "",
+    "card": true,
+    "marker": 3000,
+    "oper": "00:00 ~ 24:00",
+    "observed_marker": 3000,
+    "hourly_fee_won": 3000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "공식 시설공단 현황·2026-10-01 시행 공지"
+  },
+  {
+    "i": 3,
+    "name": "서울숲IT밸리 주차장",
+    "kind": "제휴",
+    "total": 328,
+    "fee": "기본 30분 1,500원 / 추가 30분당 1,500원",
+    "address": "성수동1가 13-166",
+    "products": [
+      {
+        "name": "휴일 3시간권",
+        "price": 3000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 5시간권",
+        "price": 5000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "야간권",
+        "price": 4000,
+        "hours": "17:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "심야권",
+        "price": 6000,
+        "hours": "17:00 ~ 익일 07:00 이용가능",
+        "available": true
+      }
+    ],
+    "banner": "",
+    "card": true,
+    "marker": 3000,
+    "oper": "미확인",
+    "observed_marker": 3000,
+    "hourly_fee_won": 3000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "원본 기본·추가요금의 60분 환산 또는 기존 출처 확인 현장 시간당 요금"
+  },
+  {
+    "i": 4,
+    "name": "아마노 무신사S1 주차장",
+    "kind": "제휴",
+    "total": 178,
+    "fee": "기본 30분 3,000원 / 추가 10분당 1,000원",
+    "address": "성수이로 62",
+    "products": [
+      {
+        "name": "1시간권",
+        "price": 3000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 3시간권",
+        "price": 6600,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 야간권",
+        "price": 6000,
+        "hours": "17:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 당일권",
+        "price": 9900,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      }
+    ],
+    "banner": "지하 3~6층만 주차 가능 / 1층 출입은 비상용 EV로만 이용 가능합니다",
+    "card": true,
+    "marker": 6000,
+    "oper": "미확인",
+    "observed_marker": 6000,
+    "hourly_fee_won": 6000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "원본 기본·추가요금의 60분 환산 또는 기존 출처 확인 현장 시간당 요금"
+  },
+  {
+    "i": 5,
+    "name": "아마노 팩토리얼 성수 주차장",
+    "kind": "제휴",
+    "total": 154,
+    "fee": "기본·추가 요금 출처 충돌 검토 대기",
+    "address": "연무장7길 13",
+    "products": [
+      {
+        "name": "휴일 3시간권(자주식)",
+        "price": 6000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 5시간권(자주식)",
+        "price": 9000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 8시간권(자주식)",
+        "price": 11000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 당일권(자주식)",
+        "price": 12000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      }
+    ],
+    "banner": "맛집까지 도보5분!",
+    "card": true,
+    "marker": 6000,
+    "oper": "미확인",
+    "observed_marker": 6000,
+    "hourly_fee_won": 6000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "원본 기본·추가요금의 60분 환산 또는 기존 출처 확인 현장 시간당 요금"
+  },
+  {
+    "i": 6,
+    "name": "아마노 무신사E1 주차장",
+    "kind": "제휴",
+    "total": 55,
+    "fee": "기본 30분 4,000원 / 추가 15분당 2,000원",
+    "address": "연무장길 83",
+    "products": [
+      {
+        "name": "휴일 2시간권",
+        "price": 6000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 4시간권",
+        "price": 8000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 야간권",
+        "price": 6000,
+        "hours": "17:30 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 당일권",
+        "price": 11000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      }
+    ],
+    "banner": "",
+    "card": true,
+    "marker": 8000,
+    "oper": "미확인",
+    "observed_marker": 8000,
+    "hourly_fee_won": 8000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "원본 기본·추가요금의 60분 환산 또는 기존 출처 확인 현장 시간당 요금"
+  },
+  {
+    "i": 7,
+    "name": "아마노 베이스성수 주차장",
+    "kind": "제휴",
+    "total": 111,
+    "fee": "기본 30분 4,000원 / 추가 15분당 2,000원",
+    "address": "뚝섬로17가길 49",
+    "products": [
+      {
+        "name": "휴일 3시간권",
+        "price": 6600,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 심야권",
+        "price": 7000,
+        "hours": "17:00 ~ 익일 07:00 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 당일권",
+        "price": 9900,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "평일 2시간권",
+        "price": 6900,
+        "hours": "10/25(일) 이용불가",
+        "available": false
+      }
+    ],
+    "banner": "",
+    "card": false,
+    "marker": 8000,
+    "oper": "미확인",
+    "observed_marker": 8000,
+    "hourly_fee_won": 8000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "원본 기본·추가요금의 60분 환산 또는 기존 출처 확인 현장 시간당 요금"
+  },
+  {
+    "i": 8,
+    "name": "투루파킹 서울숲메가박스스퀘어 주차장",
+    "kind": "제휴",
+    "total": 230,
+    "fee": "기본 30분 3,000원 / 추가 10분당 1,100원",
+    "address": "성수동1가 656-951",
+    "products": [
+      {
+        "name": "휴일 당일권",
+        "price": 17700,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "평일 3시간권",
+        "price": 5800,
+        "hours": "10/25(일) 이용불가",
+        "available": false
+      },
+      {
+        "name": "평일 야간권",
+        "price": 4800,
+        "hours": "10/25(일) 이용불가",
+        "available": false
+      },
+      {
+        "name": "평일 당일권",
+        "price": 20300,
+        "hours": "10/25(일) 이용불가",
+        "available": false
+      }
+    ],
+    "banner": "",
+    "card": true,
+    "marker": 6300,
+    "oper": "미확인",
+    "observed_marker": 6300,
+    "hourly_fee_won": 6300,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "원본 기본·추가요금의 60분 환산 또는 기존 출처 확인 현장 시간당 요금"
+  },
+  {
+    "i": 9,
+    "name": "홍성빌딩 주차장",
+    "kind": "민영",
+    "total": null,
+    "fee": "1시간 5,000원",
+    "address": "왕십리로 38",
+    "products": [],
+    "banner": "",
+    "card": true,
+    "marker": 5000,
+    "oper": "07:00 ~ 22:00",
+    "observed_marker": 5000,
+    "hourly_fee_won": 5000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "원본 기본·추가요금의 60분 환산 또는 기존 출처 확인 현장 시간당 요금"
+  },
+  {
+    "i": 10,
+    "name": "Tmap주차 갤러리아포레더몰 주차장",
+    "kind": "제휴",
+    "total": 785,
+    "fee": "초기 무료 20분 / 기본 10분 2,000원 / 추가 10분당 2,000원",
+    "address": "서울숲2길 32-14",
+    "products": [
+      {
+        "name": "평일 3시간권(선착순 특가)",
+        "price": 9000,
+        "hours": "10/25(일) 이용불가",
+        "available": false
+      },
+      {
+        "name": "평일 3시간권",
+        "price": 18000,
+        "hours": "10/25(일) 이용불가",
+        "available": false
+      },
+      {
+        "name": "평일 당일권(선착순 특가)",
+        "price": 14000,
+        "hours": "10/25(일) 이용불가",
+        "available": false
+      },
+      {
+        "name": "평일 당일권",
+        "price": 30000,
+        "hours": "10/25(일) 이용불가",
+        "available": false
+      }
+    ],
+    "banner": "",
+    "card": true,
+    "marker": 12000,
+    "oper": "미확인",
+    "observed_marker": null,
+    "hourly_fee_won": 12000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "원본 기본·추가요금의 60분 환산 또는 기존 출처 확인 현장 시간당 요금",
+    "map_fee_note": "10분 2,000원의 시간당 기본요율. 초기 무료 20분은 별도 표시하며 입차 후 첫 60분 예상 결제액으로 해석하지 않음."
+  },
+  {
+    "i": 11,
+    "name": "케이엠파크 슈퍼패스트서울숲 주차장",
+    "kind": "제휴",
+    "total": 122,
+    "fee": "기본 30분 2,000원 / 추가 10분당 1,000원",
+    "address": "아차산로 6",
+    "products": [
+      {
+        "name": "휴일 2시간권",
+        "price": 5500,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 3시간권",
+        "price": 7500,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 6시간권",
+        "price": 11500,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "심야권",
+        "price": 9500,
+        "hours": "19:00 ~ 익일 08:00 이용가능",
+        "available": true
+      }
+    ],
+    "banner": "제한 높이 2.3m 주차장입니다. 2.3m이상 차량은 출입을 제한합니다.",
+    "card": true,
+    "marker": 5000,
+    "oper": "미확인",
+    "observed_marker": 5000,
+    "hourly_fee_won": 5000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "원본 기본·추가요금의 60분 환산 또는 기존 출처 확인 현장 시간당 요금"
+  },
+  {
+    "i": 12,
+    "name": "성수1가1동건물 주차장",
+    "kind": "공영",
+    "total": 91,
+    "fee": "1시간 3,000원",
+    "address": "성덕정1길 6",
+    "products": [],
+    "banner": "",
+    "card": true,
+    "marker": 3000,
+    "oper": "00:00 ~ 24:00",
+    "observed_marker": 3000,
+    "hourly_fee_won": 3000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "공식 시설공단 현황·2026-10-01 시행 공지"
+  },
+  {
+    "i": 13,
+    "name": "아마노 센터포인트성수 주차장",
+    "kind": "제휴",
+    "total": 58,
+    "fee": "현장 세부 요금은 이번 조사 미확인",
+    "address": "광나루로8길 22",
+    "products": [
+      {
+        "name": "1시간권",
+        "price": 3000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "심야권",
+        "price": 5000,
+        "hours": "18:00 ~ 익일 06:00 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 당일권",
+        "price": 8000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "평일 5시간권",
+        "price": 10000,
+        "hours": "10/25(일) 이용불가",
+        "available": false
+      }
+    ],
+    "banner": "",
+    "card": false,
+    "marker": 6000,
+    "oper": "미확인",
+    "observed_marker": 6000,
+    "hourly_fee_won": 6000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "원본 기본·추가요금의 60분 환산 또는 기존 출처 확인 현장 시간당 요금"
+  },
+  {
+    "i": 14,
+    "name": "서울숲디타워 주차장",
+    "kind": "제휴",
+    "total": 826,
+    "fee": "기본 30분 3,000원 / 추가 10분당 1,000원",
+    "address": "왕십리로 83-21",
+    "products": [
+      {
+        "name": "휴일 3시간권",
+        "price": 10000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 5시간권",
+        "price": 15000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "휴일 당일권",
+        "price": 20000,
+        "hours": "00:00 ~ 23:59 이용가능",
+        "available": true
+      },
+      {
+        "name": "평일 5시간권",
+        "price": 15000,
+        "hours": "10/25(일) 이용불가",
+        "available": false
+      }
+    ],
+    "banner": "",
+    "card": true,
+    "marker": 6000,
+    "oper": "미확인",
+    "observed_marker": null,
+    "hourly_fee_won": 6000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "원본 기본·추가요금의 60분 환산 또는 기존 출처 확인 현장 시간당 요금"
+  },
+  {
+    "i": 15,
+    "name": "뚝섬유수지 공영 주차장",
+    "kind": "공영",
+    "total": 329,
+    "fee": "1시간 3,000원",
+    "address": "성수동1가 685-63",
+    "products": [],
+    "banner": "",
+    "card": false,
+    "marker": 3000,
+    "oper": "00:00 ~ 24:00",
+    "observed_marker": 3000,
+    "hourly_fee_won": 3000,
+    "map_fee_policy": "현장 1시간 기본요율 · 무료시간/할인 별도",
+    "map_fee_basis": "공식 시설공단 현황·2026-10-01 시행 공지"
+  }
+]
