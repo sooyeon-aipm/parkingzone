@@ -2,7 +2,7 @@
   "schema_version": "pz_ut_v1",
   "prepared_at": "2026-10-26",
   "source_revision": "14eeb05",
-  "status": "LOCAL_IMPLEMENTED_GA4_ID_PENDING",
+  "status": "DEPLOYED_GA4_ID_PENDING",
   "collection_target": "GA4 web stream on Vercel; measurement ID not issued",
   "common_parameters": ["schema_version", "app_version", "study_round", "environment", "traffic_type", "ut_slot", "data_mode", "screen_id", "component_id"],
   "scope": "Application-owned controls and meaningful information blocks; SDK internals and decorative children are not separate controls",

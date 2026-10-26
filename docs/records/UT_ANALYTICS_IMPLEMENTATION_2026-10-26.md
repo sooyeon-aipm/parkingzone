@@ -1,6 +1,8 @@
-# 온라인 UT 분석 · 로컬 구현 인수인계
+# 온라인 UT 분석 · 구현·배포 인수인계
 
-기준일: 2026-10-26 · 브랜치 `main` · 기반 커밋 `14eeb05` 이후 작업트리.
+기준일: 2026-10-26 · 브랜치 `main` · 구현 커밋 `a77a4fb`.
+
+최신 상태: 구현 커밋 푸시·Vercel 배포 성공·공개 P01 링크 접속 확인 완료. GA4 측정 ID 미설정으로 실제 이벤트 수집은 아직 시작되지 않았다. 아래 로컬 검사와 후속 공개 배포 확인을 구분한다.
 
 ## 사용자 결정과 구현
 
@@ -37,6 +39,14 @@ Chrome의 실제 앱에서 측정 ID가 비어 있어도 조작 준비가 완료
 
 ## 완료 경계와 다음 단계
 
-소스 구현·Node 검사·Chrome 대표 흐름 자체 검증 완료. 커밋·푸시·이번 변경의 Vercel 배포는 하지 않았다. 전체 요소의 모든 조건 분기·실기기·실제 GA4 수신·실제 참여자 UT는 미실행이다. Supabase DB·수집 스케줄은 변경하지 않았다.
+소스 구현·Node 검사·Chrome 대표 흐름 자체 검증 완료. 후속 사용자 요청으로 커밋·푸시·Vercel 공개 배포까지 진행했다. 전체 요소의 모든 조건 분기·실기기·실제 GA4 수신·실제 참여자 UT는 미실행이다. Supabase DB·수집 스케줄은 변경하지 않았다.
 
 다음은 GA4 속성 생성 → 공개 측정 ID 입력 → 이벤트 범위 측정기준 `ut_slot / study_round / traffic_type / screen_id / component_id` 등록 → 배포 버전 대조 → Network·DebugView·Realtime 수신 확인이다. [설정 명세](../ut/GA4_SETUP.md)와 [5명 참여자 링크](../ut/UT_PARTICIPANT_LINKS.md)를 따른다.
+
+## 공개 배포 확인
+
+- `a77a4fb`를 `origin/main`에 정상 푸시했다. GitHub의 Vercel 체크가 `success`이며 [해당 배포](https://vercel.com/sooyeon/parkingzone/F5a97BqAZhtf66dvw8xLYvdcFqk6)를 확인했다.
+- 공개 주소에서 `index.html`, `app.js`, `analytics.js`, `analytics-ui.js`, `analytics-catalog.js`, `analytics-config.js`가 모두 HTTP 200이고 구현 소스와 바이트 단위로 일치했다.
+- Chrome에서 `https://parkingzone.vercel.app/?ut=P01`에 접속해 `aria-busy=false`, 네이버 지도, 현재 주차권 목록, 시설 상세를 확인했다. 실제 구매·예약은 실행하지 않았다.
+- 진입 스크립트는 `app.js?v=20261026-ut1`이다. 측정 ID가 비어 있으므로 Google tag가 삽입되지 않는 상태도 확인했다. 이는 GA4 수신 성공이 아니다.
+- 임시 공개 배포 증거: `/private/tmp/parking-ut-public-assets.json`, `/private/tmp/parking-ut-public-deployed.png`.
