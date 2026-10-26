@@ -1,8 +1,8 @@
-# 온라인 UT · GA4 설정 준비
+# 온라인 UT · GA4 설정·수신 확인
 
-작성일: 2026-10-26 · 구현 커밋: `a77a4fb` · GitHub main 푸시·Vercel 공개 배포 확인.
+작성일: 2026-10-26 · 이벤트 구현: `a77a4fb` · GA4 활성화: `0b5c798` · GitHub main 푸시·Vercel 공개 배포 확인.
 
-**현재 상태: 참여자별 링크·공통 GA4 모듈·전체 조작 요소의 이벤트 연결을 구현하고 공개 배포했다.** `https://parkingzone.vercel.app/?ut=P01`에서 초기화·지도·주차권 목록·상세 접속을 Chrome으로 확인했다. GA4 속성 생성·측정 ID 발급·실제 GA4 수신 확인은 아직 하지 않았다. 측정 ID가 비어 있으면 태그를 불러오거나 이벤트를 저장·전송하지 않는다. 로컬 행동 기록·파일 내보내기 기능은 추가하지 않았다.
+**현재 상태: GA4 전용 속성·웹 스트림 생성, 측정 ID 연결·공개 배포, Google 수집 응답과 DebugView·실시간 보고서 수신 확인을 완료했다.** 측정 ID는 `G-9J66ERM0PK`, 빌드는 `20261026-ga4-1`이다. 점검은 `technical_test`/리허설 링크로 진행했으며 실제 참여자 UT 결과가 아니다. 참여자별 링크는 P01~P05를 사용한다. 로컬 행동 기록·파일 내보내기 기능은 추가하지 않았다.
 
 사용자가 승인한 참여자별 링크 방식은 [참여자 링크·진행 안내](UT_PARTICIPANT_LINKS.md)를 따른다. 구현 파일은 `prototype/analytics-config.js`, `analytics.js`, `analytics-ui.js`, `analytics-catalog.js`다. 아래 설계 명세와 실제 검증 범위를 구분한다.
 
@@ -26,34 +26,36 @@
 | `docs/ut/UT_DESIGN.md` | 과거 정보 이해도 UT 설계 | 현재 실데이터 실행 방식에 맞춘 후속 조정 필요 |
 | `vercel.json` | `/api/parking` 및 `prototype` 경로 연결 | GA4 태그는 배포된 웹에서 실행 |
 
-React/Next.js나 `package.json`이 없는 ES 모듈 기반 HTML/CSS/JavaScript 프로젝트다. 고정 화면 외에도 JS에서 버튼과 폼을 생성하므로 문서 캡처 리스너와 명시적 처리 결과 훅을 함께 사용한다. GA4 로더와 이벤트 연결은 추가했지만 측정 ID는 비어 있다. 기존 `parkingzone-ut-selections-v1`은 선택 결과를 이 브라우저에 저장하는 기능이며 원격 행동 분석이 아니다.
+React/Next.js나 `package.json`이 없는 ES 모듈 기반 HTML/CSS/JavaScript 프로젝트다. 고정 화면 외에도 JS에서 버튼과 폼을 생성하므로 문서 캡처 리스너와 명시적 처리 결과 훅을 함께 사용한다. GA4 로더·이벤트·측정 ID를 연결했다. 기존 `parkingzone-ut-selections-v1`은 선택 결과를 이 브라우저에 저장하는 별도 기능이며 원격 행동 분석이 아니다.
 
 기본 실행은 실제 현황을 읽으며, 기존 문서의 가상 데이터·고정 시각·기존안 비교 설명을 현재 UT에 그대로 적용하면 안 된다. 공개 배포 파일과 웹의 지도·목록·상세 읽기를 확인했다. DB·수집 스케줄 관리 상태는 이번 분석 배포에서 재검증하지 않았다.
 
-## 2. 새 GA4 속성 설정안
+## 2. 생성·연결한 GA4 설정
 
-아래는 **속성 생성 전 설정안**이다. 사용자 계정에서 GA4 관리 권한으로 생성한 뒤 `prototype/analytics-config.js`의 `measurementId`에 공개 측정 ID를 입력한다. Measurement Protocol API secret이나 서비스 계정 키는 필요하지 않다.
+로그인된 Chrome에서 기존 애널리틱스 계정의 별도 속성을 생성하고 `prototype/analytics-config.js`에 공개 측정 ID를 연결했다. 기존 프로젝트 속성의 설정·데이터는 변경하지 않았다. Measurement Protocol API secret이나 서비스 계정 키는 만들지 않았다.
 
-| 항목 | 준비 값 |
+| 항목 | 확인 값 |
 | --- | --- |
 | 속성 이름 | `Parkingzone UT` |
+| 계정 / 속성 ID | `409348112` / `560718699` |
 | 보고 시간대 | 대한민국 · `Asia/Seoul` |
 | 통화 | 대한민국 원 · `KRW` |
 | 데이터 스트림 | 웹 · `Parkingzone UT Web` |
-| 웹사이트 URL | 기존 프로젝트 문서의 `https://parkingzone.vercel.app` — UT 안내 전 실제 사용할 배포 주소 확인 |
-| 측정 ID | 미발급 · `G-…` |
-| 연결 방식 | 공통 JS 모듈에서 Google tag 직접 연결 제안. GTM과 중복 설치하지 않음 |
-| 향상된 측정 | 이번에는 끄고 필요한 이벤트를 명시적으로 수집하는 설정 제안. 자동 폼·사이트 검색 수집으로 입력값이 섞이지 않게 함 |
+| 스트림 ID | `16205575157` |
+| 웹사이트 URL | `https://parkingzone.vercel.app` |
+| 측정 ID | `G-9J66ERM0PK` |
+| 연결 방식 | 공통 JS 모듈에서 Google tag 직접 연결. GTM과 중복 설치하지 않음 |
+| 향상된 측정 | GA4 스트림에서 OFF 확인. 자동 폼·사이트 검색 수집으로 입력값이 섞이지 않게 함 |
 | 광고 관련 기능 | UT에는 광고 연결·Google Signals·광고 개인화 기능을 추가하지 않음 |
 | 개발자 점검 | `debug_mode`는 점검 기기에서만 사용. 실제 UT에는 제거 |
 | 테스트 구분 | `traffic_type=technical_test / rehearsal / ut / general` |
 
-생성 순서:
+설정 순서(완료):
 
 1. GA4 관리에서 사용할 계정을 고르고 위 시간대·통화로 속성을 생성한다.
 2. 웹 데이터 스트림에 최종 Vercel 주소를 입력하고 측정 ID를 확인한다.
 3. 향상된 측정 설정을 확인하고, 아래 사용자 정의 측정기준을 등록한다.
-4. 측정 ID를 공통 분석 설정에 연결한 뒤 로컬·시험 배포에서 검증한다.
+4. 측정 ID를 공통 분석 설정에 연결하고 관련 Node 검사 후 main에 배포한다.
 5. 실제 UT에 보낼 주소에서 수신까지 확인한 뒤 링크를 전달한다.
 
 Google tag의 `send_page_view:false`와 명시적 `page_view` 1회 방식으로 중복을 막는다. `page_location`은 쿼리·해시를 제거한 주소로, `page_referrer`는 출처 도메인만 전달한다. 내부 화면 전환은 별도 `ui_view`로 구분한다. 원본 URL·referrer가 자동 페이지뷰나 자동 이벤트로 먼저 전송되지 않게 태그 초기화 순서를 점검한다.
@@ -99,11 +101,11 @@ GA4에는 [이벤트 설정](https://developers.google.com/analytics/devguides/c
 
 참여자 테스트 코드는 사용자 승인에 따라 `?ut=P01`~`P05`에서만 읽고 모든 명시적 이벤트에 포함한다. 회차는 설정 파일의 `round_1`로 고정하고 원본 쿼리를 보내지 않는다. 코드가 중복되거나 허용 목록 밖이면 `unassigned`다. 브라우저에 새 참여자 저장소를 만들지 않으며, 코드 없는 링크에서는 과거 참여자를 이어받지 않는다. `?qa=technical_test` 또는 `?qa=rehearsal`은 참여자 코드보다 우선한다. 로컬·미리보기 호스트는 실제 UT로 분류하지 않는다. 진행자는 관찰 메모에도 같은 코드를 사용하고 이름·연락처 대응표를 GA4에 보내지 않는다. 이 코드는 본인 인증이 아니며 GA4의 브라우저 사용자 수를 합치는 기능도 아니다. 기존 내 공유 화면의 동의 체크는 분석 수집 동의로 재사용하지 않는다.
 
-GA4 이벤트 범위 사용자 정의 측정기준은 우선 `ut_slot`, `study_round`, `traffic_type`, `screen_id`, `component_id`를 등록한다. 추가 후보는 `app_version`, `environment`, `result`, `reason`, `display_mode`, `freshness`, `share_step`, `dialog_type`다. 필요에 따라 등록하고 무작정 모두 추가하지 않는다. 고유 세션 ID·시각·검색어·URL·상품 ID를 사용자 정의 측정기준으로 등록하지 않는다. 매개변수 수신과 보고서에서의 사용 가능 여부는 별개로 점검한다.
+GA4 이벤트 범위 사용자 정의 측정기준 `ut_slot`(UT 참여자 코드), `study_round`(UT 회차), `traffic_type`(방문 구분), `screen_id`(화면 ID), `component_id`(컴포넌트 ID) 5개를 등록하고 목록에서 저장을 확인했다. 추가 후보는 `app_version`, `environment`, `result`, `reason`, `display_mode`, `freshness`, `share_step`, `dialog_type`다. 고유 세션 ID·시각·검색어·URL·상품 ID는 사용자 정의 측정기준으로 등록하지 않는다. 일반 보고서의 새 측정기준 반영에는 시간이 걸릴 수 있으며, DebugView의 매개변수 수신과 구분한다.
 
 ## 5. 동작 결과 이벤트
 
-다음 이름은 명시적 결과 훅에 연결했다. 일반 클릭 이벤트와 결과 이벤트는 목적이 다르므로 결과가 확인된 함수 분기에서 따로 기록한다. 실제 GA4 수신은 아직 확인 전이다.
+다음 이름은 명시적 결과 훅에 연결했다. 일반 클릭 이벤트와 결과 이벤트는 목적이 다르므로 결과가 확인된 함수 분기에서 따로 기록한다. GA4에서 대표 이벤트의 실제 수신을 확인했으며 아래 모든 성공·실패 분기를 원격 실행한 것은 아니다.
 
 | 이벤트 | 발생 조건·횟수 | 주요 추가 속성 |
 | --- | --- | --- |
@@ -149,7 +151,7 @@ GA4 이벤트 범위 사용자 정의 측정기준은 우선 `ut_slot`, `study_r
 
 후속 구현 검증: Node 테스트 68/68 통과. Chrome에서 대표 흐름과 P01→P02 변경·P02 새로고침·입력 제외·선택 완료 1회·실제 `purchase` 미발생을 확인했다. 별도 로컬 테스트 서버가 메모리 수신기와 가상 현황·가상 주차권을 주입한 자체 검증이다. 운영 코드에는 그 수신기·가상값을 넣지 않았다. 실제 앱에서도 ID 미설정 시 태그 없이 초기화되는 것을 확인했다.
 
-공개 배포 확인: Vercel 성공 체크, 공개 HTML·분석 관련 모듈 6개와 구현 소스의 일치, Chrome에서 P01 주소 초기화·지도·목록·상세 읽기 PASS. 아래 표 중 GA4 수신·전체 예외 분기·실제 참여자 UT는 아직 `NOT_RUN`이며 소스 배포나 대표 흐름 확인으로 대체하지 않는다.
+공개 배포 확인: Vercel 성공 체크, 공개 HTML·분석 관련 모듈과 구현 소스 대조, Chrome에서 화면 실행 확인. `0b5c798`의 활성화 배포 후 Google tag의 측정 ID, 수집 요청 HTTP 204, DebugView의 `page_view / app_ready / ui_click / ui_view / ui_impression / parking_refresh_result / map_load_result`, 실시간 보고서의 이벤트 표시를 확인했다. 기술 점검의 `ut_slot=unassigned`도 확인했다. 전체 예외 분기·실제 참여자 UT는 아직 `NOT_RUN`이다.
 
 | 확인 항목 | 통과 기준 |
 | --- | --- |
@@ -173,4 +175,4 @@ GA4 DebugView는 `debug_mode:true`를 넣어 확인하고 종료할 때 매개�
 
 과업 시작·종료 기준·참여자 조건·회차·성공 기준은 아직 최종 확정하지 않았다. 따라서 GA4 방문자를 분모로 과업 성공률을 계산하거나 임의 시간 제한을 넣지 않는다. 실제 UT 링크를 보낸 뒤 기술 점검 이벤트를 실제 참여자 성과에 섞지 않는다.
 
-다음 입력은 새 속성의 **측정 ID**다. 속성 생성이 끝나면 `analytics-config.js`에 ID를 입력하고 최종 Vercel 주소의 태그·이벤트 수신을 검증한다. 소스 구현·로컬 합격으로 GA4 속성 생성·배포·수신·UT 실행이 완료된 것은 아니다.
+속성 생성·ID 연결·공개 배포·대표 이벤트 수신 확인은 완료했다. 다음은 실제 참여자의 과업·시작/종료·관찰 방식 확정과 인터뷰 진행이다. [실시간 보고서](https://analytics.google.com/analytics/web/#/a409348112p560718699/realtime/overview)에서 수집 상태를 확인할 수 있다. 기술 점검 브라우저 1개가 관찰된 사실을 실제 사용자 성과로 해석하지 않는다.

@@ -1,20 +1,20 @@
 # 온라인 UT 분석 · 구현·배포 인수인계
 
-기준일: 2026-10-26 · 브랜치 `main` · 구현 커밋 `a77a4fb`.
+기준일: 2026-10-26 · 브랜치 `main` · 이벤트 구현 `a77a4fb` · GA4 활성화 `0b5c798`.
 
-최신 상태: 구현 커밋 푸시·Vercel 배포 성공·공개 P01 링크 접속 확인 완료. GA4 측정 ID 미설정으로 실제 이벤트 수집은 아직 시작되지 않았다. 아래 로컬 검사와 후속 공개 배포 확인을 구분한다.
+최신 상태: GA4 전용 속성·웹 스트림 생성, 측정 ID 연결·공개 배포, Google 수집 응답 HTTP 204·DebugView·실시간 이벤트 수신 확인 완료. 이는 에이전트의 기술 점검이며 실제 참여자 UT는 아직 미진행이다.
 
 ## 사용자 결정과 구현
 
-온라인 UT를 Vercel 주소로 진행할 예정이며 GA4 속성은 아직 없다. 로그인 없이 5명에게 P01~P05 개별 링크를 전달하는 방식을 사용자가 승인했다. 로컬 행동 저장·파일 내보내기 기능은 추가하지 않았다.
+온라인 UT를 Vercel 주소로 진행한다. 최초에는 GA4 속성이 없었고, 사용자가 후속 연결 작업을 요청해 전용 속성을 생성했다. 로그인 없이 5명에게 P01~P05 개별 링크를 전달하는 방식을 사용자가 승인했다. 로컬 행동 저장·파일 내보내기 기능은 추가하지 않았다.
 
-- `prototype/analytics-config.js`: 공개 측정 ID 입력 위치, 회차 `round_1`, 빌드 `20261026-ut1`, 운영 호스트.
+- `prototype/analytics-config.js`: 공개 측정 ID `G-9J66ERM0PK`, 회차 `round_1`, 빌드 `20261026-ga4-1`, 운영 호스트.
 - `prototype/analytics.js`: 링크·QA 분류, 고정 속성·값 허용, URL 정제, 태그 로드·차단 처리. 코드 없는 방문에 이전 참여자 코드를 이어붙이지 않는다. 참여자용 새 저장소·로그인은 만들지 않는다.
 - `prototype/analytics-ui.js`, `analytics-catalog.js`: 준비 목록의 조작 68그룹·화면 15그룹·정보 노출 22그룹 연결. 이벤트 위임으로 동적 UI를 포함하고 화면·공유 단계·모달을 구분한다.
 - `app.js`, `share-flow.js`, `share-address.js`, `parking-map.js`: 기능의 성공·실패·취소·프로토타입 종료 결과 훅. `refresh-policy.js`, `refresh-loop.js`는 기존 요청 공유를 유지하면서 초기·자동·수동·복귀 출처를 전달한다.
 - `index.html`: 진입 스크립트 버전과 origin 기준 referrer 설정.
 
-측정 ID는 의도적으로 비어 있다. 이 상태에서는 GA4 태그·행동 전송·노출 관찰이 시작되지 않으며 원래 앱은 사용할 수 있다. GA4 ID를 받은 뒤 해당 설정을 바꾸고 최종 배포 주소에서 실제 수신을 검사해야 한다.
+초기에는 ID가 비어 있는 안전한 비활성 상태로 배포했고, 후속 작업에서 새 속성의 실제 ID를 연결했다. ID 제거·태그 차단 시 원래 앱은 계속 사용할 수 있도록 실패 처리를 유지한다.
 
 ## 자체 검증
 
@@ -39,14 +39,26 @@ Chrome의 실제 앱에서 측정 ID가 비어 있어도 조작 준비가 완료
 
 ## 완료 경계와 다음 단계
 
-소스 구현·Node 검사·Chrome 대표 흐름 자체 검증 완료. 후속 사용자 요청으로 커밋·푸시·Vercel 공개 배포까지 진행했다. 전체 요소의 모든 조건 분기·실기기·실제 GA4 수신·실제 참여자 UT는 미실행이다. Supabase DB·수집 스케줄은 변경하지 않았다.
+소스 구현·Node 검사·Chrome 대표 흐름 자체 검증·공개 배포·실제 GA4 수신 확인 완료. 전체 요소의 모든 조건 분기·실기기·실제 참여자 UT는 미실행이다. Supabase DB·수집 스케줄은 변경하지 않았다.
 
-다음은 GA4 속성 생성 → 공개 측정 ID 입력 → 이벤트 범위 측정기준 `ut_slot / study_round / traffic_type / screen_id / component_id` 등록 → 배포 버전 대조 → Network·DebugView·Realtime 수신 확인이다. [설정 명세](../ut/GA4_SETUP.md)와 [5명 참여자 링크](../ut/UT_PARTICIPANT_LINKS.md)를 따른다.
+설정·대표 수집 확인은 완료했다. 다음은 실제 인터뷰 과업·관찰 방법을 확정하고 참여자별 링크로 진행하는 것이다. 기술 점검과 실제 UT를 분리하는 [설정 명세](../ut/GA4_SETUP.md)와 [5명 참여자 링크](../ut/UT_PARTICIPANT_LINKS.md)를 따른다.
 
-## 공개 배포 확인
+## 최초 공개 배포 확인 — GA4 연결 전 기록
 
 - `a77a4fb`를 `origin/main`에 정상 푸시했다. GitHub의 Vercel 체크가 `success`이며 [해당 배포](https://vercel.com/sooyeon/parkingzone/F5a97BqAZhtf66dvw8xLYvdcFqk6)를 확인했다.
 - 공개 주소에서 `index.html`, `app.js`, `analytics.js`, `analytics-ui.js`, `analytics-catalog.js`, `analytics-config.js`가 모두 HTTP 200이고 구현 소스와 바이트 단위로 일치했다.
 - Chrome에서 `https://parkingzone.vercel.app/?ut=P01`에 접속해 `aria-busy=false`, 네이버 지도, 현재 주차권 목록, 시설 상세를 확인했다. 실제 구매·예약은 실행하지 않았다.
 - 진입 스크립트는 `app.js?v=20261026-ut1`이다. 측정 ID가 비어 있으므로 Google tag가 삽입되지 않는 상태도 확인했다. 이는 GA4 수신 성공이 아니다.
 - 임시 공개 배포 증거: `/private/tmp/parking-ut-public-assets.json`, `/private/tmp/parking-ut-public-deployed.png`.
+
+## GA4 연결·실제 수신 확인
+
+- 기존 애널리틱스 계정 `409348112`에 `Parkingzone UT` 속성 `560718699`를 새로 생성했다. 한국 시간·원화, 자동차·소규모 프로젝트, 트래픽·참여 목표로 설정했다. 기존 프로젝트 속성을 수정하지 않았다.
+- 웹 스트림 `Parkingzone UT Web` / ID `16205575157` / 측정 ID `G-9J66ERM0PK`, URL `https://parkingzone.vercel.app`. 향상된 측정 OFF를 스트림 세부 화면에서 확인했다.
+- 이벤트 범위 맞춤 측정기준 5개 `ut_slot / study_round / traffic_type / screen_id / component_id`를 생성하고 목록의 저장 결과를 확인했다. 일반 보고서 반영은 지연될 수 있다.
+- `0b5c798`을 main에 푸시했고 [Vercel 배포](https://vercel.com/sooyeon/parkingzone/4MWtNQvLkLB4D7GSN2tgdEHwUFKQ)가 성공했다. 공개 페이지는 `app.js?v=20261026-ga4-1`, Google tag는 `gtag/js?id=G-9J66ERM0PK`로 로드되었다.
+- ID·버전 변경 후 `node --test prototype/analytics.test.mjs` **12/12 PASS**. 앞서 전체 프론트 검사 68/68 PASS 기록과 구분한다.
+- Chrome Network의 Google Analytics `g/collect` 요청에서 HTTP **204 No Content**를 확인했다. 요청에 실제 측정 ID, 빌드 `20261026-ga4-1`, `study_round=round_1`, `environment=production`, `traffic_type=technical_test`, `ut_slot=unassigned`가 표시되고 페이지 주소는 쿼리 없는 루트 주소였다.
+- 해당 GA4 속성 DebugView에 `page_view`, `app_ready`, `ui_click`, `ui_view`, `ui_impression`, `parking_refresh_result`, `map_load_result`가 도착했다. `ui_click` 매개변수 목록과 `ut_slot=unassigned` 값을 확인했다.
+- 실시간 보고서에서도 이벤트와 활성 브라우저 1개가 관찰되었다. 점검 링크와 리허설 링크로 발생한 에이전트 기록이며 실제 참여자 1명이나 실제 UT 성과가 아니다. 실참여자 P01~P05의 원격 결과는 아직 없다.
+- 임시 증거: `/private/tmp/parking-ga4-stream-created.png`, `/private/tmp/parking-ga4-custom-definitions.png`, `/private/tmp/parking-ga4-collect-204.png`, `/private/tmp/parking-ga4-debugview-received.png`, `/private/tmp/parking-ga4-realtime-received.png`, `/private/tmp/parking-ga4-reception-check.txt`.
