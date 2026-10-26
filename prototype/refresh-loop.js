@@ -5,14 +5,14 @@ export function startRefreshLoop({refresh, visibility=document, delay=60000, set
     cancel();
     if(!disposed && !visibility.hidden) timer=setTimer(run,delay);
   };
-  function run() {
+  function run(origin='auto') {
     cancel();
     if(disposed || visibility.hidden || running) return running;
-    running=Promise.resolve().then(()=>refresh()).catch(()=>false).finally(()=>{running=null;schedule();});
+    running=Promise.resolve().then(()=>refresh({origin})).catch(()=>false).finally(()=>{running=null;schedule();});
     return running;
   }
-  const onVisibility=()=>{cancel();if(!visibility.hidden) run();};
+  const onVisibility=()=>{cancel();if(!visibility.hidden) run('resume');};
   visibility.addEventListener('visibilitychange',onVisibility);
-  run();
+  run('initial');
   return ()=>{disposed=true;cancel();visibility.removeEventListener('visibilitychange',onVisibility);};
 }

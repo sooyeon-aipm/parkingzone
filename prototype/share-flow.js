@@ -1,4 +1,5 @@
 import {createAddressPicker,addressPreview} from './share-address.js';
+import {trackEvent} from './analytics.js';
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function shareFormComplete(form, photos) {
   return Boolean(form.name?.trim() && form.address?.trim() && Number.isInteger(Number(form.spaces)) && Number(form.spaces)>0 && String(form.fee).trim() && Number.isFinite(Number(form.fee)) && Number(form.fee)>=0 && photos[0] && photos[1]);
@@ -28,6 +29,7 @@ export function initShareFlow(root) {
   const choice=(key,value,label,description,selected)=>`<button class="share-choice ${selected?'selected':''}" data-share-choice="${key}" data-value="${value}" aria-pressed="${selected}"><strong>${label}</strong>${description?`<small>${description}</small>`:''}</button>`;
   const footer=(label,disabled=false)=>`<footer class="share-footer"><button data-share-next ${disabled?'disabled':''}>${label}</button></footer>`;
   function render() {
+    root.dataset.shareStep=page;root.dataset.dialogType=dialog??'none';
     disposePreview();disposePreview=()=>{};
     let body='',bottom='';
     if(page==='home') {
@@ -80,13 +82,13 @@ export function initShareFlow(root) {
     }
     if(target.hasAttribute('data-share-dismiss')) {dialog=null;render();return;}
     if(target.hasAttribute('data-share-continue')) {dialog=null;page='form';render();return;}
-    if(target.hasAttribute('data-share-boundary')) {root.querySelector('.share-boundary-note').hidden=false;return;}
+    if(target.hasAttribute('data-share-boundary')) {const note=root.querySelector('.share-boundary-note');if(note.hidden)trackEvent('share_boundary_shown',{component_id:'share_boundary',dialog_type:dialog,result:'preview_only'});note.hidden=false;return;}
     if(!target.hasAttribute('data-share-next')) return;
     if(page==='home') page='type';
     else if(page==='type' && type) {if(type==='resident') dialog='resident';else page='operation';}
     else if(page==='operation' && operation) {if(operation==='monthly') dialog='monthly';else page='conditions';}
     else if(page==='conditions') dialog=shareConditionResult(external,designated)==='ready'?'photos':'unavailable';
-    else if(page==='form' && shareFormComplete(form,photos)) page='review';
+    else if(page==='form' && shareFormComplete(form,photos)) {page='review';trackEvent('share_preview_completed',{component_id:'share_next',share_step:'review',result:'preview_only'});}
     else if(page==='review') {page='home';form={};photos=[null,null];}
     render();
   });

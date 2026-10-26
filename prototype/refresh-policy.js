@@ -3,12 +3,12 @@
 export function createRefreshPolicy({load, now = () => performance.now(), interval = 60000}) {
   let pending = null, lastSuccess = -Infinity, lastAttempt = -Infinity;
   return {
-    refresh({force = false} = {}) {
+    refresh({force = false, origin = 'auto'} = {}) {
       if (pending) return pending;
       const time = now();
       if (!force && time - Math.max(lastSuccess, lastAttempt) < interval) return Promise.resolve(false);
       lastAttempt = time;
-      pending = Promise.resolve().then(load).then(result => {
+      pending = Promise.resolve().then(()=>load({origin})).then(result => {
         if (result === false) return false;
         lastSuccess = now();
         return true;

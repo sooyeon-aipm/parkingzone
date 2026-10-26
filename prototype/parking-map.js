@@ -1,4 +1,5 @@
 // Client ID는 웹 도메인 제한이 적용되는 공개 식별자다. Client Secret은 사용하지 않는다.
+import {trackEvent} from './analytics.js';
 const CLIENT_ID = '7xmbdz57t0';
 let sdkPromise;
 export function loadSdk() {
@@ -23,6 +24,16 @@ export async function createParkingMap(element, onSelect, onLocations = () => {}
     // 성수동 탐색 시작 지점이며 개별 주차장의 위치로 사용하지 않는다.
     const center = new maps.LatLng(37.5445, 127.0557);
     const map = new maps.Map(element, {center, zoom:15, minZoom:10, maxZoom:20});
+    let gestureUntil=0,zoomTimer;
+    const markZoom=()=>{gestureUntil=performance.now()+1500;};
+    element.addEventListener('wheel',markZoom,{passive:true});
+    element.addEventListener('dblclick',markZoom,{passive:true});
+    element.addEventListener('touchstart',event=>{if(event.touches.length>1)markZoom();},{passive:true});
+    maps.Event.addListener(map,'dragend',()=>trackEvent('map_interaction',{component_id:'map',action:'pan'}));
+    maps.Event.addListener(map,'zoom_changed',()=>{
+      if(performance.now()>gestureUntil)return;
+      clearTimeout(zoomTimer);zoomTimer=setTimeout(()=>trackEvent('map_interaction',{component_id:'map',action:'zoom'}),200);
+    });
     element.addEventListener('click', event => {
       const pin=event.target.closest('[data-parking-id]');
       if(pin){ event.preventDefault(); event.stopPropagation(); onSelect(pin.dataset.parkingId); }
