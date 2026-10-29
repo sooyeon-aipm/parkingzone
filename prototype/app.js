@@ -2,7 +2,7 @@ import {parkingTypeLabel,compactFacilityMeta,typeIcon,facilityProductsHtml,measu
 import { buildView, sourceTimeLabel } from './model.js';
 import { connectCatalog } from './catalog.js?v=20261025-passes1';
 import {straightDistance,distanceLabel} from './geo.js';
-import { createParkingMap } from './parking-map.js?v=20261030-place-search';
+import { createParkingMap } from './parking-map.js?v=20261030-map-cleanup-2';
 import { createRefreshPolicy } from './refresh-policy.js';
 import { startRefreshLoop } from './refresh-loop.js';
 import { attachBottomSheet } from './bottom-sheet.js?v=20261025-fifteen4';

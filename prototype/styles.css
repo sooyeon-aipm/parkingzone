@@ -173,4 +173,3 @@ body{gap:0}.study{display:none!important}.research-ribbon{display:none}.phone{ma
 
 /* Destination lookup uses a separate NAVER result section. */
 .search-content{height:calc(100% - 230px);overflow:auto}.search-content #search-results{height:auto;overflow:visible}.search-section-title{font-size:12px;color:#687884;font-weight:500;margin:15px 22px 0}.search-disclosure{font-size:11px;color:#73818b;line-height:1.5;padding:0 20px}.destination-map-pin{display:block;background:#273b4a;color:white;padding:7px 12px;border:2px solid white;border-radius:18px;box-shadow:0 2px 6px #0003;font-size:12px;white-space:nowrap}
-

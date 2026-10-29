@@ -98,7 +98,7 @@ export async function createParkingMap(element, onSelect, onLocations = () => {}
         if(!place)return;
         const point=place.location;
         if(!Number.isFinite(point?.lat)||!Number.isFinite(point?.lng))return;
-        const content=document.createElement('span');content.className='destination-map-pin';content.textContent='목적지 · '+place.name;
+        const content=document.createElement('span');content.className='destination-map-pin';content.textContent=place.name;
         destinationMarker=new maps.Marker({map,position:new maps.LatLng(point.lat,point.lng),title:place.name,icon:{content,anchor:new maps.Point(45,36)}});
         map.panTo(new maps.LatLng(point.lat,point.lng));map.setZoom(15);focusedId=null;
       },
