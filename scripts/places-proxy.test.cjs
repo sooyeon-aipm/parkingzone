@@ -1,6 +1,6 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
-const {createHandler}=require('./places.js');
+const {createHandler}=require('../api/places.js');
 const req={method:'POST',headers:{'content-type':'application/json',host:'parkingzone.vercel.app',origin:'https://parkingzone.vercel.app'},body:{query:'테스트'}};
 const response=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},status(v){this.code=v;return this;},json(v){this.body=v;return this;}});
 test('Vercel은 네이버 키 없이 고정된 기존 Supabase 프로젝트로만 검색을 전달한다',async()=>{
