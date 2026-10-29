@@ -129,8 +129,6 @@ function refreshVisibleViews() {
 }
 function renderMarkers() {
   const candidates=candidateLots();
-  $('#nearby-status').hidden=!selectedPlace;
-  $('#nearby-status').textContent=selectedPlace ? `직선거리 1km 안 · 등록 주차장 ${candidates.length}곳` : '';
   $('#open-list').innerHTML=selectedPlace ? `주변 주차장 ${candidates.length}곳 <span>⌃</span>` : '🅿 오늘 주차권 <span>⌃</span>';
   parkingMap?.setLots(candidates.map(lot=>({...lot,...mapDisplay(lot,productsFor(lot)[0],state.tickets)})), state.selectedId, true);
 }
