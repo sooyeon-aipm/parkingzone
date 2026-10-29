@@ -38,6 +38,7 @@ export async function createParkingMap(element, onSelect, onLocations = () => {}
       const pin=event.target.closest('[data-parking-id]');
       if(pin){ event.preventDefault(); event.stopPropagation(); onSelect(pin.dataset.parkingId); }
     }, {capture:true});
+    let destinationMarker=null;
     const markers = new Map();
     const locations = new Map(), pending = new Set(), addressMatches = [];
     let latest = [], shown = true, focusedId = null, selected = null;
@@ -92,6 +93,15 @@ export async function createParkingMap(element, onSelect, onLocations = () => {}
       element.dataset.verifiedLocations = String(locations.size);
     }
     return {
+      setDestination(place) {
+        destinationMarker?.setMap(null);destinationMarker=null;
+        if(!place)return;
+        const point=place.location;
+        if(!Number.isFinite(point?.lat)||!Number.isFinite(point?.lng))return;
+        const content=document.createElement('span');content.className='destination-map-pin';content.textContent='목적지 · '+place.name;
+        destinationMarker=new maps.Marker({map,position:new maps.LatLng(point.lat,point.lng),title:place.name,icon:{content,anchor:new maps.Point(45,36)}});
+        map.panTo(new maps.LatLng(point.lat,point.lng));map.setZoom(15);focusedId=null;
+      },
       getLocation: id => locations.get(id) ?? null,
       zoom: delta => map.setZoom(map.getZoom() + delta, true),
       reset: () => { focusedId = null; map.setCenter(center); map.setZoom(15); },

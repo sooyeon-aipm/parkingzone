@@ -2,7 +2,7 @@ import {parkingTypeLabel,compactFacilityMeta,typeIcon,facilityProductsHtml,measu
 import { buildView, sourceTimeLabel } from './model.js';
 import { connectCatalog } from './catalog.js?v=20261025-passes1';
 import {straightDistance,distanceLabel} from './geo.js';
-import { createParkingMap } from './parking-map.js?v=20261025-fifteen4';
+import { createParkingMap } from './parking-map.js?v=20261030-place-search';
 import { createRefreshPolicy } from './refresh-policy.js';
 import { startRefreshLoop } from './refresh-loop.js';
 import { attachBottomSheet } from './bottom-sheet.js?v=20261025-fifteen4';
@@ -13,6 +13,7 @@ import { koreaDate, shiftMonth, monthDays, selectableDate } from './calendar.js'
 import { serviceProducts, durationMatches } from './service-filter.js';
 import { initialProductId, selectedProductById } from './product-selection.js';
 import {defaultSearchFilters, matchesSearchFilters} from './search-filters.js';
+import {createPlaceSearch,nearbyLots} from './place-search.js';
 import {mapDisplay,visibleInMapLayer} from './map-display.js?v=20261025-fifteen4';
 import {initShareFlow} from './share-flow.js';
 import {analytics,trackEvent,productType,durationBucket} from './analytics.js';
@@ -20,6 +21,9 @@ import {installUiAnalytics} from './analytics-ui.js';
 let parkingMap;
 let searchFilters=defaultSearchFilters();
 let sharedLayer=true;
+const placeSearch=createPlaceSearch();
+let placeResults=[],placeRequest=0;
+let selectedPlace=null;
 
 const initialDate=koreaDate();
 let draftDate=initialDate, draftDuration='1시간', calendarMonth=initialDate.slice(0,7);
@@ -51,10 +55,14 @@ function productsFor(lot) {
     (['제안',product.category].includes(state.category)) &&
     (state.service!=='parking' || durationMatches(product,state.duration)));
 }
-const distanceTo = lot => straightDistance(parkingMap?.getLocation(state.destinationId),parkingMap?.getLocation(lot.id));
+const destination = () => selectedPlace ?? dataset.lots.find(lot=>lot.id===state.destinationId);
+const lotLocation = lot => parkingMap?.getLocation(lot.id) ?? (lot.location_verified_at ? lot.location : null);
+const destinationLocation = () => selectedPlace?.location ?? parkingMap?.getLocation(state.destinationId);
+const distanceTo = lot => straightDistance(destinationLocation(),lotLocation(lot));
 function candidateLots() {
   const term=state.query.trim();
-  return dataset.lots.filter(lot=>visibleInMapLayer(lot,sharedLayer) && matchesSearchFilters(lot,searchFilters) && (state.service==='parking' || serviceProducts(lot.products,state.service).length) && (state.destinationId || !term || term==='성수동' || `${lot.name} ${lot.address}`.includes(term)));
+  const scope=selectedPlace ? nearbyLots(dataset.lots,selectedPlace,lotLocation) : dataset.lots;
+  return scope.filter(lot=>visibleInMapLayer(lot,sharedLayer) && matchesSearchFilters(lot,searchFilters) && (state.service==='parking' || serviceProducts(lot.products,state.service).length) && (selectedPlace || state.destinationId || !term || term==='성수동' || `${lot.name} ${lot.address}`.includes(term)));
 }
 function readFilterDraft() {
   return Object.fromEntries([...document.querySelectorAll('[data-search-filter]')].map(input=>[input.dataset.searchFilter,input.checked]));
@@ -70,7 +78,7 @@ function updateFilterSummary() {
   document.querySelectorAll('[data-filter-selector]').forEach(button=>{button.disabled=!draft.ev;});
 }
 function visibleLots() {
-  const filtered=candidateLots().filter(lot=>productsFor(lot).length);
+  const filtered=candidateLots().filter(lot=>selectedPlace || productsFor(lot).length);
   return filtered.sort((a,b)=>{
     const order=state.sort==='price' ? (productsFor(a)[0]?.price_won ?? Infinity)-(productsFor(b)[0]?.price_won ?? Infinity)
       : state.sort==='distance' ? (distanceTo(a) ?? Infinity)-(distanceTo(b) ?? Infinity) : 0;
@@ -98,18 +106,18 @@ function renderList() {
     const item = view(lot), products = productsFor(lot);
     const tickets = products.length ? products.map(p => `<button class="ticket" data-lot="${lot.id}" data-product="${escape(p.id)}"><span><span class="ticket-name">${escape(p.name)}</span><span class="ticket-time">${escape(p.hours_label)}${saleLabel(p) ? ` · ${escape(saleLabel(p))}` : ""}</span></span><strong>${money(p.price_won)}원</strong></button>`).join('') : `<button class="ticket" data-lot="${lot.id}"><span><span class="ticket-name">주차장 정보</span><span class="ticket-time">확인된 주차권 정보가 없습니다</span></span><strong>상세 보기</strong></button>`;
     return `<article data-parking-row="${escape(lot.id)}" class="parking-row ${lot.id === (state.selectedId ?? lots[0]?.id) ? 'selected' : ''}">${rowHeading(lot,item)}${tickets}</article>`;
-  }).join('') : isLive() && !dataset.lots.length ? '<p class="empty">표시할 실제 DB 현황이 없습니다.<br>현황 새로고침으로 다시 확인해 주세요.</p>' : '<p class="empty">선택 조건에 맞는 확인된 상품이 없습니다.<br>다른 날짜·이용시간·상품 종류를 선택해 주세요.</p>';
+  }).join('') : isLive() && !dataset.lots.length ? '<p class="empty">표시할 실제 DB 현황이 없습니다.<br>현황 새로고침으로 다시 확인해 주세요.</p>' : selectedPlace ? '<p class="empty">목적지 반경 1km 안에 조건에 맞는 등록 주차장이 없습니다.</p>' : '<p class="empty">선택 조건에 맞는 확인된 상품이 없습니다.<br>다른 날짜·이용시간·상품 종류를 선택해 주세요.</p>';
   if ($('#parking-list').dataset.renderedHtml !== listHtml) {
     const scrollTop = $('#parking-list').scrollTop;
     updateHtml($('#parking-list'), listHtml);
     $('#parking-list').dataset.renderedHtml = listHtml;
     $('#parking-list').scrollTop = scrollTop;
   }
-  const destination=dataset.lots.find(lot=>lot.id===state.destinationId);
-  const ready=Boolean(parkingMap?.getLocation(state.destinationId));
+  const chosen=destination();
+  const ready=Boolean(destinationLocation());
   $('#sort-distance').disabled=!ready;
   $('#sort-distance').textContent=ready?'✓ 거리순':'목적지 선택 후 거리순';
-  $('#distance-basis').textContent=destination ? `${destination.name} 기준 · 직선거리${ready?'':' · 좌표 확인 중'}` : '검색에서 목적지를 선택하면 직선거리를 표시합니다.';
+  $('#distance-basis').textContent=chosen ? `${chosen.name} 기준 · 직선거리${selectedPlace?' · 반경 1km':''}${ready?'':' · 좌표 확인 중'}` : '검색에서 목적지를 선택하면 직선거리를 표시합니다.';
   $('#sort-distance').classList.toggle('active', state.sort === 'distance');
   $('#sort-price').classList.toggle('active', state.sort === 'price');
   document.querySelectorAll('[data-category]').forEach(button => button.classList.toggle('active', state.category === button.dataset.category));
@@ -120,7 +128,11 @@ function refreshVisibleViews() {
   if (!$('#detail').hidden) renderDetail();
 }
 function renderMarkers() {
-  parkingMap?.setLots(candidateLots().map(lot=>({...lot,...mapDisplay(lot,productsFor(lot)[0],state.tickets)})), state.selectedId, true);
+  const candidates=candidateLots();
+  $('#nearby-status').hidden=!selectedPlace;
+  $('#nearby-status').textContent=selectedPlace ? `직선거리 1km 안 · 등록 주차장 ${candidates.length}곳` : '';
+  $('#open-list').innerHTML=selectedPlace ? `주변 주차장 ${candidates.length}곳 <span>⌃</span>` : '🅿 오늘 주차권 <span>⌃</span>';
+  parkingMap?.setLots(candidates.map(lot=>({...lot,...mapDisplay(lot,productsFor(lot)[0],state.tickets)})), state.selectedId, true);
 }
 function setService(service) {
   state.service=service;
@@ -259,12 +271,15 @@ function changeMode(mode) {
   renderList(); if (!$('#detail').hidden) renderDetail();
 }
 function renderSearch() {
+  placeRequest++;placeSearch.cancel();placeResults=[];
+  $('#place-results').replaceChildren();$('#place-results').setAttribute('aria-busy','false');$('#place-search-status').textContent='';
   const term = $('#search').value.trim();
   const matches = dataset.lots.filter(lot => !term || `${lot.name} ${lot.address}`.includes(term));
   $('#search-results').innerHTML = (!term || '성수동'.includes(term) ? '<button class="search-result" data-search="성수동"><span>⌕</span><div><strong>성수동</strong><small>서울특별시 성동구</small></div></button>' : '') + matches.map(lot => `<button class="search-result" data-search="${escape(lot.name)}"><span>⌖</span><div><strong>${escape(lot.name)}</strong><small>${escape(lot.address)}</small></div></button>`).join('');
-  if (!$('#search-results').innerHTML) $('#search-results').innerHTML = '<p class="empty">검색 결과가 없습니다. 성수동 지역이나 주차장 이름을 확인해 주세요.</p>';
+  if (!$('#search-results').innerHTML) $('#search-results').innerHTML = '<p class="empty">등록 주차장과 일치하는 결과가 없습니다. 가게 이름은 검색 버튼을 눌러 찾아보세요.</p>';
 }
 function submitSearch(term) {
+  placeRequest++;placeSearch.cancel();selectedPlace=null;parkingMap?.setDestination(null);
   const matches=dataset.lots.filter(lot=>`${lot.name} ${lot.address}`.includes(term));
   state.destinationId=term && term!=='성수동' && matches.length===1 ? matches[0].id : null;
   state.selectedId=null;state.selectedProductId=null;state.expanded=false;
@@ -273,6 +288,35 @@ function submitSearch(term) {
   $('#search-screen').hidden=true; state.category='제안'; showMap();
   if(state.destinationId) parkingMap?.focus(state.destinationId);
   trackEvent('search_result',{component_id:'search_submit',result:term?(matches.length||term==='성수동'?'matched':'empty'):'cleared',result_count:term==='성수동'?dataset.lots.length:matches.length});
+}
+async function searchPlaces() {
+  const request=++placeRequest;
+  const term=$('#search').value.trim();
+  if(!term || term==='성수동'){submitSearch(term);return;}
+  if(term.length<2 || term.length>80){$('#place-search-status').textContent='가게 이름을 2~80자로 입력해 주세요.';return;}
+  placeResults=[];$('#place-results').replaceChildren();
+  $('#place-search-status').textContent='네이버에서 장소를 검색하고 있습니다…';
+  $('#place-results').setAttribute('aria-busy','true');
+  try {
+    const places=await placeSearch.search(term);
+    if(places===null)return;
+    placeResults=places;
+    $('#place-search-status').textContent=places.length ? '네이버 장소 검색 · 목적지를 선택해 주세요.' : '네이버 장소 검색 결과가 없습니다. 지역명과 가게 이름을 함께 입력해 주세요.';
+    $('#place-results').innerHTML=places.map((place,index)=>`<button class="search-result" data-place-index="${index}"><span aria-hidden="true">⌖</span><div><strong>${escape(place.name)}</strong><small>${escape(place.address)}</small><small>${escape(place.category??'')}</small></div></button>`).join('');
+    trackEvent('search_result',{component_id:'search_submit',result:places.length?'matched':'empty',result_count:places.length});
+  } catch(error) {
+    $('#place-search-status').textContent=error.message==='PLACE_SEARCH_NOT_CONFIGURED' ? '장소 검색을 준비 중입니다. 등록 주차장 검색은 이용할 수 있습니다.' : error.message==='PLACE_SEARCH_LIMITED' ? '검색 요청이 많습니다. 잠시 후 다시 검색해 주세요.' : '장소를 검색하지 못했습니다. 잠시 후 다시 검색해 주세요.';
+    trackEvent('search_result',{component_id:'search_submit',result:'error',reason:'lookup_failed'});
+  } finally {if(request===placeRequest)$('#place-results').setAttribute('aria-busy','false');}
+}
+function selectPlace(place) {
+  if(!place)return;
+  placeRequest++;placeSearch.cancel();selectedPlace=place;
+  state.destinationId=null;state.query=place.name;state.sort='distance';state.category='제안';
+  state.selectedId=null;state.selectedProductId=null;state.expanded=false;
+  $('#destination-label').textContent=place.name;$('#search-screen').hidden=true;
+  parkingMap?.setDestination(place);showMap();
+  trackEvent('search_result',{component_id:'search_suggestion',result:'selected',result_count:candidateLots().length});
 }
 function renderCalendar() {
   const days=monthDays(calendarMonth,koreaDate());
@@ -301,6 +345,7 @@ function finishTest(productId=state.selectedProductId) {
   $('#restart').focus({preventScroll:true});
 }
 function reset() {
+  placeRequest++;placeSearch.cancel();selectedPlace=null;parkingMap?.setDestination(null);
   searchFilters=defaultSearchFilters();
   sharedLayer=true;
   $('#shared-toggle').setAttribute('aria-pressed','true'); $('#shared-toggle b').textContent='ON';
@@ -342,8 +387,8 @@ async function init() {
     dataset=connectCatalog({data_origin:'LIVE',as_of:new Date().toISOString(),lots:[]},catalog);
     liveLoadedAt=performance.now(); liveLoadedWallAt=Date.now();
     const mapReady = createParkingMap(document.querySelector('#naver-map'), openDetail, () => {
-      if(state.destinationId) { parkingMap?.focus(state.destinationId); renderList(); }
-    }).then(map => { parkingMap=map; renderMarkers(); trackEvent('map_load_result',{component_id:'map',result:map?'success':'error',...(map?{}:{reason:'sdk_failed'})}); });
+      if(state.destinationId || selectedPlace) { if(state.destinationId)parkingMap?.focus(state.destinationId); renderList(); }
+    }).then(map => { parkingMap=map; if(selectedPlace)parkingMap?.setDestination(selectedPlace); renderMarkers(); trackEvent('map_load_result',{component_id:'map',result:map?'success':'error',...(map?{}:{reason:'sdk_failed'})}); });
     renderList(); renderCalendar(); showMap();
     $('#detail-content').addEventListener('click',event=>{
       const target=event.target.closest('button');if(!target)return;
@@ -410,8 +455,9 @@ async function init() {
     $('#close-favorites').addEventListener('click',()=>{$('#favorites-screen').hidden=true;});
     $('#favorites-list').addEventListener('click',event=>{const button=event.target.closest('[data-favorite-lot]');if(button){$('#favorites-screen').hidden=true;openDetail(button.dataset.favoriteLot,null,'favorites');}});
     $('#open-search').addEventListener('click', () => { $('#search-screen').hidden=false; $('#search').value=state.query; renderSearch(); $('#search').focus(); });
-    $('#close-search').addEventListener('click', () => $('#search-screen').hidden=true); $('#search').addEventListener('input', renderSearch);
-    $('#search-form').addEventListener('submit', event => { event.preventDefault(); submitSearch($('#search').value.trim()); });
+    $('#close-search').addEventListener('click', () => {placeRequest++;placeSearch.cancel();$('#search-screen').hidden=true;}); $('#search').addEventListener('input', renderSearch);
+    $('#search-form').addEventListener('submit', event => { event.preventDefault(); searchPlaces(); });
+    $('#place-results').addEventListener('click',event=>{const button=event.target.closest('[data-place-index]');if(button)selectPlace(placeResults[Number(button.dataset.placeIndex)]);});
     $('#search-results').addEventListener('click', event => { const b=event.target.closest('[data-search]'); if (b) submitSearch(b.dataset.search); });
     $('#open-date').addEventListener('click',()=>{draftDate=selectedDate();draftDuration=state.duration;calendarMonth=draftDate.slice(0,7);$('#date-error').textContent='';renderCalendar();$('#date-screen').hidden=false;});
     $('#previous-month').addEventListener('click',()=>{calendarMonth=shiftMonth(calendarMonth,-1);renderCalendar();});

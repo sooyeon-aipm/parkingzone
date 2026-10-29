@@ -170,3 +170,8 @@ body{gap:0}.study{display:none!important}.research-ribbon{display:none}.phone{ma
 .parking-map-pin{display:flex;align-items:center;gap:5px}.parking-map-pin .map-type{display:grid;place-items:center;width:21px;height:21px;flex-shrink:0;border-radius:50%;background:white;color:#009fff;font-size:9px;line-height:1}
 .parking-map-pin[aria-pressed=true],.parking-map-pin[data-kind=onsite][aria-pressed=true]{background:#075780;color:white;border-color:#075780}.parking-map-pin[aria-pressed=true]:after,.parking-map-pin[data-kind=onsite][aria-pressed=true]:after{border-top-color:#075780}
 .facility-sheet:not(.detail-full) .detail-heading-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}.facility-sheet:not(.detail-full) #detail-heading{overflow:hidden}
+
+/* Destination lookup uses a separate NAVER result section. */
+.search-content{height:calc(100% - 230px);overflow:auto}.search-content #search-results{height:auto;overflow:visible}.search-section-title{font-size:12px;color:#687884;font-weight:500;margin:15px 22px 0}.search-disclosure{font-size:11px;color:#73818b;line-height:1.5;padding:0 20px}.destination-map-pin{display:block;background:#273b4a;color:white;padding:7px 12px;border:2px solid white;border-radius:18px;box-shadow:0 2px 6px #0003;font-size:12px;white-space:nowrap}
+
+.nearby-status{position:absolute;left:16px;top:125px;max-width:calc(100% - 80px);padding:7px 10px;margin:0;background:#fff;border:1px solid #dfe8ef;border-radius:7px;font-size:11px;color:#3f5362;box-shadow:0 2px 4px #0001;pointer-events:none}

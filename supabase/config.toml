@@ -8,3 +8,6 @@ verify_jwt = true
 
 [functions.collect-modu-passes]
 verify_jwt = true
+
+[functions.search-places]
+verify_jwt = true

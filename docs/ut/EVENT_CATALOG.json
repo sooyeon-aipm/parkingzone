@@ -49,7 +49,7 @@
     {"component_id":"favorite_item","screen":"favorites","source":"prototype/app.js","selectors":["[data-favorite-lot]"],"events":["ui_click","facility_opened"],"hook":"openDetail"},
     {"component_id":"search_field","screen":"search","source":"prototype/index.html","selectors":["#search"],"events":["ui_field_commit"],"note":"Only input_present. Search text and text length are not sent."},
     {"component_id":"search_submit","screen":"search","source":"prototype/index.html","selectors":["#search-form","#search-form button[type=submit]"],"events":["ui_submit","search_result"],"hook":"submitSearch","note":"Enter and button share one submit path."},
-    {"component_id":"search_suggestion","screen":"search","source":"prototype/app.js","selectors":["[data-search]"],"events":["ui_click","search_result"],"hook":"submitSearch","note":"data-search contains a name, so never transmit it verbatim."},
+    {"component_id":"search_suggestion","screen":"search","source":"prototype/app.js","selectors":["[data-search]","[data-place-index]"],"events":["ui_click","search_result"],"hook":"submitSearch","note":"data-search contains a name, so never transmit it verbatim."},
     {"component_id":"calendar_month","screen":"date","source":"prototype/index.html","selectors":["#previous-month","#next-month"],"events":["ui_click"],"action_values":["previous","next"]},
     {"component_id":"calendar_day","screen":"date","source":"prototype/app.js","selectors":["[data-date]"],"events":["ui_click"],"note":"Only today/future category; disabled past dates have no click event."},
     {"component_id":"duration_choice","screen":"date","source":"prototype/app.js","selectors":["[data-duration]"],"events":["ui_click"],"note":"Map to fixed duration_bucket enum."},

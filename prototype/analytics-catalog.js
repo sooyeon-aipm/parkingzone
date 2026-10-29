@@ -315,7 +315,8 @@ export const controls = [
   {
     "component_id": "search_suggestion",
     "selectors": [
-      "[data-search]"
+      "[data-search]",
+      "[data-place-index]"
     ]
   },
   {
