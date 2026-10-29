@@ -28,6 +28,12 @@
 - API 키·네이버 원본 오류는 클라이언트에 반환하지 않는다. 고정 HTTPS API만 호출하며 JSON POST 입력 제한·동일 Origin 검사·8초 제한을 둔다.
 - Supabase 서버 인스턴스 내 IP당 분당 30회 제한을 둔다. 여러 서버 인스턴스에 걸친 전역 제한은 아니므로 네이버 콘솔의 일·월 한도를 함께 설정한다. API 후보를 장기 저장하거나 캐시하지 않는다.
 - 자체 검증 78/78 통과. Chrome에서 별도 로컬 가상 장소 응답으로 목적지 핀, 1km 내 9개 주차장, 115m부터 거리순 표시를 확인했다. 주차장 좌표·현황은 기존 실제 조회 경로를 사용했다. 이는 실제 네이버 가게 조회나 실제 참여자 UT 검증이 아니다.
-- 2026-10-30 준비 시점: 지역 검색 전용 `parkingzone-search` Application 생성 및 일 1,000회·월 10,000회 한도 적용을 확인했다. Vercel은 팀원 소유로 현재 계정에서 설정에 접근할 수 없어, 기존 Supabase 서버의 Secrets와 새 `search-places` 함수로 연결하는 구성을 준비했다. 사용자가 Supabase 보관·연결을 명시적으로 승인했다. 인증키 2개를 Supabase Secrets에 저장하고 `search-places`를 배포했다. 게이트웨이 JWT 검증은 활성 상태를 유지했다. 로컬→실제 Supabase→네이버 조회에서 HTTP 200과 어니언 성수의 이름·주소·좌표를 확인했다. 실제 Chrome 흐름에서도 반경 1km 안의 7곳이 327m부터 거리순으로 표시됐다. 강남의 검색 후보 선택 시 주변 등록 주차장 없음, 빈 검색 시 목적지 핀 제거·기존 탐색 복구를 확인했다. 공개 Vercel 배포 검증은 이어서 진행한다.
+- 2026-10-30 준비 시점: 지역 검색 전용 `parkingzone-search` Application 생성 및 일 1,000회·월 10,000회 한도 적용을 확인했다. Vercel은 팀원 소유로 현재 계정에서 설정에 접근할 수 없어, 기존 Supabase 서버의 Secrets와 새 `search-places` 함수로 연결하는 구성을 준비했다. 사용자가 Supabase 보관·연결을 명시적으로 승인했다. 인증키 2개를 Supabase Secrets에 저장하고 `search-places`를 배포했다. 게이트웨이 JWT 검증은 활성 상태를 유지했다. 로컬→실제 Supabase→네이버 조회에서 HTTP 200과 어니언 성수의 이름·주소·좌표를 확인했다. 실제 Chrome 흐름에서도 반경 1km 안의 7곳이 327m부터 거리순으로 표시됐다. 강남의 검색 후보 선택 시 주변 등록 주차장 없음, 빈 검색 시 목적지 핀 제거·기존 탐색 복구를 확인했다. 공개 Vercel 배포와 실제 Chrome 검증까지 완료했다. 구현 커밋은 `557821f`, 배포 파일 정리 커밋은 `082f22b`이며 해당 Vercel 체크가 성공했다. 공개 `/api/places`는 HTTP 200으로 실제 네이버 후보 5개를 반환했다. 공개 화면에서도 어니언 성수 기준 7곳·327m부터 거리순 표시와 브라우저 오류 없음, 검증한 프론트 자산 5개가 로컬 소스와 일치함을 확인했다. 인증 헤더 없는 Supabase 요청은 HTTP 401이었다. 모든 점검은 `qa=technical_test`로 진행했으며 실제 참여자 UT 결과는 아니다.
 
 공식 문서: [지역 검색 API](https://api.ncloud-docs.com/docs/naver-api-hub-search-local), [요청 헤더·인증](https://api.ncloud-docs.com/docs/naver-api-hub-overview), [신청·이용 한도](https://guide.ncloud-docs.com/docs/apihub-application), [한시 무료 안내](https://guide.ncloud-docs.com/docs/apihub-overview).
+
+검증 명령: `node --test prototype/*.test.mjs scripts/places-proxy.test.cjs supabase/functions/search-places/handler.test.mjs` (78/78), `node --check supabase/functions/search-places/index.ts`, `git diff --check`.
+
+공개 배포: https://parkingzone.vercel.app/ · 검색 예시: `성수 어니언` → `어니언 성수` 선택 → 주변 주차장 목록. 현재 지도 허용 주소의 포트에서는 정상 동작했고, 별도 검증 포트 8766에서는 지도 좌표 조회가 실패해 기존 8765와 공개 주소에서 검증했다.
+
+재배포 시 `index.ts`는 같은 폴더의 `handler.mjs`를 가져온다. 대시보드 편집기로 배포한 최초 버전은 두 파일을 합친 단일 `index.ts`이며, UI에서 전체 소스를 복사해 로컬 결합 소스와 일치함을 확인했다. CLI 배포 시에는 두 파일을 함께 배포한다. 기존 주차 현황 수집 함수·DB·예약 수집은 변경하지 않았다.
