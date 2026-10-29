@@ -62,3 +62,10 @@ Chrome의 실제 앱에서 측정 ID가 비어 있어도 조작 준비가 완료
 - 해당 GA4 속성 DebugView에 `page_view`, `app_ready`, `ui_click`, `ui_view`, `ui_impression`, `parking_refresh_result`, `map_load_result`가 도착했다. `ui_click` 매개변수 목록과 `ut_slot=unassigned` 값을 확인했다.
 - 실시간 보고서에서도 이벤트와 활성 브라우저 1개가 관찰되었다. 점검 링크와 리허설 링크로 발생한 에이전트 기록이며 실제 참여자 1명이나 실제 UT 성과가 아니다. 실참여자 P01~P05의 원격 결과는 아직 없다.
 - 임시 증거: `/private/tmp/parking-ga4-stream-created.png`, `/private/tmp/parking-ga4-custom-definitions.png`, `/private/tmp/parking-ga4-collect-204.png`, `/private/tmp/parking-ga4-debugview-received.png`, `/private/tmp/parking-ga4-realtime-received.png`, `/private/tmp/parking-ga4-reception-check.txt`.
+
+## 2026-10-29 P06 추가
+
+- 사용자 요청으로 기존 회차 `round_1`의 허용 코드를 P01~P06으로 확장했다. P06 링크는 `https://parkingzone.vercel.app/?ut=P06`이다.
+- 빌드 식별자를 `20261029-ga4-p06`으로 변경하고 참여자 링크·설정 안내를 갱신했다.
+- 자체 검증: `node --test prototype/analytics.test.mjs` 12/12 통과. P01~P06의 페이지뷰·클릭 속성, 새로고침, QA 우선 분류와 P07 거부를 확인했다.
+- 이번 검증은 코드와 이벤트 페이로드에 대한 자체 검증이며 실제 P06 참여자의 GA4 수신·UT 결과를 뜻하지 않는다.

@@ -2,7 +2,7 @@
 
 작성일: 2026-10-26 · 이벤트 구현: `a77a4fb` · GA4 활성화: `0b5c798` · GitHub main 푸시·Vercel 공개 배포 확인.
 
-**현재 상태: GA4 전용 속성·웹 스트림 생성, 측정 ID 연결·공개 배포, Google 수집 응답과 DebugView·실시간 보고서 수신 확인을 완료했다.** 측정 ID는 `G-9J66ERM0PK`, 빌드는 `20261026-ga4-1`이다. 점검은 `technical_test`/리허설 링크로 진행했으며 실제 참여자 UT 결과가 아니다. 참여자별 링크는 P01~P05를 사용한다. 로컬 행동 기록·파일 내보내기 기능은 추가하지 않았다.
+**현재 상태: GA4 전용 속성·웹 스트림 생성, 측정 ID 연결·공개 배포, Google 수집 응답과 DebugView·실시간 보고서 수신 확인을 완료했다.** 측정 ID는 `G-9J66ERM0PK`, 빌드는 `20261029-ga4-p06`이다. 점검은 `technical_test`/리허설 링크로 진행했으며 실제 참여자 UT 결과가 아니다. 참여자별 링크는 P01~P06를 사용한다. 로컬 행동 기록·파일 내보내기 기능은 추가하지 않았다.
 
 사용자가 승인한 참여자별 링크 방식은 [참여자 링크·진행 안내](UT_PARTICIPANT_LINKS.md)를 따른다. 구현 파일은 `prototype/analytics-config.js`, `analytics.js`, `analytics-ui.js`, `analytics-catalog.js`다. 아래 설계 명세와 실제 검증 범위를 구분한다.
 
@@ -88,7 +88,7 @@ GA4에는 [이벤트 설정](https://developers.google.com/analytics/devguides/c
 | `environment` | `local / preview / production` · 확인한 호스트 설정으로 분류 |
 | `traffic_type` | `technical_test / rehearsal / ut / general` · UT 안내 링크와 점검 링크 구분 |
 | `study_round` | `pilot / round_1` 등 회차. 과업·비교안 확정 전 임의로 A/B를 배정하지 않음 |
-| `ut_slot` | 해당 회차의 `P01 / P02 / P03 / P04 / P05`, 코드가 없거나 잘못되면 `unassigned`. 영구 회원 ID가 아님 |
+| `ut_slot` | 해당 회차의 `P01 / P02 / P03 / P04 / P05 / P06`, 코드가 없거나 잘못되면 `unassigned`. 영구 회원 ID가 아님 |
 | `screen_id` | `map / list / detail / search / date / filters / filter_options / favorites / tickets / ticket_history / ai / facility_action / share / address / completion` |
 | `component_id` | 카탈로그의 고정 식별자. 입력·상품명·주소를 식별자로 만들지 않음 |
 | `data_mode` | 현재 앱은 `live`. 추후 합성 시나리오는 별도 값으로 명시 |
@@ -99,7 +99,7 @@ GA4에는 [이벤트 설정](https://developers.google.com/analytics/devguides/c
 
 **수집 제외:** 자유 검색어, 주소·상세 주소, 위도·경도·지도 중심, 주차공간 이름·설명·수정 요청 본문, 차량번호·연락처·생년월일, 사진·문서·파일명·파일 경로, 클립보드 내용, 오류 메시지 원문·스택, API 응답, 키·토큰, 임의 URL 쿼리·해시, 참여자 이름·이메일. 예외를 블랙리스트로 거르는 대신 허용된 필드만 새 객체로 만든다.
 
-참여자 테스트 코드는 사용자 승인에 따라 `?ut=P01`~`P05`에서만 읽고 모든 명시적 이벤트에 포함한다. 회차는 설정 파일의 `round_1`로 고정하고 원본 쿼리를 보내지 않는다. 코드가 중복되거나 허용 목록 밖이면 `unassigned`다. 브라우저에 새 참여자 저장소를 만들지 않으며, 코드 없는 링크에서는 과거 참여자를 이어받지 않는다. `?qa=technical_test` 또는 `?qa=rehearsal`은 참여자 코드보다 우선한다. 로컬·미리보기 호스트는 실제 UT로 분류하지 않는다. 진행자는 관찰 메모에도 같은 코드를 사용하고 이름·연락처 대응표를 GA4에 보내지 않는다. 이 코드는 본인 인증이 아니며 GA4의 브라우저 사용자 수를 합치는 기능도 아니다. 기존 내 공유 화면의 동의 체크는 분석 수집 동의로 재사용하지 않는다.
+참여자 테스트 코드는 사용자 승인에 따라 `?ut=P01`~`P06`에서만 읽고 모든 명시적 이벤트에 포함한다. 회차는 설정 파일의 `round_1`로 고정하고 원본 쿼리를 보내지 않는다. 코드가 중복되거나 허용 목록 밖이면 `unassigned`다. 브라우저에 새 참여자 저장소를 만들지 않으며, 코드 없는 링크에서는 과거 참여자를 이어받지 않는다. `?qa=technical_test` 또는 `?qa=rehearsal`은 참여자 코드보다 우선한다. 로컬·미리보기 호스트는 실제 UT로 분류하지 않는다. 진행자는 관찰 메모에도 같은 코드를 사용하고 이름·연락처 대응표를 GA4에 보내지 않는다. 이 코드는 본인 인증이 아니며 GA4의 브라우저 사용자 수를 합치는 기능도 아니다. 기존 내 공유 화면의 동의 체크는 분석 수집 동의로 재사용하지 않는다.
 
 GA4 이벤트 범위 사용자 정의 측정기준 `ut_slot`(UT 참여자 코드), `study_round`(UT 회차), `traffic_type`(방문 구분), `screen_id`(화면 ID), `component_id`(컴포넌트 ID) 5개를 등록하고 목록에서 저장을 확인했다. 추가 후보는 `app_version`, `environment`, `result`, `reason`, `display_mode`, `freshness`, `share_step`, `dialog_type`다. 고유 세션 ID·시각·검색어·URL·상품 ID는 사용자 정의 측정기준으로 등록하지 않는다. 일반 보고서의 새 측정기준 반영에는 시간이 걸릴 수 있으며, DebugView의 매개변수 수신과 구분한다.
 

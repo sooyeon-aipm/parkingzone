@@ -1,6 +1,6 @@
 import {analyticsConfig} from './analytics-config.js';
 
-const slots = new Set(['P01','P02','P03','P04','P05']);
+const slots = new Set(['P01','P02','P03','P04','P05','P06']);
 const traffic = new Set(['technical_test','rehearsal']);
 const events = new Set(['page_view','app_ready','app_error','map_load_result','map_interaction','ui_click','ui_change','ui_field_commit','ui_submit','ui_validation','ui_view','ui_impression','ui_scroll','search_result','filters_applied','date_applied','date_rejected','facility_opened','sheet_changed','parking_refresh_result','favorite_result','clipboard_result','edit_previewed','pass_request_previewed','prototype_selection_saved','prototype_selection_failed','prototype_restarted','address_search_result','location_result','address_confirmed','share_preview_completed','share_boundary_shown']);
 const enums = {

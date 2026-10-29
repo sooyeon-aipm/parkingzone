@@ -13,15 +13,20 @@ function client(query='?ut=P01',extra={}) {
   return {api,calls};
 }
 
-test('5명의 개별 링크·새로고침은 같은 회차와 테스트 코드를 유지한다',()=>{
-  for(const code of ['P01','P02','P03','P04','P05']) {
+test('6명의 개별 링크·새로고침은 같은 회차와 테스트 코드를 유지한다',()=>{
+  for(const code of ['P01','P02','P03','P04','P05','P06']) {
     const first=participantContext(base+'?ut='+code,config);
     assert.equal(first.ut_slot,code);assert.equal(first.traffic_type,'ut');
     assert.deepEqual(first,participantContext(base+'?ut='+code,config));
+    const {api,calls}=client('?ut='+code);
+    api.track('ui_click');
+    assert(calls.every(({payload})=>payload.ut_slot===code&&payload.traffic_type==='ut'));
+    const qa=participantContext(base+'?ut='+code+'&qa=technical_test',config);
+    assert.equal(qa.ut_slot,'unassigned');assert.equal(qa.traffic_type,'technical_test');
   }
 });
 test('링크 없는 재방문·잘못된 코드·중복 코드로 이전 참여자를 이어받지 않는다',()=>{
-  for(const query of ['', '?ut=P06','?ut=p01','?ut=someone@example.com','?ut=P01&ut=P02']) {
+  for(const query of ['', '?ut=P07','?ut=p01','?ut=someone@example.com','?ut=P01&ut=P02']) {
     const context=participantContext(base+query,config);
     assert.equal(context.ut_slot,'unassigned');assert.equal(context.traffic_type,'general');
   }

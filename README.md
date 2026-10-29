@@ -12,7 +12,7 @@
 4. [수연 검토 자료](docs/review/SUYEON_REVIEW.md)
 5. [개발 작업 기록서](docs/records/DEVELOPMENT_LOG_2026-10-22.md)
 6. [TASK별 인수인계](docs/records/TASK_HANDOFFS.md)
-7. [온라인 UT · GA4 설정·전체 이벤트](docs/ut/GA4_SETUP.md) — 2026-10-26 공개 배포·GA4 연결·DebugView/실시간 수신 확인 완료 / [5명 참여자 링크](docs/ut/UT_PARTICIPANT_LINKS.md)
+7. [온라인 UT · GA4 설정·전체 이벤트](docs/ut/GA4_SETUP.md) — 2026-10-26 공개 배포·GA4 연결·DebugView/실시간 수신 확인 완료 / [참여자 링크 P01~P06](docs/ut/UT_PARTICIPANT_LINKS.md)
 
 ## 폴더 안내
 
